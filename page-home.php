@@ -29,7 +29,7 @@ get_header(); ?>
             <div class="carousel-caption">
               <h1><?php the_title();?></h1>
               <p class="lead"><?php the_excerpt();?></p>
-              <a class="btn btn-large btn-primary" href="<?php echo get_permalink(); ?>">Read more...</a>
+              <a class="btn btn-small btn-primary" href="<?php echo get_permalink(); ?>">Read more...</a>
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@ get_header(); ?>
             <div class="carousel-caption">
               <h1><?php the_title();?></h1>
               <p class="lead"><?php the_excerpt();?></p>
-              <a class="btn btn-large btn-primary" href="<?php echo get_permalink(); ?>">Read more...</a>
+              <a class="btn btn-small btn-primary" href="<?php echo get_permalink(); ?>">Read more...</a>
             </div>
           </div>
         </div>
@@ -89,7 +89,6 @@ get_header(); ?>
                     <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h3><?php the_title();?></h3></a>
                     <p class="meta"><?php echo bootstrapwp_posted_on();?></p>
                     <?php the_excerpt();?>
-                    <p><a href="<?php echo get_permalink(); ?>" class="btn">Read more</a></p>
                   </div>
                 </div>
               </li>

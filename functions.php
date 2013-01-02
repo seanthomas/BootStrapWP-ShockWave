@@ -179,7 +179,7 @@ if ( function_exists( 'add_image_size' ) ) {
 | */
 function bootstrapwp_excerpt($more) {
        global $post;
-  return '&nbsp; &nbsp;<a href="'. get_permalink($post->ID) . '">...Continue Reading</a>';
+  return '&nbsp; &nbsp;<a href="'. get_permalink($post->ID) . '">Read more &raquo;</a>';
 }
 add_filter('excerpt_more', 'bootstrapwp_excerpt');
 
