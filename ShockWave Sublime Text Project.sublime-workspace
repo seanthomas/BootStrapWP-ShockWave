@@ -75,10 +75,13 @@
 			}
 		},
 		{
+			"contents": "== Change Log ==\n\n= .1 = 02/01/2013\n\n__functions.php__\n\n*	Updated to include two menu locations in top navbar, primary and secondary location to house social icons. Issue currently raised regarding this on github.\n  \n  register_nav_menus( array(\n    'primary-menu' => __( 'Primary Menu', 'bootstrapwp' ),\n    'secondary-menu' => __( 'Secondary Menu', 'bootstrapwp' ),\n  ) );\n\n*	Changed the way readme reads after the_excerpt, changed it from ...Continue Reading to Read More &raquo;.\n\nNAV\n\nCAROUSEL\n\nNEWS\n\nUPCOMING EVENTS | TWITTER UPDATES | FACEBOOK\n\nALBUM SCROLL\n\nFOOTER",
 			"file": "custom readme.txt",
+			"file_size": 558,
+			"file_write_time": 130016326668526814,
 			"settings":
 			{
-				"buffer_size": 558,
+				"buffer_size": 572,
 				"line_ending": "Unix"
 			}
 		},
@@ -112,6 +115,14 @@
 			{
 				"buffer_size": 11634,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "features.txt",
+			"settings":
+			{
+				"buffer_size": 3393,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -210,7 +221,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 8,
 			"sheets":
 			[
 				{
@@ -231,7 +242,9 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -300,15 +313,15 @@
 					"file": "custom readme.txt",
 					"settings":
 					{
-						"buffer_size": 558,
+						"buffer_size": 572,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								467,
-								467
+								572,
+								572
 							]
 						],
 						"settings":
@@ -427,6 +440,32 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "features.txt",
+					"settings":
+					{
+						"buffer_size": 3393,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								959,
+								959
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 218.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

@@ -1,0 +1,56 @@
+== Features Document ==
+
+Premium Musican WordPress Theme
+
+__Home Page__
+
+	*	To feature a top navigation bar - Will feature navigation for two custom mennus named primary and secondary menu.
+		Primary menu is to feature the pages listed while secondary menu is to feature social icons linking to social pages such as facebook, twitter and so on.
+
+	*	Also to feature a full width slider which contains images.
+
+	*	Below this is to feature a last news feed containing the featured image.
+
+	*	Below this area is to feature two widget areas. 
+
+			First widget area is to 8span (2/3) across and feature the events (Upcoming tours plugin - See below)
+
+			Second widget area is to be 4span (1/2) and feature in line and after the first widget. This plugin will feature a media player - See below.
+
+__Plugins__
+
+	*	Sliders:
+
+		-	Nivo Slider - See website.
+		-	Twiiter Bootstrap Slider - Check out tutorial from wptuts. 
+		-	Others - Research
+
+	*	Events / Tour Manager:
+
+		-	GigPress - Looking like most likely candidate.
+
+	*	Media Players:
+
+		Several options avaiable, all to be researched for best options across all platforms and devices.
+
+		See list below for media player options:
+
+			-	Premium HTML5 MP3 Player - http://html5.svnlabs.com/
+
+				Allows the users to hot MP3's right on the site so no need to manage them in two places. It is HTML5 and features CSS for customising and also has a flash fall back feature for older browsers. It is cross-platform and will play on Android, Blackberry etc. Premium removes ads. Need to check license.
+
+			-	Soundcloud is gold - http://wordpress.org/extend/plugins/soundcloud-is-gold/
+
+
+
+	* 	Misc Plugins: 
+
+		*	Donation Can - http://treehouseapps.com/donation-can/ - Found from -http://wpmu.org/3-must-have-plugins-for-musicians-and-bands/
+
+		-	Crowd funding using Donation Can:
+
+				Crowd funding (http://www.socan.ca/words-music/crowdfunding-pre-financing-your-next-recording) has become a staple of being an indie artist or band. I’ve had a lot of success with it selling tickets to my shows recently. Donation Can allows me to create a “Cause” or “Fundraiser” (most fund raisers are hosted as an event). I set a goal which is displayed as a progress bar in a post http://afterrunnymede.com/news/band-on-the-run-city-finals/). People then see how I am progressing towards that goal and how they are helping me reach it.
+
+				What’s nice about this plugin is that it also lets me create my own custom thank you page (where I might offer a free mp3 download). It also lets me set the donation rates or the option for visitors to define their own donation amount. This is how I sold tickets to the last few shows I played. I’d set a minimum donation of $12 which was the cost of the ticket and include a free album download on the thank you page (just a secrete download link).
+
+				But how does it collect money? Paypal baby! I’ve been on that band-wagon for years now and I’ve had no complaints. I have a Standard Business account with PayPal which allows me to process credit cards on my website. I also find that transferring my funds to my bank account never takes more than 2 days… I just need to be sure to make the request before 6 am Monday morning ;) Trust me it’s the cheapest way to process credit cards which helps those who don’t have the cash or helps you from hustling on the street. I for one would rather market online than the streets.
