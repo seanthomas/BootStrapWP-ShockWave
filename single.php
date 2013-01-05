@@ -12,6 +12,7 @@
  */
 
 get_header(); ?>
+
 <?php while ( have_posts() ) : the_post(); ?>
   <div class="row">
   <div class="container">
@@ -35,6 +36,8 @@ get_header(); ?>
 
           </div><!-- /.span8 -->
           <?php get_sidebar('blog'); ?>
+
+
 
 
 <?php get_footer(); ?>

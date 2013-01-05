@@ -145,12 +145,42 @@ function bootstrapwp_widgets_init() {
   ));
 
     register_sidebar(array(
-    'name' => 'Footer Content',
-    'id'   => 'footer-content',
+    'name' => 'Footer One',
+    'id'   => 'footer-one',
     'description'   => 'Footer text or acknowledgements',
-    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'before_widget' => '<div id="%1$s" class="widget %2$s span3">',
     'after_widget'  => '</div>',
-    'before_title'  => '<h4>',
+    'before_title'  => '<h4 class="widget-title">',
+    'after_title'   => '</h4>'
+  ));
+
+    register_sidebar(array(
+    'name' => 'Footer Two',
+    'id'   => 'footer-two',
+    'description'   => 'Footer text or acknowledgements',
+    'before_widget' => '<div id="%1$s" class="widget %2$s span3">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4 class="widget-title">',
+    'after_title'   => '</h4>'
+  ));
+
+     register_sidebar(array(
+    'name' => 'Footer Three',
+    'id'   => 'footer-three',
+    'description'   => 'Footer text or acknowledgements',
+    'before_widget' => '<div id="%1$s" class="widget %2$s span3">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4 class="widget-title">',
+    'after_title'   => '</h4>'
+  ));
+
+    register_sidebar(array(
+    'name' => 'Footer Four',
+    'id'   => 'footer-four',
+    'description'   => 'Footer text or acknowledgements',
+    'before_widget' => '<div id="%1$s" class="widget %2$s span3">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4 class="widget-title">',
     'after_title'   => '</h4>'
   ));
 }

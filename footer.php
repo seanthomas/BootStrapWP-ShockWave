@@ -9,18 +9,38 @@
  * Last Revised: July 16, 2012
  */
 ?>
+
+</div><!-- /.container -->
     <!-- End Template Content -->
-    <footer>
+    <footer class="footer">
 
       	<div class="container">
-		<?php
-   			if ( function_exists('dynamic_sidebar')) dynamic_sidebar("footer-content");
-		?>
-      	</div>
+          <div class="row-fluid">
+
+        		<?php
+           			if ( function_exists('dynamic_sidebar')) dynamic_sidebar("footer-one");
+        		?>
+
+            <?php
+                 if ( function_exists('dynamic_sidebar')) dynamic_sidebar("footer-two");
+            ?>
+
+            <?php
+                 if ( function_exists('dynamic_sidebar')) dynamic_sidebar("footer-three");
+            ?>
+
+            <?php
+                 if ( function_exists('dynamic_sidebar')) dynamic_sidebar("footer-four");
+            ?>
+      	
+          </div>
+        </div>
 
 		<div class="container">
+        <div class="row-fluid">
       		<p class="pull-right"><a href="#">Back to top</a></p>
         	<p>&copy; <?php bloginfo('name'); ?> <?php the_time('Y') ?></p>
+        </div>
 		</div> <!-- /container -->
 		
     </footer>

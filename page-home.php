@@ -94,35 +94,36 @@ get_header(); ?>
               </li>
             <?php endforeach; ?> 
           </ul>
-    </div>
+      </div>
   </div>
 
 
 <div class="container">
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
       <?php the_content();?>
-    </div>
 </div>
 
 <?php endwhile; endif; ?>
 <div class="container">
   <div class="marketing">
-  <div class="row-fluid">
-    <div class="span4">
-      <?php
-if ( function_exists( 'dynamic_sidebar' ) ) dynamic_sidebar( "home-left" );
-?>
-    </div>
-    <div class="span4">
-      <?php
-if ( function_exists( 'dynamic_sidebar' ) ) dynamic_sidebar( "home-middle" );
-?>
-    </div>
-    <div class="span4">
-      <?php
-if ( function_exists( 'dynamic_sidebar' ) ) dynamic_sidebar( "home-right" );
-?>
-    </div>
-  </div>
-</div><!-- /.marketing -->
+    <div class="row-fluid">
+      <div class="span4">
+        <?php
+  if ( function_exists( 'dynamic_sidebar' ) ) dynamic_sidebar( "home-left" );
+  ?>
+      </div>
+      <div class="span4">
+        <?php
+  if ( function_exists( 'dynamic_sidebar' ) ) dynamic_sidebar( "home-middle" );
+  ?>
+      </div>
+      <div class="span4">
+        <?php
+  if ( function_exists( 'dynamic_sidebar' ) ) dynamic_sidebar( "home-right" );
+  ?>
+      </div>
+    </div><!-- /.row-fluid -->
+  </div><!-- /.marketing -->
+
+
 <?php get_footer();?>
