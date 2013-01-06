@@ -7213,9 +7213,10 @@ a:active {
   /* IE6-9 */
 
   border: none;
-  /* opacity: 0.9;  Current issue with drop down menu */
+  opacity: .9;
+  /* Current issue with drop down menu - Put 0.9 and it dont work?!? */
 
-  -moz-opacity: 0.9;
+  -moz-opacity: .9;
   filter: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -7438,6 +7439,8 @@ a:active {
   margin-top: 70px;
   border-top: 9px solid #1ca9e4;
   background-color: #222222;
+  opacity: .9;
+  -moz-opacity: .9;
 }
 .footer p {
   margin-bottom: 0;
@@ -7488,3 +7491,27 @@ p.textwidget {
   font-style: italic;
   color: #999999;
 }
+/* Index
+-------------------------------------------------- */
+.index {
+  margin-top: 40px;
+}
+/* Looking at img styling - In dev
+
+.thumbnail img, 
+.index img {
+  border: 1px solid @grayLighter;
+  -webkit-transition: all .1s ease-in-out;
+  -o-transition: all .1s ease-in-out;
+  -moz-transition: all .1s ease-in-out;
+  -ms-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
+  opacity: .9;
+}
+
+.thumbnail img:hover, 
+.index img:hover {
+  opacity: 1;
+}
+
+*/
