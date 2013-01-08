@@ -194,12 +194,13 @@ add_action( 'init', 'bootstrapwp_widgets_init' );
 | */
 if ( function_exists( 'add_theme_support' ) ) {
   add_theme_support( 'post-thumbnails' );
-  set_post_thumbnail_size( 160, 120 ); // 160 pixels wide by 120 pixels high
+  set_post_thumbnail_size( 280, 160 ); // 160 pixels wide by 120 pixels high
 }
 
 if ( function_exists( 'add_image_size' ) ) {
   add_image_size( 'bootstrap-small', 260, 180 ); // 260 pixels wide by 180 pixels high
   add_image_size( 'bootstrap-medium', 360, 268 ); // 360 pixels wide by 268 pixels high
+  add_image_size( 'bootstrap-large', 780, 320, true ); // 360 pixels wide by 268 pixels high
 }
 /*
 | -------------------------------------------------------------------
@@ -452,7 +453,7 @@ function bootstrapwp_autoset_featured_img() {
 
   if ( !is_home() && !is_front_page() || is_paged() ) {
 
-    echo '<ul class="breadcrumb">';
+    echo '<div class="subhead"><div class="container"><ul class="breadcrumb">';
 
     global $post;
     $homeLink = home_url();
@@ -538,7 +539,7 @@ function bootstrapwp_autoset_featured_img() {
       if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ')';
     }
 
-    echo '</ul>';
+    echo '</div><!-- /.subhead --></div><!-- /.container --></ul>';
 
   }
 } // end bootstrapwp_breadcrumbs()

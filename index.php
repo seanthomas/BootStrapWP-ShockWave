@@ -9,11 +9,7 @@
  */
 
 get_header(); ?>
-  <div class="row">
-    <div class="container">
       <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
-    </div><!--/.container -->
-  </div><!--/.row -->
   <!-- Subhead
 ================================================== -->
 <header class="subhead" id="overview">
@@ -34,20 +30,18 @@ get_header(); ?>
 
             <div class="row">
               <div class="span8">
- 
-
+              <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h3 class="post-title"><?php the_title();?></h3></a> 
               <?php // Checking for a post thumbnail
               if ( has_post_thumbnail() ) ?>
               <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-                <?php the_post_thumbnail('large');?></a>
+                <?php the_post_thumbnail('');?></a>
               </div><!-- /.span8 -->
               <div class="span8">
-            <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h3><?php the_title();?></h3></a>               
+              
             <p class="meta"><?php echo bootstrapwp_posted_on();?></p>
                <?php the_excerpt();?>
              </div><!-- /.span8 -->
            </div><!-- /.row -->
-           <hr />
          </div><!-- /.post_class -->
        <?php endwhile; endif; ?>
        <?php bootstrapwp_content_nav('nav-below');?>

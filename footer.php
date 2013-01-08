@@ -38,7 +38,7 @@
 
 		<div class="container">
         <div class="row-fluid">
-      		<p class="pull-right"><a href="#">Back to top</a></p>
+      		<p class="pull-right"><a href="#"><i class="icon-arrow-up"></i> Back to top</a></p>
         	<p>&copy; <?php bloginfo('name'); ?> <?php the_time('Y') ?></p>
         </div>
 		</div> <!-- /container -->

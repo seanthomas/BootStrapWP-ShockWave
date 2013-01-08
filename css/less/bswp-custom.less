@@ -37,7 +37,7 @@
 
 // Links
 // -------------------------
-@linkColor:             #1ca9e4;
+@linkColor:             @grayDarker;
 @linkColorHover:        #1ca9e4;
 
 
@@ -53,7 +53,7 @@
 @altFontFamily:         @serifFontFamily;
 
 @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
-@headingsFontWeight:    bold;    // instead of browser default, bold
+@headingsFontWeight:    normal;    // instead of browser default, bold
 @headingsColor:         inherit; // empty to use BS default, @textColor
 
 // Headings
@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
   small {
     font-weight: normal;
     line-height: 1;
-    color: @grayLight;
+    color: @grayDarker;
   }
 }
 h1 { font-size: 26px; line-height: 20px; }
@@ -141,11 +141,11 @@ h4 small { font-size: 8px; }
 @navbarLinkColor:                 @white;
 @navbarLinkColorHover:            @white;
 @navbarLinkColorActive:           @white;
-@navbarLinkBackgroundHover:       #1ca9e4;
-@navbarLinkBackgroundActive:      #1ca9e4;
+@navbarLinkBackgroundHover:       @blue;
+@navbarLinkBackgroundActive:      @blue;
 
 @navbarBrandColor:                @navbarLinkColor;
-@navbarBrandColorHover:           #1ca9e4;
+@navbarBrandColorHover:           @blue;
 
 @dropdownBackground:              @navbarBackground;
 
@@ -258,7 +258,18 @@ h4 small { font-size: 8px; }
 // Hover & Active
 a:hover,
 a:active {
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+footer a {
+  text-decoration: none;
+  color: @grayLight;
+}
+
+footer a:hover,
+footer a:active {
+  text-decoration: none;
+  color: @white;
 }
 
 
@@ -277,7 +288,7 @@ background: -ms-linear-gradient(top, @navbarBackgroundHighlight 0%,@navbarBackgr
 background: linear-gradient(to bottom, @navbarBackgroundHighlight 0%,@navbarBackground 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@navbarBackgroundHighlight', endColorstr='@navbarBackground',GradientType=0 ); /* IE6-9 */
 border: none;
-opacity: .9;  /* Current issue with drop down menu - Put 0.9 and it dont work?!? */
+/* opacity: .9;   Current issue with drop down menu - Put 0.9 and it dont work?!? */
 -moz-opacity: .9;
 filter: none;
 -webkit-box-shadow: none;
@@ -522,16 +533,16 @@ transition: none;
 .well {
   background-color: @wellBackground;
   border: none;
-  border-left: 1px solid darken(@wellBackground, 7%);
   border-radius: none;
   box-shadow: none;
+  padding: 0 19px 19px 19px; /* Brings it inline with h4 posts/page title */
 }
 
 /* Subhead (other pages)
 ------------------------- */
 .subhead {
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid @grayLighter;
 }
 .subhead h1 {
   font-size: 22px;
@@ -569,25 +580,60 @@ transition: none;
 }
 
 
+
+
 /* Footer Widget Styles
 -------------------------------------------------- */
-
-h4.widget-title {
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  text-transform: uppercase;
-  color: #fff;
-  border-bottom: 1px solid #eee;
-  font-weight: normal;
-}
 
 .textwidget, p.textwidget {
   color: #fff;
 }
 
+footer .widget ul > li > a {
+  color: @grayLight;
+}
+
+footer .widget ul > li > a:hover {
+  color: @white;
+  text-decoration: none;
+}
+
+footer h4.widget-title {
+  color: @white
+}
+
+/* Other Widget Styling
+-------------------------------------------------- */
+
+h4.widget-title,
+h3.post-title,
+header .page-title,
+.page-title h1 {
+  position: relative;
+  margin: 5px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid @grayLighter;
+  color: @black;
+  margin-top: none;
+}
+
+h4.widget-title:after,
+h3.post-title:after,
+header .page-title:after,
+.page-title h1:after {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  display: block;
+  width: 15%;
+  height: 2px;
+  content: "";
+  background: @navbarLinkBackgroundHover;
+}
+
 .widget ul {
   margin: 0 0 9px 0;
+
 }
 .widget ul li {
   list-style: none;
@@ -599,6 +645,7 @@ h4.widget-title {
   margin-right: -15px;
   text-shadow: none;
 }
+
 .widget ul > li > a:hover {
   color: @linkColorHover;
   text-shadow: none;
@@ -637,3 +684,67 @@ h4.widget-title {
 }
 
 */
+
+// Page header
+// -------------------------
+
+.page-header {
+  padding-bottom: (@baseLineHeight / 2) - 1;
+  margin: @baseLineHeight 0 (@baseLineHeight * 1.5);
+  position: relative;
+  border-bottom: 1px solid @grayLighter;
+}
+
+.page-header:after {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  display: block;
+  width: 15%;
+  height: 2px;
+  content: "";
+  background: @navbarLinkBackgroundHover;
+}
+
+// Posts Styling
+// -------------------------
+
+.index p.meta {
+  margin-top: 20px;
+}
+
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+
+.breadcrumb {
+  padding: 8px 15px;
+  margin: 18px 0 18px 0;
+  list-style: none;
+  background-color: @bodyBackground;
+  border-radius: none;
+  li {
+    display: inline-block;
+    .ie7-inline-block();
+    text-shadow: 0 1px 0 @white;
+  }
+  .divider {
+    padding: 0 5px;
+    color: #ccc;
+  }
+  .active {
+    color: @grayLight;
+  }
+}
+
+// Page Styling
+// -------------------------
+
+header.page-title {
+  margin-top: 40px;
+}
+
+.top-margin {
+  margin-top: 40px;
+}
