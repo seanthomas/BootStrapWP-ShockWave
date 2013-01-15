@@ -7429,6 +7429,7 @@ footer a:active {
 ------------------------- */
 .subhead {
   text-align: left;
+  margin-bottom: 40px;
   border-bottom: 1px solid #eeeeee;
 }
 .subhead h1 {
@@ -7483,6 +7484,7 @@ footer h4.widget-title {
 -------------------------------------------------- */
 h4.widget-title,
 h3.post-title,
+.post-title h1,
 header .page-title,
 .page-title h1 {
   position: relative;
@@ -7494,13 +7496,14 @@ header .page-title,
 }
 h4.widget-title:after,
 h3.post-title:after,
+.post-title h1:after,
 header .page-title:after,
 .page-title h1:after {
   position: absolute;
   bottom: -2px;
   left: 0;
   display: block;
-  width: 15%;
+  width: 32px;
   height: 2px;
   content: "";
   background: #049cdb;
@@ -7530,9 +7533,6 @@ header .page-title:after,
 }
 /* Index
 -------------------------------------------------- */
-.index {
-  margin-top: 40px;
-}
 /* Looking at img styling - In dev
 
 .thumbnail img, 
@@ -7563,13 +7563,10 @@ header .page-title:after,
   bottom: -2px;
   left: 0;
   display: block;
-  width: 15%;
+  width: 32px;
   height: 2px;
   content: "";
   background: #049cdb;
-}
-.index p.meta {
-  margin-top: 20px;
 }
 .breadcrumb {
   padding: 8px 15px;
@@ -7593,9 +7590,92 @@ header .page-title:after,
 .breadcrumb .active {
   color: #999999;
 }
-header.page-title {
+.bottom-margin {
+  margin-bottom: 20px;
+}
+.sticky {
+  border: none;
+}
+.post-title {
+  margin-bottom: 40px;
+}
+img.wp-post-image {
+  margin-bottom: 40px;
   margin-top: 40px;
 }
-.top-margin {
-  margin-top: 40px;
+.post-content {
+  margin-bottom: 40px;
+}
+.post-content i {
+  margin: 10px 0;
+  line-height: 1;
+  color: inherit;
+}
+i.icon-white {
+  color: #fff;
+}
+.sticky hr {
+  border: none;
+}
+.btn-sticky {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #1fb1ee;
+  background-image: -moz-linear-gradient(top, #30c0fb, #049cdb);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#30c0fb), to(#049cdb));
+  background-image: -webkit-linear-gradient(top, #30c0fb, #049cdb);
+  background-image: -o-linear-gradient(top, #30c0fb, #049cdb);
+  background-image: linear-gradient(to bottom, #30c0fb, #049cdb);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff30c0fb', endColorstr='#ff049cdb', GradientType=0);
+  border-color: #049cdb #049cdb #036690;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #049cdb;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-sticky:hover,
+.btn-sticky:active,
+.btn-sticky.active,
+.btn-sticky.disabled,
+.btn-sticky[disabled] {
+  color: #ffffff;
+  background-color: #049cdb;
+  *background-color: #048ac2;
+}
+.btn-sticky:active,
+.btn-sticky.active {
+  background-color: #0378a9 \9;
+}
+.btn-readmore {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #1fb1ee;
+  background-image: -moz-linear-gradient(top, #30c0fb, #049cdb);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#30c0fb), to(#049cdb));
+  background-image: -webkit-linear-gradient(top, #30c0fb, #049cdb);
+  background-image: -o-linear-gradient(top, #30c0fb, #049cdb);
+  background-image: linear-gradient(to bottom, #30c0fb, #049cdb);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff30c0fb', endColorstr='#ff049cdb', GradientType=0);
+  border-color: #049cdb #049cdb #036690;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #049cdb;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-readmore:hover,
+.btn-readmore:active,
+.btn-readmore.active,
+.btn-readmore.disabled,
+.btn-readmore[disabled] {
+  color: #ffffff;
+  background-color: #049cdb;
+  *background-color: #048ac2;
+}
+.btn-readmore:active,
+.btn-readmore.active {
+  background-color: #0378a9 \9;
 }
