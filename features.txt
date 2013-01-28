@@ -69,3 +69,5 @@ __Plugins__
 
 				But how does it collect money? Paypal baby! I’ve been on that band-wagon for years now and I’ve had no complaints. I have a Standard Business account with PayPal which allows me to process credit cards on my website. I also find that transferring my funds to my bank account never takes more than 2 days… I just need to be sure to make the request before 6 am Monday morning ;) Trust me it’s the cheapest way to process credit cards which helps those who don’t have the cash or helps you from hustling on the street. I for one would rather market online than the streets.
 
+				<?php the_post_thumbnail('large', array('class' => 'img-polaroid')); ?>
+

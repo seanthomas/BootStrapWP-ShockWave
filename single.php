@@ -22,8 +22,14 @@ get_header(); ?>
         <header class="post-title">
         <h1><?php the_title();?></h1>
         </header>
+
+        <?php // Checking for a post thumbnail
+        if ( has_post_thumbnail() ) ?>
+        <?php the_post_thumbnail('');?>
+
    <p class="meta"><?php echo bootstrapwp_posted_on();?></p>
             <?php the_content();?>
+            <p>Filed under: <?php the_category(', ') ?></p>
             <?php the_tags( '<p>Tags: ', ', ', '</p>'); ?>
 <?php endwhile; // end of the loop. ?>
 <hr />

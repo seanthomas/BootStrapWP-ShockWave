@@ -155,7 +155,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #333333;
+  color: #555555;
   background-color: #ffffff;
 }
 a {
@@ -163,7 +163,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #1ca9e4;
+  color: #049cdb;
   text-decoration: underline;
 }
 .img-rounded {
@@ -1268,7 +1268,7 @@ select:focus:required:invalid:focus {
 }
 .help-block,
 .help-inline {
-  color: #595959;
+  color: #7b7b7b;
 }
 .help-block {
   display: block;
@@ -2888,7 +2888,7 @@ input[type="submit"].btn.btn-mini {
   border-radius: 0;
 }
 .btn-link:hover {
-  color: #1ca9e4;
+  color: #049cdb;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -3343,8 +3343,8 @@ input[type="submit"].btn.btn-mini {
   margin-top: 6px;
 }
 .nav .dropdown-toggle:hover .caret {
-  border-top-color: #1ca9e4;
-  border-bottom-color: #1ca9e4;
+  border-top-color: #049cdb;
+  border-bottom-color: #049cdb;
 }
 /* move down carets for tabs */
 .nav-tabs .dropdown-toggle .caret {
@@ -7222,9 +7222,10 @@ footer a:active {
   /* IE6-9 */
 
   border: none;
-  /* opacity: .9;   Current issue with drop down menu - Put 0.9 and it dont work?!? */
+  opacity: 0.9;
+  /* Current issue with drop down menu - Put 0.9 and it dont work?!? */
 
-  -moz-opacity: .9;
+  -moz-opacity: 0.9;
   filter: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -7232,6 +7233,7 @@ footer a:active {
   -webkit-border-radius: none;
   -moz-border-radius: none;
   border-radius: none;
+  border-bottom: 3px solid #049cdb;
 }
 .navbar .divider-vertical {
   background-color: #222222;
@@ -7319,7 +7321,7 @@ footer a:active {
 }
 .carousel .container {
   position: relative;
-  z-index: 9;
+  z-index: 1;
 }
 .carousel-control {
   height: 80px;
@@ -7356,23 +7358,45 @@ footer a:active {
 .carousel-caption .btn {
   margin-top: 10px;
 }
+#myCarousel img.wp-post-image {
+  margin-top: 0;
+}
+#myCarousel img.wp-post-image:hover {
+  opacity: 1;
+}
 /* NEWS CONTENT
 -------------------------------------------------- */
-.thumbnail {
-  border: none;
-  -webkit-border-radius: none;
-  -moz-border-radius: none;
-  border-radius: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  transition: none;
+#featured img.wp-post-image {
+  margin-top: 0;
+  margin-bottom: 0;
 }
-.thumbnails {
-  margin-left: 0;
+#featured .thumbnail {
+  padding: 0;
+  border-radius: 0;
+}
+/* Responsive images */
+.entry-content img,
+.comment-content img,
+.widget img {
+  max-width: 100%;
+  /* Fluid images for posts, comments, and widgets */
+
+}
+img[class*="align"],
+img[class*="wp-image-"],
+img[class*="attachment-"] {
+  height: auto;
+  /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+
+}
+img.size-full,
+img.size-large,
+img.header-image,
+img.wp-post-image {
+  max-width: 100%;
+  height: auto;
+  /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+
 }
 /* RESPONSIVE CSS
     -------------------------------------------------- */
@@ -7486,7 +7510,8 @@ h4.widget-title,
 h3.post-title,
 .post-title h1,
 header .page-title,
-.page-title h1 {
+.page-title h1,
+.widget h2 {
   position: relative;
   margin: 5px 0 20px;
   padding-bottom: 12px;
@@ -7498,7 +7523,8 @@ h4.widget-title:after,
 h3.post-title:after,
 .post-title h1:after,
 header .page-title:after,
-.page-title h1:after {
+.page-title h1:after,
+.widget h2:after {
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -7507,6 +7533,9 @@ header .page-title:after,
   height: 2px;
   content: "";
   background: #049cdb;
+}
+.widget h2 {
+  text-align: left;
 }
 .widget ul {
   margin: 0 0 9px 0;
@@ -7522,7 +7551,7 @@ header .page-title:after,
   text-shadow: none;
 }
 .widget ul > li > a:hover {
-  color: #1ca9e4;
+  color: #049cdb;
   text-shadow: none;
   background-color: none;
   background: none;
@@ -7602,14 +7631,18 @@ header .page-title:after,
 img.wp-post-image {
   margin-bottom: 40px;
   margin-top: 40px;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+img.wp-post-image:hover {
+  opacity: 0.6;
 }
 .post-content {
   margin-bottom: 40px;
-}
-.post-content i {
-  margin: 10px 0;
-  line-height: 1;
-  color: inherit;
 }
 i.icon-white {
   color: #fff;
@@ -7678,4 +7711,62 @@ i.icon-white {
 .btn-readmore:active,
 .btn-readmore.active {
   background-color: #0378a9 \9;
+}
+ul.post-meta li,
+ul.post-meta li a {
+  font-size: 11px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  padding-bottom: 6px;
+}
+.date-color {
+  color: #049cdb;
+}
+.no-color {
+  color: #222222;
+}
+.post-title h3 {
+  font-weight: bold;
+}
+.btn-blue {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #1fb1ee;
+  background-image: -moz-linear-gradient(top, #30c0fb, #049cdb);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#30c0fb), to(#049cdb));
+  background-image: -webkit-linear-gradient(top, #30c0fb, #049cdb);
+  background-image: -o-linear-gradient(top, #30c0fb, #049cdb);
+  background-image: linear-gradient(to bottom, #30c0fb, #049cdb);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff30c0fb', endColorstr='#ff049cdb', GradientType=0);
+  border-color: #049cdb #049cdb #036690;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #049cdb;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-blue:hover,
+.btn-blue:active,
+.btn-blue.active,
+.btn-blue.disabled,
+.btn-blue[disabled] {
+  color: #ffffff;
+  background-color: #049cdb;
+  *background-color: #048ac2;
+}
+.btn-blue:active,
+.btn-blue.active {
+  background-color: #0378a9 \9;
+}
+.event-list {
+  border-bottom: 1px solid #ccc;
+  padding: 20px 0 20px 0;
+}
+.em-location-map,
+.em-locations-map {
+  width: 100% !important;
+  height: 300px !important;
+  margin-bottom: 40px;
+  border-bottom: 3px solid #049cdb;
 }

@@ -10,25 +10,24 @@
 
 get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
-  <div class="row">
-  <div class="container">
-   <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
-   </div><!--/.container -->
-   </div><!--/.row -->
-   <div class="container">
+      <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
 
-      
- <!-- Masthead
-      ================================================== -->
-      <header class="jumbotron subhead" id="overview">
-        <h1><?php the_title();?></h1>
-      </header>
-			
-				<div class="row content">
-				  <?php the_content();?>
-				<?php endwhile; // end of the loop. ?>
-		
-				</div><!-- .row content -->
-		
+  <!-- Subhead
+================================================== -->
+<header class="subhead" id="overview">
+  <div class="container">
+    <h1><?php wp_title(''); ?></h1>
+  </div>
+</header>
+
+<div class="container">
+
+<div class="row content">
+  <div class="span12">
+<?php the_content();?>
+<?php endwhile; // end of the loop. ?>
+</div><!-- /.span12 -->
+</div>
+
 
 <?php get_footer(); ?>

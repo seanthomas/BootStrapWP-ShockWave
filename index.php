@@ -29,10 +29,23 @@ get_header(); ?>
     if (have_posts()) : while ( have_posts() ) : the_post(); ?>
     <?php get_template_part( 'includes/post', get_post_format() ); ?>
 
+ <?php endwhile; 
 
 
 
- <?php endwhile; endif; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+ endif; ?>
  <?php bootstrapwp_content_nav('nav-below');?>
 
 </div><!-- /.span8 -->

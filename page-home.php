@@ -29,7 +29,7 @@ get_header(); ?>
             <div class="carousel-caption">
               <h1><?php the_title();?></h1>
               <p class="lead"><?php the_excerpt();?></p>
-              <a class="btn btn-medium btn-primary" href="<?php echo get_permalink(); ?>">Read more...</a>
+              <a class="btn btn-medium btn-primary btn-sticky" href="<?php echo get_permalink(); ?>">Read more...</a>
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@ get_header(); ?>
             <div class="carousel-caption">
               <h1><?php the_title();?></h1>
               <p class="lead"><?php the_excerpt();?></p>
-              <a class="btn btn-medium btn-primary" href="<?php echo get_permalink(); ?>">Read more...</a>
+              <a class="btn btn-medium btn-primary btn-sticky" href="<?php echo get_permalink(); ?>">Read more...</a>
             </div>
           </div>
         </div>
@@ -72,19 +72,19 @@ get_header(); ?>
    <div class="container">
   
     <div class="page-header">
-    <h1>Latest News<small> Keep up to date with us here</small></h1>
+    <h1>Featured News<small> </small></h1>
     </div>
   
-         <div class="row">
+         <div id="featured" class="row-fluid">
           <ul class="thumbnails">
                 <?php
                 $cat_id = get_cat_ID('Home Slider');
-                $args = array( 'category__not_in' => array($cat_id), 'numberposts' => 4, 'post_status'=>"publish",'post_type'=>"post",'orderby'=>"post_date" );
+                $args = array( 'category__not_in' => array($cat_id), 'numberposts' => 4, 'post_status'=>"publish",'post_type'=>"post",'orderby'=>"post_date", 'meta_key' => '_thumbnail_id' );
                 $postslist = get_posts( $args ); 
                 foreach ($postslist as $post) : setup_postdata($post); ?>
               <li class="span3">
                 <div class="thumbnail">
-                 <?php the_post_thumbnail('large');?>
+                 <?php the_post_thumbnail(''); ?>
                   <div class="caption">
                     <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h2><?php the_title();?></h2></a>
                     <p class="meta"><?php echo bootstrapwp_posted_on();?></p>
@@ -104,6 +104,7 @@ get_header(); ?>
 </div>
 
 <?php endwhile; endif; ?>
+
 <div class="container">
   <div class="marketing">
     <div class="row-fluid">

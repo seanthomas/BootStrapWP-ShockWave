@@ -194,13 +194,13 @@ add_action( 'init', 'bootstrapwp_widgets_init' );
 | */
 if ( function_exists( 'add_theme_support' ) ) {
   add_theme_support( 'post-thumbnails' );
-  set_post_thumbnail_size( 280, 160 ); // 160 pixels wide by 120 pixels high
+  set_post_thumbnail_size( 624, 9999 ); // 160 pixels wide by 120 pixels high
 }
 
 if ( function_exists( 'add_image_size' ) ) {
   add_image_size( 'bootstrap-small', 260, 180 ); // 260 pixels wide by 180 pixels high
   add_image_size( 'bootstrap-medium', 360, 268 ); // 360 pixels wide by 268 pixels high
-  add_image_size( 'bootstrap-large', 780, 320, true ); // 360 pixels wide by 268 pixels high
+  add_image_size( 'bootstrap-large', 770, 300, false ); // 360 pixels wide by 268 pixels high
 }
 /*
 | -------------------------------------------------------------------
@@ -306,6 +306,19 @@ function bootstrapwp_comment( $comment, $args, $depth ) {
 }
 endif; // ends check for bootstrapwp_comment()
 
+if ( comments_open() ) {
+  if ( $num_comments == 0 ) {
+    $comments = __('No Comments');
+  } elseif ( $num_comments > 1 ) {
+    $comments = $num_comments . __(' Comments');
+  } else {
+    $comments = __('1 Comment');
+  }
+  $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
+} else {
+  $write_comments =  __('Comments are off for this post.');
+}
+
 if ( ! function_exists( 'bootstrapwp_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
@@ -314,15 +327,15 @@ if ( ! function_exists( 'bootstrapwp_posted_on' ) ) :
  * @since WP-Bootstrap .5
  */
 function bootstrapwp_posted_on() {
-	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'bootstrap' ),
-		esc_url( get_permalink() ),
-		esc_attr( get_the_time() ),
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		esc_attr( sprintf( __( 'View all posts by %s', 'bootstrap' ), get_the_author() ) ),
-		esc_html( get_the_author() )
-	);
+printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'bootstrap' ),
+esc_url( get_permalink() ),
+esc_attr( get_the_time() ),
+esc_attr( get_the_date( 'c' ) ),
+esc_html( get_the_date() ),
+esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+esc_attr( sprintf( __( 'View all posts by %s', 'bootstrap' ), get_the_author() ) ),
+esc_html( get_the_author() )
+);
 }
 endif;
 
@@ -543,6 +556,28 @@ function bootstrapwp_autoset_featured_img() {
 
   }
 } // end bootstrapwp_breadcrumbs()
+/*
+A custom function to echo specified number of categories a
+post is filed in.
+(Takes number of categories to be displayed as argument)
+Written by Satish Gandham
+Author URL: http://swiftthemes.com
+Contact: http://swiftthemes.com/contact-me/
+*/
+function swift_list_cats($num){
+    $temp=get_the_category();
+    $count=count($temp);// Getting the total number of categories the post is filed in.
+    for($i=0;$i<$num&&$i<$count;$i++){
+        //Formatting our output.
+        $cat_string.='<a href=&quot;'.get_category_link( $temp[$i]->cat_ID  ).'&quot;>'.$temp[$i]->cat_name.'</a>';
+        if($i!=$num-1&&$i+1<$count)
+        //Adding a ',' if it's not the last category.
+        //You can add your own separator here.
+        $cat_string.=', ';
+    }
+    echo $cat_string;
+}
+
 
 
 /**
