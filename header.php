@@ -63,8 +63,7 @@
           <?php
            /** Loading WordPress Custom Menu  **/
            wp_nav_menu( array(
-              'theme_locator'   => 'primary-menu',
-              'menu'            => 'primary-menu',
+              'theme_location'   => 'primary-menu',
               'container_class' => 'nav-collapse',
               'menu_class'      => 'nav',
               'fallback_cb'     => '',
@@ -73,11 +72,11 @@
                     <?php
            /** Loading WordPress Custom Menu  **/
            wp_nav_menu( array(
-              'theme_locator'   => 'secondary-menu',
-              'menu'            => 'secondary-menu',
+              'theme_location'   => 'secondary-menu',
               'container_class' => 'nav-collapse',
               'menu_class'      => 'nav icon pull-right',
               'fallback_cb'     => 'false',
+              'walker' => new Bootstrapwp_Walker_Nav_Menu()
           ) ); ?>
 
         </div>

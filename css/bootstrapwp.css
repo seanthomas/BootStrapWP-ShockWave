@@ -7770,3 +7770,7 @@ ul.post-meta li a {
   margin-bottom: 40px;
   border-bottom: 3px solid #049cdb;
 }
+ul.event-meta li,
+ul.event-meta li a {
+  font-size: 12px;
+}

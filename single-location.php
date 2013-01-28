@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * Description: Displays single event template to display event
+ * Description: Displays single location template to display location details
  *
  * @package WordPress
  * @subpackage WP-Bootstrap
@@ -48,21 +48,17 @@ get_header(); ?>
       <div class="row-fluid">
         <div class="span3">
          <ul class="unstyled event-meta">
-          <li><strong>Event info:</strong></li>
-          <li class="date-color"><?php echo $EM_Event->output('#_EVENTDATES'); ?><i class="icon-calendar pull-right no-color"></i></li>
-          <li><?php echo $EM_Event->output('#_EVENTTIMES'); ?><i class="icon-time pull-right"></i></li>        
+          <li><strong>Location info:</strong></li>
           <li>
                 <address>
     <strong><?php echo $EM_Event->output('#_LOCATIONNAME'); ?></strong><i class="icon-road pull-right"></i><br>
     <?php echo $EM_Event->output('#_LOCATIONFULLBR'); ?><br>
-    <abbr title="Phone">P:</abbr> <?php echo $EM_Event->output('#_CONTACTPHONE'); ?><i class="icon-phone pull-right"></i><br>
-     <a href="mailto:<?php echo $EM_Event->output('#_CONTACTEMAIL'); ?>"><?php echo $EM_Event->output('#_CONTACTEMAIL'); ?></a><i class="icon-envelope pull-right"></i>
-    </address>
+    <a href="<?php echo $EM_Event->output('#_LOCATIONURL'); ?>">Visit <?php echo $EM_Event->output('#_LOCATIONNAME'); ?> Website</a><i class="icon-globe pull-right"></i><br>
   </li>
          </ul>
         </div>
 
-        <div class="span9"><?php echo $EM_Event->output('#_EVENTNOTES'); ?></div>
+        <div class="span9"><?php echo $EM_Event->output('#_LOCATIONNOTES'); ?></div>
       </div>
     </div>
 <hr />
