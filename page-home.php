@@ -75,7 +75,7 @@ get_header(); ?>
     <h1>Featured News<small> </small></h1>
     </div>
   
-         <div id="featured" class="row-fluid">
+         <div class="latest-blog row-fluid">
           <ul class="thumbnails">
                 <?php
                 $cat_id = get_cat_ID('Home Slider');
@@ -84,10 +84,13 @@ get_header(); ?>
                 foreach ($postslist as $post) : setup_postdata($post); ?>
               <li class="span3">
                 <div class="thumbnail">
-                 <?php the_post_thumbnail(''); ?>
+                  <div class="post-image">
+                  <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+                    <?php the_post_thumbnail( '' ); ?>
+                  </a>
+                </div>
                   <div class="caption">
                     <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h2><?php the_title();?></h2></a>
-                    <p class="meta"><?php echo bootstrapwp_posted_on();?></p>
                     <?php the_excerpt();?>
                   </div>
                 </div>

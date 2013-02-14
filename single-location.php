@@ -30,7 +30,7 @@ get_header(); ?>
 
     <div class="row-fluid">
     <div class="span12 post-image">
-    <?php echo $EM_Event->output('#_LOCATIONMAP'); ?>
+    <?php echo $EM_Event->output('#_MAP'); ?>
     </div>
     </div>
 
@@ -61,10 +61,6 @@ get_header(); ?>
         <div class="span9"><?php echo $EM_Event->output('#_LOCATIONNOTES'); ?></div>
       </div>
     </div>
-<hr />
-
-
-
 
 </div><!-- /.span12 -->
 </div><!-- /.row .content -->

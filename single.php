@@ -13,25 +13,20 @@
 
 get_header(); ?>
 
-<?php while ( have_posts() ) : the_post(); ?>
+
    <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
-   <div class="container">
+<div class="container">
 
-        <div class="row content">
-<div class="span8">
-        <header class="post-title">
-        <h1><?php the_title();?></h1>
-        </header>
+<div class="page-wrap row-fluid">
+  <div class="span8">
+    <?php if ( have_posts() ) : ?>
 
-        <?php // Checking for a post thumbnail
-        if ( has_post_thumbnail() ) ?>
-        <?php the_post_thumbnail('');?>
+      <?php /* Start the Loop */ ?>
+      <?php while ( have_posts() ) : the_post(); ?>
+        <?php get_template_part( 'includes/post-formats/single', get_post_format() ); ?>
+      <?php endwhile;
 
-   <p class="meta"><?php echo bootstrapwp_posted_on();?></p>
-            <?php the_content();?>
-            <p>Filed under: <?php the_category(', ') ?></p>
-            <?php the_tags( '<p>Tags: ', ', ', '</p>'); ?>
-<?php endwhile; // end of the loop. ?>
+ endif; ?>
 <hr />
  <?php comments_template(); ?>
 

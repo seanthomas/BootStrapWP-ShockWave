@@ -7185,15 +7185,9 @@ a:hover,
 a:active {
   text-decoration: none;
 }
-footer a {
-  text-decoration: none;
-  color: #999999;
-}
-footer a:hover,
-footer a:active {
-  text-decoration: none;
-  color: #ffffff;
-}
+/* ------------------------------------------------------------------------ */
+/* Navbar
+/* ------------------------------------------------------------------------ */
 .navbar-inner,
 .btn-navbar {
   border: none;
@@ -7233,7 +7227,7 @@ footer a:active {
   -webkit-border-radius: none;
   -moz-border-radius: none;
   border-radius: none;
-  border-bottom: 3px solid #049cdb;
+  border-bottom: 2px solid #049cdb;
 }
 .navbar .divider-vertical {
   background-color: #222222;
@@ -7277,6 +7271,9 @@ footer a:active {
   text-decoration: none;
   color: #049cdb;
 }
+/* ------------------------------------------------------------------------ */
+/* Drop Down Menu
+/* ------------------------------------------------------------------------ */
 .navbar .nav > li > .dropdown-menu:before {
   content: none;
   display: none;
@@ -7294,7 +7291,7 @@ footer a:active {
   list-style: none;
   background-color: #222222;
   border: none;
-  border-top: 3px solid #049cdb;
+  border-top: 2px solid #049cdb;
   *border-right-width: none;
   *border-bottom-width: none;
   -webkit-border-radius: 0px;
@@ -7313,8 +7310,9 @@ footer a:active {
   -ms-transition: background-color 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
 }
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
+/* ------------------------------------------------------------------------ */
+/* Home Page Carousel
+/* ------------------------------------------------------------------------ */
 /* Carousel base class */
 .carousel {
   margin-bottom: 60px;
@@ -7364,15 +7362,151 @@ footer a:active {
 #myCarousel img.wp-post-image:hover {
   opacity: 1;
 }
-/* NEWS CONTENT
--------------------------------------------------- */
-#featured img.wp-post-image {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-#featured .thumbnail {
+/* ------------------------------------------------------------------------ */
+/* Home Page Blog */
+/* ------------------------------------------------------------------------ */
+.thumbnail {
   padding: 0;
-  border-radius: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(180, 180, 180, 0.2);
+  -moz-box-shadow: 0px 1px 2px 0px rgba(180, 180, 180, 0.2);
+  box-shadow: 0px 1px 2px 0px rgba(180, 180, 180, 0.2);
+}
+.thumbnail .wp-post-image {
+  -webkit-border-radius: 4px 4px 0px 0px;
+  -moz-border-radius: 4px 4px 0px 0px;
+  border-radius: 4px 4px 0px 0px;
+}
+/* ------------------------------------------------------------------------ */
+/* Blog Standard - Overview */
+/* ------------------------------------------------------------------------ */
+.post {
+  margin: 0 0 20px 0;
+}
+.post-image {
+  margin-bottom: 20px;
+}
+.post-image a {
+  display: block;
+  position: relative;
+}
+.post-image img {
+  max-width: 100%;
+  height: auto;
+  /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+
+}
+.post-title {
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+.post-title h3 {
+  font-weight: bold;
+}
+i.icon-white {
+  color: #fff;
+}
+ul.post-meta li,
+ul.post-meta li a {
+  font-size: 11px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  padding-bottom: 6px;
+}
+.date-color {
+  color: #049cdb;
+}
+.no-color {
+  color: #222222;
+}
+.btn-readmore {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #1fb1ee;
+  background-image: -moz-linear-gradient(top, #30c0fb, #049cdb);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#30c0fb), to(#049cdb));
+  background-image: -webkit-linear-gradient(top, #30c0fb, #049cdb);
+  background-image: -o-linear-gradient(top, #30c0fb, #049cdb);
+  background-image: linear-gradient(to bottom, #30c0fb, #049cdb);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff30c0fb', endColorstr='#ff049cdb', GradientType=0);
+  border-color: #049cdb #049cdb #036690;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #049cdb;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-readmore:hover,
+.btn-readmore:active,
+.btn-readmore.active,
+.btn-readmore.disabled,
+.btn-readmore[disabled] {
+  color: #ffffff;
+  background-color: #049cdb;
+  *background-color: #048ac2;
+}
+.btn-readmore:active,
+.btn-readmore.active {
+  background-color: #0378a9 \9;
+}
+.sticky {
+  border: none;
+}
+.sticky hr {
+  border: none;
+}
+.btn-sticky {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #1fb1ee;
+  background-image: -moz-linear-gradient(top, #30c0fb, #049cdb);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#30c0fb), to(#049cdb));
+  background-image: -webkit-linear-gradient(top, #30c0fb, #049cdb);
+  background-image: -o-linear-gradient(top, #30c0fb, #049cdb);
+  background-image: linear-gradient(to bottom, #30c0fb, #049cdb);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff30c0fb', endColorstr='#ff049cdb', GradientType=0);
+  border-color: #049cdb #049cdb #036690;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #049cdb;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-sticky:hover,
+.btn-sticky:active,
+.btn-sticky.active,
+.btn-sticky.disabled,
+.btn-sticky[disabled] {
+  color: #ffffff;
+  background-color: #049cdb;
+  *background-color: #048ac2;
+}
+.btn-sticky:active,
+.btn-sticky.active {
+  background-color: #0378a9 \9;
+}
+/* Image Hover Overlay ---------------------------------------------------- */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-image: url(../img/overlay-lightbox.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.post-image .overlay {
+  background-image: url(../img/overlay-link.png);
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 /* Responsive images */
 .entry-content img,
@@ -7440,6 +7574,9 @@ img.wp-post-image {
     font-size: 18px;
   }
 }
+/* ------------------------------------------------------------------------ */
+/* Sidebar
+/* ------------------------------------------------------------------------ */
 .well {
   background-color: #ffffff;
   border: none;
@@ -7467,19 +7604,20 @@ img.wp-post-image {
 .subhead .navbar {
   display: none;
 }
+/* ------------------------------------------------------------------------ */
 /* Footer
--------------------------------------------------- */
+/* ------------------------------------------------------------------------ */
 .footer {
-  padding: 30px 0;
-  margin-top: 70px;
-  border-top: 9px solid #049cdb;
-  background-color: #222222;
+  padding: 0;
+  margin: 0;
+  border-top: 2px solid #222222;
+  background-color: #ffffff;
   opacity: .9;
   -moz-opacity: .9;
 }
 .footer p {
   margin-bottom: 0;
-  color: #fff;
+  color: #555555;
 }
 .footer-links {
   margin: 10px 0;
@@ -7488,60 +7626,41 @@ img.wp-post-image {
   display: inline;
   margin-right: 10px;
 }
-/* Footer Widget Styles
--------------------------------------------------- */
+/* ------------------------------------------------------------------------ */
+/* Footer Widget Styling
+/* ------------------------------------------------------------------------ */
 .textwidget,
 p.textwidget {
-  color: #fff;
+  color: #555555;
 }
 footer .widget ul > li > a {
-  color: #999999;
+  color: #555555;
 }
 footer .widget ul > li > a:hover {
-  color: #ffffff;
+  color: #049cdb;
   text-decoration: none;
 }
 footer h4.widget-title {
-  color: #ffffff;
+  color: #555555;
 }
+/* ------------------------------------------------------------------------ */
 /* Other Widget Styling
--------------------------------------------------- */
-h4.widget-title,
-h3.post-title,
-.post-title h1,
-header .page-title,
-.page-title h1,
-.widget h2 {
-  position: relative;
-  margin: 5px 0 20px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #eeeeee;
-  color: #000000;
-  margin-top: none;
-}
-h4.widget-title:after,
-h3.post-title:after,
-.post-title h1:after,
-header .page-title:after,
-.page-title h1:after,
-.widget h2:after {
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  display: block;
-  width: 32px;
-  height: 2px;
-  content: "";
-  background: #049cdb;
-}
+/* ------------------------------------------------------------------------ */
 .widget h2 {
   text-align: left;
+  margin: 20px;
+  margin-left: 0;
+}
+h4.widget-title {
+  color: inherit;
+  text-transform: none;
 }
 .widget ul {
   margin: 0 0 9px 0;
 }
 .widget ul li {
   list-style: none;
+  color: #555555;
 }
 .widget ul > li > a {
   display: block;
@@ -7549,6 +7668,7 @@ header .page-title:after,
   margin-left: -15px;
   margin-right: -15px;
   text-shadow: none;
+  color: #555555;
 }
 .widget ul > li > a:hover {
   color: #049cdb;
@@ -7581,22 +7701,18 @@ header .page-title:after,
 }
 
 */
+/* ------------------------------------------------------------------------ */
+/* Page Header
+/* ------------------------------------------------------------------------ */
 .page-header {
   padding-bottom: 9px;
   margin: 20px 0 30px;
   position: relative;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: none;
 }
-.page-header:after {
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  display: block;
-  width: 32px;
-  height: 2px;
-  content: "";
-  background: #049cdb;
-}
+/* ------------------------------------------------------------------------ */
+/* Breadcrumbs
+/* ------------------------------------------------------------------------ */
 .breadcrumb {
   padding: 8px 15px;
   margin: 18px 0 18px 0;
@@ -7619,115 +7735,41 @@ header .page-title:after,
 .breadcrumb .active {
   color: #999999;
 }
-.bottom-margin {
-  margin-bottom: 20px;
-}
-.sticky {
-  border: none;
-}
-.post-title {
-  margin-bottom: 40px;
-}
-img.wp-post-image {
-  margin-bottom: 40px;
-  margin-top: 40px;
-  opacity: 1;
-  -webkit-transition: opacity 0.3s ease-in-out;
-  -o-transition: opacity 0.3s ease-in-out;
-  -moz-transition: opacity 0.3s ease-in-out;
-  -ms-transition: opacity 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out;
-}
-img.wp-post-image:hover {
-  opacity: 0.6;
-}
-.post-content {
-  margin-bottom: 40px;
-}
-i.icon-white {
-  color: #fff;
-}
-.sticky hr {
-  border: none;
-}
-.btn-sticky {
+/* ------------------------------------------------------------------------ */
+/* Twitterbar Styling */
+/* ------------------------------------------------------------------------ */
+#twitterbar {
   color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #1fb1ee;
-  background-image: -moz-linear-gradient(top, #30c0fb, #049cdb);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#30c0fb), to(#049cdb));
-  background-image: -webkit-linear-gradient(top, #30c0fb, #049cdb);
-  background-image: -o-linear-gradient(top, #30c0fb, #049cdb);
-  background-image: linear-gradient(to bottom, #30c0fb, #049cdb);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff30c0fb', endColorstr='#ff049cdb', GradientType=0);
-  border-color: #049cdb #049cdb #036690;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #049cdb;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  background: #049cdb;
+  margin: 0;
+  padding: 15px 0;
 }
-.btn-sticky:hover,
-.btn-sticky:active,
-.btn-sticky.active,
-.btn-sticky.disabled,
-.btn-sticky[disabled] {
+#twitterbar .twitterpost {
+  padding: 0 0 0 30px;
+  list-style: none;
+  margin: 0;
+}
+#twitterbar .twitterpost a {
   color: #ffffff;
-  background-color: #049cdb;
-  *background-color: #048ac2;
+  display: inline;
 }
-.btn-sticky:active,
-.btn-sticky.active {
-  background-color: #0378a9 \9;
-}
-.btn-readmore {
+#twitterbar .twitterpost i {
   color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #1fb1ee;
-  background-image: -moz-linear-gradient(top, #30c0fb, #049cdb);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#30c0fb), to(#049cdb));
-  background-image: -webkit-linear-gradient(top, #30c0fb, #049cdb);
-  background-image: -o-linear-gradient(top, #30c0fb, #049cdb);
-  background-image: linear-gradient(to bottom, #30c0fb, #049cdb);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff30c0fb', endColorstr='#ff049cdb', GradientType=0);
-  border-color: #049cdb #049cdb #036690;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #049cdb;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  display: inline;
+  margin-right: 5px;
+  font-size: 14px;
 }
-.btn-readmore:hover,
-.btn-readmore:active,
-.btn-readmore.active,
-.btn-readmore.disabled,
-.btn-readmore[disabled] {
-  color: #ffffff;
-  background-color: #049cdb;
-  *background-color: #048ac2;
+#twitterbar .twitterpost li {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline;
 }
-.btn-readmore:active,
-.btn-readmore.active {
-  background-color: #0378a9 \9;
+#twitterbar .twitterpost li b {
+  display: none;
 }
-ul.post-meta li,
-ul.post-meta li a {
-  font-size: 11px;
-  line-height: 18px;
-  letter-spacing: 1px;
-  padding-bottom: 6px;
-}
-.date-color {
-  color: #049cdb;
-}
-.no-color {
-  color: #222222;
-}
-.post-title h3 {
-  font-weight: bold;
-}
+/* ------------------------------------------------------------------------ */
+/* Events Manager Styling */
+/* ------------------------------------------------------------------------ */
 .btn-blue {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -7773,4 +7815,7 @@ ul.post-meta li a {
 ul.event-meta li,
 ul.event-meta li a {
   font-size: 12px;
+}
+.content {
+  margin-bottom: 40px;
 }

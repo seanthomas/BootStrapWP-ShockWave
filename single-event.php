@@ -59,16 +59,14 @@ get_header(); ?>
      <a href="mailto:<?php echo $EM_Event->output('#_CONTACTEMAIL'); ?>"><?php echo $EM_Event->output('#_CONTACTEMAIL'); ?></a><i class="icon-envelope pull-right"></i>
     </address>
   </li>
+<?php echo $EM_Event->output('{has_att_externallink}<li><a class="btn btn-readmore" href="#_ATT{externallink}" target="_blank">Buy Tickets</a></li>{/has_att_externallink}' ); ?>
+<?php echo $EM_Event->output('{has_att_soldout}<button type="button" class="btn btn-danger">#_ATT{soldout}</button>{/has_att_soldout}' ); ?>
          </ul>
         </div>
 
-        <div class="span9"><?php echo $EM_Event->output('#_EVENTNOTES'); ?></div>
+        <div class="span9"><p><?php echo $EM_Event->output('#_EVENTNOTES'); ?></p></div>
       </div>
     </div>
-<hr />
-
-
-
 
 </div><!-- /.span12 -->
 </div><!-- /.row .content -->

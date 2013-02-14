@@ -20,32 +20,17 @@ get_header(); ?>
 
 <div class="container">
 
-<div class="row content">
+<div class="page-wrap row-fluid">
   <div class="span8">
-    <?php
-              // Blog post query
-    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-    query_posts( array( 'post_type' => 'post', 'paged'=>$paged, 'showposts'=>0) );
-    if (have_posts()) : while ( have_posts() ) : the_post(); ?>
-    <?php get_template_part( 'includes/post', get_post_format() ); ?>
+    <?php if ( have_posts() ) : ?>
 
- <?php endwhile; 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      <?php /* Start the Loop */ ?>
+      <?php while ( have_posts() ) : the_post(); ?>
+        <?php get_template_part( 'includes/post-formats/post', get_post_format() ); ?>
+      <?php endwhile;
 
  endif; ?>
+
  <?php bootstrapwp_content_nav('nav-below');?>
 
 </div><!-- /.span8 -->

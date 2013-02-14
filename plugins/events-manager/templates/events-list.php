@@ -38,13 +38,32 @@ if( $events_count > 0 ){
 	        echo em_events_list_grouped($args);
 	    }else{
 			echo EM_Events::output(array('format'=>
-			'      <div class="row-fluid">
+			'
+      <div class="row-fluid">
         <div class="span3">
-          <button class="btn btn-large btn-inverse">#_EVENTDATES</button>
+          <a class="btn btn-inverse" href="#_EVENTURL">
+            <i class="icon-file"></i>
+          </a>
         </div>
-        <div class="span9"><h2><a href="#_EVENTURL">#_LOCATIONNAME, #_LOCATIONADDRESS, #_LOCATIONTOWN</a></h2></div>
+        <div class="span9 post-title"><a href="#_EVENTURL" title="#_EVENTNAME"><h3>#_EVENTNAME</h3></a></div>
+     	</div>
+
+	   <div class="row-fluid">
+        <div class="span3">
+         <ul class="unstyled post-meta">
+          <li class="date-color">#_EVENTDATES<i class="icon-calendar pull-right no-color"></i></li>
+          <li>#_EVENTTIMES<i class="icon-time pull-right"></i></li>        
+    	  <li>#_LOCATIONNAME<i class="icon-road pull-right"></i><br></li>
+    	  <li>#_LOCATIONFULLLINE<i class="icon-road pull-right"></i><br></li>
+         </ul>
+        </div>
+
+        <div class="span9"><p>#_EVENTNOTES</p>
+        {has_att_externallink}<a class="btn btn-readmore" href="#_ATT{externallink}" target="_blank">Buy Tickets</a>{/has_att_externallink}
+        {has_att_soldout}<button type="button" class="btn btn-danger">#_ATT{soldout}</button>{/has_att_soldout}
+        </div>
       </div>
-  <hr />', ));
+  <hr/>', ));
 
 	    }
 	}
@@ -52,3 +71,7 @@ if( $events_count > 0 ){
 	echo get_option ( 'dbem_no_events_message' );
 }
 if( get_option('dbem_events_page_ajax', (defined('EM_AJAX_SEARCH'))) ) echo "</div>";
+
+
+
+

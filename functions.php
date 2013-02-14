@@ -66,6 +66,8 @@ add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
        wp_enqueue_script('bootstrapjs', get_template_directory_uri().'/js/bootstrap.min.js', array('jquery'),'0.90', true );
        wp_enqueue_script('prettifyjs', get_template_directory_uri().'/js/google-code-prettify/prettify.js', array('jquery'),'1.0', true );
        wp_enqueue_script('demojs', get_template_directory_uri().'/js/bootstrapwp.demo.js', array('jquery'),'0.90', true );
+       wp_enqueue_script('twitter', get_template_directory_uri().'/js/twitter.js', array('jquery'),'1.0', true ); 
+       wp_enqueue_script('functions', get_template_directory_uri().'/js/functions.js', array('jquery'),'1.0', true );      
   }
 add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
 
@@ -194,13 +196,10 @@ add_action( 'init', 'bootstrapwp_widgets_init' );
 | */
 if ( function_exists( 'add_theme_support' ) ) {
   add_theme_support( 'post-thumbnails' );
-  set_post_thumbnail_size( 624, 9999 ); // 160 pixels wide by 120 pixels high
-}
+ }
 
-if ( function_exists( 'add_image_size' ) ) {
-  add_image_size( 'bootstrap-small', 260, 180 ); // 260 pixels wide by 180 pixels high
-  add_image_size( 'bootstrap-medium', 360, 268 ); // 360 pixels wide by 268 pixels high
-  add_image_size( 'bootstrap-large', 770, 300, false ); // 360 pixels wide by 268 pixels high
+if ( function_exists( 'add_image_size' ) ) { 
+    add_image_size( 'standard', 770, 300, true );     // Standard Blog Image
 }
 /*
 | -------------------------------------------------------------------
@@ -578,6 +577,61 @@ function swift_list_cats($num){
     echo $cat_string;
 }
 
+remove_filter('dbem_notes', 'wpautop');
+
+/*
+| -------------------------------------------------------------------
+| Event Manager - Adding event attributes
+| -------------------------------------------------------------------
+|
+| */
+/**
+* add some conditional output conditions for Events Manager
+* @param string $replacement
+* @param string $condition
+* @param string $match
+* @param object $EM_Event
+* @return string
+*/
+function filterEventOutputCondition($replacement, $condition, $match, $EM_Event){
+    if (is_object($EM_Event)) {
+ 
+        switch ($condition) {
+ 
+            // #_ATT{externallink}
+            case 'has_att_externallink':
+                if (is_array($EM_Event->event_attributes) && !empty($EM_Event->event_attributes['externallink']))
+                    $replacement = preg_replace('/\{\/?has_att_externallink\}/', '', $match);
+                else
+                    $replacement = '';
+                break;
+
+            // #_ATT{soldout}
+            case 'has_att_soldout':
+                if (is_array($EM_Event->event_attributes) && !empty($EM_Event->event_attributes['soldout']))
+                    $replacement = preg_replace('/\{\/?has_att_soldout\}/', '', $match);
+                else
+                    $replacement = '';
+                break;
+ 
+        }
+ 
+    }
+ 
+    return $replacement;
+}
+ 
+add_filter('em_event_output_condition', 'filterEventOutputCondition', 10, 4);
+
+
+/*------------------------------------------*/
+/* Options Framework
+/*------------------------------------------*/
+
+/**
+ * Slightly Modified Options Framework
+ */
+require_once ('admin/index.php');
 
 
 /**

@@ -71,3 +71,36 @@ __Plugins__
 
 				<?php the_post_thumbnail('large', array('class' => 'img-polaroid')); ?>
 
+
+
+				Event Title
+
+Date			Events notes
+Time
+Buy Tickets?
+
+<hr>
+
+
+				Event Title
+
+Date			Events notes
+Time
+Venue Name
+Location (Town, City)
+Buy Tickets?
+
+<hr>
+
+General
+Layout
+Header
+Footer
+Typography
+Syling
+Blog
+Tour
+Social Media
+Lightbox
+Custom CSS
+Backup Options

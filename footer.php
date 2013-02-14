@@ -12,6 +12,25 @@
 
 </div><!-- /.container -->
     <!-- End Template Content -->
+
+<?php global $data; ?>
+
+<?php if($data['check_twitterbar'] == true) { ?>
+  <div id="twitterbar" class="clearfix">
+    <div class="container">
+      <div class="row-fluid">
+        <ul class="twitterpost"><?php _e('loading...') ?></ul>
+        <script type='text/javascript'>
+        jQuery(document).ready(function($){
+          $.getJSON('http://api.twitter.com/1/statuses/user_timeline/<?php echo $data['social_twitter']; ?>.json?count=1&callback=?', function(tweets){
+          $('.twitterpost').html(tz_format_twitter(tweets));
+        }); });
+        </script>
+      </div>
+    </div>
+  </div>
+  <?php } ?>
+
     <footer class="footer">
 
       	<div class="container">
@@ -35,7 +54,7 @@
       	
           </div>
         </div>
-
+<hr>
 		<div class="container">
         <div class="row-fluid">
       		<p class="pull-right"><a href="#"><i class="icon-arrow-up"></i> Back to top</a></p>
