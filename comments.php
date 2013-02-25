@@ -14,7 +14,7 @@
  * Last Revised: February 4, 2012
  */
 ?>
-	<div id="comments">
+	<div id="comments" class="row-fluid">
 	<?php if ( post_password_required() ) : ?>
 		<p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'bootstrapwp' ); ?></p>
 	</div><!-- #comments -->
@@ -32,12 +32,12 @@
 	<?php if ( have_comments() ) : ?>
 		<h2 id="comments-title">
 			<?php
-				printf( _n( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'bootstrapwp' ),
+				printf( _n( 'One Comment', '%1$s Comments', get_comments_number(), 'bootstrapwp' ),
 					number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
 			?>
 		</h2>
 
-		<ol class="commentlist">
+		<ol class="media-list">
 			<?php
 				/* Loop through and list the comments. Tell wp_list_comments()
 				 * to use bootstrapwp_comment() to format the comments.
@@ -59,6 +59,36 @@
 		<p class="nocomments"><?php _e( 'Comments are closed.', 'bootstrapwp' ); ?></p>
 	<?php endif; ?>
 
-	<?php comment_form(); ?>
+<?php if ( comments_open() ) : ?>
+
+	<?php
+	
+		$req = get_option( 'require_name_email' );
+		$aria_req = ( $req ? " aria-required='true'" : '' );
+
+		//Custom Fields
+		$fields =  array(
+			'author'=> '<div class="controls controls-row"><input class="span3" placeholder=".span3" name="author" type="text" value="' . __('Name (required)', 'bootstrapwp') . '" size="30"' . $aria_req . ' />',
+			
+			'email' => '<input class="span3" placeholder=".span3"name="email" type="text" value="' . __('E-Mail (required)', 'bootstrapwp') . '" size="30"' . $aria_req . ' />',
+			
+			'url' 	=> '<input class="span3" placeholder=".span3" name="url" type="text" value="' . __('Website', 'bootstrapwp') . '" size="30" /></p></div>',
+		);
+
+		//Comment Form Args
+        $comments_args = array(
+			'fields' => $fields,
+			'title_reply'=>'<h3 class="title"><span>'. __('Leave a reply', 'bootstrapwp') .'</span></h4>',
+			'comment_field' => '<div id="respond-textarea"><textarea id="comment" name="comment" aria-required="true" rows="10" tabindex="4"></textarea></div>',
+			'comment_notes_after' => ' ',
+			'label_submit' => __('Submit comment','bootstrapwp')
+		);
+		
+		// Show Comment Form
+		comment_form($comments_args); 
+	?>
+
+
+<?php endif; // Ends comments form ?>
 
 </div><!-- #comments -->

@@ -67,10 +67,34 @@ add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
        wp_enqueue_script('prettifyjs', get_template_directory_uri().'/js/google-code-prettify/prettify.js', array('jquery'),'1.0', true );
        wp_enqueue_script('demojs', get_template_directory_uri().'/js/bootstrapwp.demo.js', array('jquery'),'0.90', true );
        wp_enqueue_script('twitter', get_template_directory_uri().'/js/twitter.js', array('jquery'),'1.0', true ); 
-       wp_enqueue_script('functions', get_template_directory_uri().'/js/functions.js', array('jquery'),'1.0', true );      
+       wp_enqueue_script('functions', get_template_directory_uri().'/js/functions.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('jwplayer', get_template_directory_uri().'/includes/jwplayer/jwplayer.js' );      
   }
 add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
 
+################################################################################
+// Load Meta-boxes Plugin
+################################################################################
+
+    // Re-define meta box path and URL
+    define( 'RWMB_URL', trailingslashit( get_template_directory_uri() . '/includes/meta-box' ) );
+    define( 'RWMB_DIR', trailingslashit( get_template_directory() . '/includes/meta-box' ) );
+    // Include the meta box script
+    require_once RWMB_DIR . 'meta-box.php';
+    // Include the meta box definition (the file where you define meta boxes, see `demo/demo.php`)
+    include 'includes/meta-box/config-meta-boxes.php';
+
+/*------------------------------------------*/
+/* Options Framework
+/*------------------------------------------*/
+
+/**
+ * Slightly Modified Options Framework
+ */
+require_once ('admin/index.php');
+
+/** INCLUDE CUSTOM POST TYPES (Discography) *************************************************/
+include_once(TEMPLATEPATH . '/includes/post-types/discography.php');
 
 /*
 | -------------------------------------------------------------------
@@ -213,8 +237,48 @@ function bootstrapwp_excerpt($more) {
 }
 add_filter('excerpt_more', 'bootstrapwp_excerpt');
 
+/* ------------------------------------------------------------------------ */
+/* Pagination */
+
+function pagination($pages = '', $range = 2)
+{
+$showitems = ($range * 2)+1;
+
+global $paged;
+if(empty($paged)) $paged = 1;
+
+if($pages == '')
+{
+global $wp_query;
+$pages = $wp_query->max_num_pages;
+if(!$pages)
+{
+$pages = 1;
+}
+}
+
+if(1 != $pages)
+{
+echo "<ul>";
+if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<li><a href='".get_pagenum_link(1)."'>&laquo;</a></li>";
+if($paged > 1 && $showitems < $pages) echo "<li><a href='".get_pagenum_link($paged - 1)."'>&lsaquo;</a></li>";
+
+for ($i=1; $i <= $pages; $i++)
+{
+if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems ))
+{
+echo ($paged == $i)? "<li class='active'><span class='current'>".$i."</span></li>":"<li><a href='".get_pagenum_link($i)."' class='inactive' >".$i."</a></li>";
+}
+}
+
+if ($paged < $pages && $showitems < $pages) echo "<li><a href='".get_pagenum_link($paged + 1)."'>&rsaquo;</a></li>";
+if ($paged < $pages-1 && $paged+$range-1 < $pages && $showitems < $pages) echo "<li><a href='".get_pagenum_link($pages)."'>&raquo;</a></li>";
+echo "</ul>\n";
+}
+}
 
 
+/** Looking to remove this feature **/
 if ( ! function_exists( 'bootstrapwp_content_nav' ) ):
 /**
  * Display navigation to next/previous pages when applicable
@@ -245,6 +309,17 @@ function bootstrapwp_content_nav( $nav_id ) {
 }
 endif; // bootstrapwp_content_nav
 
+/**
+ * Amends avatar class to add img styling
+ */
+
+add_filter('get_avatar','change_avatar_css');
+
+function change_avatar_css($class) {
+$class = str_replace("class='avatar", "class='avatar img-polaroid", $class) ;
+return $class;
+}
+
 
 if ( ! function_exists( 'bootstrapwp_comment' ) ) :
 /**
@@ -269,35 +344,28 @@ function bootstrapwp_comment( $comment, $args, $depth ) {
 			break;
 		default :
 	?>
-	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-		<article id="comment-<?php comment_ID(); ?>" class="comment">
-			<footer>
-				<div class="comment-author vcard">
-					<?php echo get_avatar( $comment, 40 ); ?>
-					<?php printf( __( '%s <span class="says">says:</span>', 'bootstrap' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
-				</div><!-- .comment-author .vcard -->
-				<?php if ( $comment->comment_approved == '0' ) : ?>
-					<em><?php _e( 'Your comment is awaiting moderation.', 'bootstrap' ); ?></em>
-					<br />
-				<?php endif; ?>
+	<li <?php comment_class(); ?> class="media" id="li-comment-<?php comment_ID(); ?>">
 
-				<div class="comment-meta commentmetadata">
-					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
-					<?php
-						/* translators: 1: date, 2: time */
-						printf( __( '%1$s at %2$s', 'bootstrap' ), get_comment_date(), get_comment_time() ); ?>
-					</time></a>
-					<?php edit_comment_link( __( '(Edit)', 'bootstrap' ), ' ' );
-					?>
-				</div><!-- .comment-meta .commentmetadata -->
-			</footer>
+    <div class="pull-left">
+      <?php echo get_avatar($comment, $size = '50'); ?>
+    </div>
 
-			<div class="comment-content"><?php comment_text(); ?></div>
+    <div class="media-body">
 
-			<div class="reply">
-				<?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-			</div><!-- .reply -->
-		</article><!-- #comment-## -->
+    <h4 class="media-heading"><?php printf( __( '%s', 'bootstrap'), get_comment_author_link() ) ?> </h4>
+
+      <small><?php printf(__('%1$s at %2$s', 'bootstrap'), get_comment_date(),  get_comment_time() ) ?><?php edit_comment_link( __( '(Edit)', 'bootstrap'),'  ','' ) ?> &middot; <?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?></small>
+
+      <?php comment_text() ?>
+
+    </div>
+
+    <?php if ( $comment->comment_approved == '0' ) : ?>
+      <em><?php _e( 'Your comment is awaiting moderation.', 'bootstrap' ); ?></em>
+      <br />
+    <?php endif; ?>
+
+    </li>
 
 	<?php
 			break;
@@ -622,16 +690,6 @@ function filterEventOutputCondition($replacement, $condition, $match, $EM_Event)
 }
  
 add_filter('em_event_output_condition', 'filterEventOutputCondition', 10, 4);
-
-
-/*------------------------------------------*/
-/* Options Framework
-/*------------------------------------------*/
-
-/**
- * Slightly Modified Options Framework
- */
-require_once ('admin/index.php');
 
 
 /**

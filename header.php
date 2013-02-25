@@ -33,6 +33,9 @@
     echo ' | ' . sprintf( __( 'Page %s', 'bootstrapwp' ), max( $paged, $page ) );
 
   ?></title>
+
+  <?php global $data; ?>
+
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>

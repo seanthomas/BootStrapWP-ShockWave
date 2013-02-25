@@ -24,10 +24,16 @@ get_header(); ?>
       <?php /* Start the Loop */ ?>
       <?php while ( have_posts() ) : the_post(); ?>
         <?php get_template_part( 'includes/post-formats/single', get_post_format() ); ?>
+
+
+        <?php if($data['check_sharebox'] == true) { ?>
+				<?php get_template_part( 'includes/sharebox' ); ?>
+		<?php } ?>
+
       <?php endwhile;
 
  endif; ?>
-<hr />
+
  <?php comments_template(); ?>
 
  <?php bootstrapwp_content_nav('nav-below');?>

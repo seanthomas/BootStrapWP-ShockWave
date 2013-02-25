@@ -26,12 +26,16 @@ get_header(); ?>
 
       <?php /* Start the Loop */ ?>
       <?php while ( have_posts() ) : the_post(); ?>
+
         <?php get_template_part( 'includes/post-formats/post', get_post_format() ); ?>
-      <?php endwhile;
+        
+      <?php endwhile; ?>
 
- endif; ?>
+        <?php get_template_part( 'includes/nav' ); ?>
 
- <?php bootstrapwp_content_nav('nav-below');?>
+      <?php endif; ?>
+
+
 
 </div><!-- /.span8 -->
 <?php get_sidebar('blog'); ?>

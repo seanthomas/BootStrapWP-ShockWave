@@ -272,6 +272,65 @@ $of_options[] = array( "name" => "Custom CSS",
                     "type" => "textarea");
 
 /* ------------------------------------------------------------------------ */
+/* Blog Options
+/* ------------------------------------------------------------------------ */                                                         
+    
+$of_options[] = array( "name" => "Blog",
+					"type" => "heading");
+
+$of_options[] = array( "name" => "",
+					"desc" => "",
+					"id" => "general_heading",
+					"std" => "Social Sharing Box Icons",
+					"icon" => false,
+					"type" => "info"); 
+
+$of_options[] = array( "name" => "Enable 'Share This Story' Share Box on Single Posts",
+					"desc" => "Check to enable 'Share This Story' Share Box on Single Posts",
+					"id" => "check_sharebox",
+					"std" => 1,
+					"type" => "checkbox"); 
+
+					
+$of_options[] = array( "name" => "Enable Facebook in Social Sharing Box",
+					"desc" => "Check to enable Facebook in Social Sharing Box",
+					"id" => "check_sharingboxfacebook",
+					"std" => 1,
+					"type" => "checkbox"); 
+					
+$of_options[] = array( "name" => "Enable Twitter in Social Sharing Box",
+					"desc" => "Check to enable Twitter in Social Sharing Box",
+					"id" => "check_sharingboxtwitter",
+					"std" => 1,
+					"type" => "checkbox"); 
+					
+$of_options[] = array( "name" => "Enable LinkedIn in Social Sharing Box",
+					"desc" => "Check to enable LinkedIn in Social Sharing Box",
+					"id" => "check_sharingboxlinkedin",
+					"std" => 1,
+					"type" => "checkbox"); 
+					
+$of_options[] = array( "name" => "Enable Pinterest in Social Sharing Box",
+					"desc" => "Check to enable Pinterest in Social Sharing Box",
+					"id" => "check_sharingboxpinterest",
+					"std" => 1,
+					"type" => "checkbox"); 
+					
+					
+$of_options[] = array( "name" => "Enable Google in Social Sharing Box",
+					"desc" => "Check to enable Google in Social Sharing Box",
+					"id" => "check_sharingboxgoogle",
+					"std" => 1,
+					"type" => "checkbox"); 
+
+$of_options[] = array( "name" => "Enable E-Mail in Social Sharing Box",
+					"desc" => "Check to enable Google in E-Mail Sharing Box",
+					"id" => "check_sharingboxemail",
+					"std" => 1,
+					"type" => "checkbox"); 
+
+
+/* ------------------------------------------------------------------------ */
 /* Example Options
 /* ------------------------------------------------------------------------ */
 

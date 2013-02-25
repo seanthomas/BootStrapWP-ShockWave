@@ -7819,3 +7819,179 @@ ul.event-meta li a {
 .content {
   margin-bottom: 40px;
 }
+/* Sharebox ---------------------------------------------------- */
+.sharebox {
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+  margin-bottom: 30px;
+  padding: 10px 0 10px 0;
+}
+.sharebox h4 {
+  float: left;
+  margin: 10px 0 0 10px;
+  color: #777777;
+  font-size: 13px;
+}
+.sharebox .social-icons li {
+  float: right;
+  list-style: none;
+  margin: 0;
+}
+.sharebox .social-icons i {
+  margin: 10px;
+}
+.sharebox .social-icons a {
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  display: block;
+  width: 40px;
+  height: 40px;
+  opacity: 0.6;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.sharebox .social-icons a:hover {
+  background-color: #666666 !important;
+  opacity: 1;
+  color: #ffffff;
+}
+.pagination {
+  height: 40px;
+  margin: 20px 0;
+  margin-bottom: 40px;
+}
+.pagination ul {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+  margin-left: 0;
+  margin-bottom: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.pagination ul > li {
+  display: inline;
+}
+.pagination ul > li > a,
+.pagination ul > li > span {
+  float: left;
+  padding: 0 14px;
+  margin-left: 5px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.pagination ul > li > a:hover {
+  color: #ffffff;
+  background-color: #049cdb;
+}
+.pagination ul > .active > a,
+.pagination ul > .active > span {
+  background-color: #444444;
+  color: #ffffff;
+  cursor: default;
+}
+.pagination ul > .disabled > span,
+.pagination ul > .disabled > a,
+.pagination ul > .disabled > a:hover {
+  color: #999999;
+  background-color: transparent;
+  cursor: default;
+}
+.pagination ul > li:first-child > a,
+.pagination ul > li:first-child > span {
+  border-left-width: 1px;
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+}
+.pagination ul > li:last-child > a,
+.pagination ul > li:last-child > span {
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+}
+/* Comment Styling aka media ---------------------------------------------------- */
+.media,
+.media-body {
+  overflow: hidden;
+  *overflow: visible;
+  zoom: 1;
+}
+.media-body {
+  padding-left: 20px;
+}
+.media,
+.media .media {
+  margin-top: 15px;
+}
+.media:first-child {
+  margin-top: 0;
+}
+.media-object {
+  display: block;
+}
+.media-heading {
+  margin: 0 0 0;
+}
+.media > .pull-left {
+  margin-right: 10px;
+}
+.media > .pull-right {
+  margin-left: 10px;
+}
+.media-list {
+  margin-left: 0;
+  list-style: none;
+}
+ul.children {
+  list-style: none;
+}
+.comment {
+  margin: 20px 0 20px 0;
+}
+#respond-textarea {
+  margin-bottom: 20px;
+}
+#submit,
+.widget_search #searchsubmit {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #49afcd;
+  background-image: -moz-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5bc0de), to(#2f96b4));
+  background-image: -webkit-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: linear-gradient(to bottom, #5bc0de, #2f96b4);
+  background-repeat: repeat-x;
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ff5bc0de', endColorstr='#ff2f96b4', GradientType=0);
+  border-color: #2f96b4 #2f96b4 #1f6377;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #2f96b4;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+}
+#submit:hover,
+.widget_search #searchsubmit:hover {
+  color: #ffffff;
+  background-color: #2f96b4;
+  *background-color: #2a85a0;
+}
