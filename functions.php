@@ -93,8 +93,10 @@ add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
  */
 require_once ('admin/index.php');
 
-/** INCLUDE CUSTOM POST TYPES (Discography) *************************************************/
+/** INCLUDE CUSTOM POST TYPES (Discography etc) *************************************************/
 include_once(TEMPLATEPATH . '/includes/post-types/discography.php');
+include_once(TEMPLATEPATH . '/includes/post-types/events.php');
+include_once(TEMPLATEPATH . '/includes/post-types/artists.php');
 
 /*
 | -------------------------------------------------------------------
@@ -224,6 +226,9 @@ if ( function_exists( 'add_theme_support' ) ) {
 
 if ( function_exists( 'add_image_size' ) ) { 
     add_image_size( 'standard', 770, 300, true );     // Standard Blog Image
+    add_image_size( 'single-discography', 570, 428, true );     // Single Page Discography Image
+    add_image_size( 'single-event', 570, 428, true );     // Single Page Event Image
+    add_image_size( 'single-artist', 570, 428, true );     // Single Page Artist Image
 }
 /*
 | -------------------------------------------------------------------

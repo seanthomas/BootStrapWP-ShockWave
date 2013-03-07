@@ -7385,7 +7385,7 @@ a:active {
 .post {
   margin: 0 0 20px 0;
 }
-.post-image {
+.post .post-image {
   margin-bottom: 20px;
 }
 .post-image a {
@@ -7608,16 +7608,22 @@ img.wp-post-image {
 /* Footer
 /* ------------------------------------------------------------------------ */
 .footer {
-  padding: 0;
+  padding: 20px 0;
   margin: 0;
   border-top: 2px solid #222222;
-  background-color: #ffffff;
+  background-color: #222222;
   opacity: .9;
   -moz-opacity: .9;
 }
 .footer p {
   margin-bottom: 0;
-  color: #555555;
+  color: #eeeeee;
+}
+.footer a {
+  color: #999999;
+}
+.footer a:hover {
+  color: #ffffff;
 }
 .footer-links {
   margin: 10px 0;
@@ -7631,17 +7637,21 @@ img.wp-post-image {
 /* ------------------------------------------------------------------------ */
 .textwidget,
 p.textwidget {
-  color: #555555;
+  color: #999999;
 }
-footer .widget ul > li > a {
-  color: #555555;
+footer .widget ul li a {
+  color: #999999;
 }
-footer .widget ul > li > a:hover {
-  color: #049cdb;
+footer .widget ul li a:hover {
+  color: #ffffff;
   text-decoration: none;
 }
 footer h4.widget-title {
-  color: #555555;
+  color: #ffffff;
+}
+.footer-hr {
+  border-top: 1px solid #555555;
+  border-bottom: 1px solid #555555;
 }
 /* ------------------------------------------------------------------------ */
 /* Other Widget Styling
@@ -7819,7 +7829,7 @@ ul.event-meta li a {
 .content {
   margin-bottom: 40px;
 }
-/* Sharebox ---------------------------------------------------- */
+/* Sharebox Social Icons ---------------------------------------------------- */
 .sharebox {
   border-top: 1px solid #efefef;
   border-bottom: 1px solid #efefef;
@@ -7854,6 +7864,29 @@ ul.event-meta li a {
   border-radius: 3px;
 }
 .sharebox .social-icons a:hover {
+  background-color: #666666 !important;
+  opacity: 1;
+  color: #ffffff;
+}
+/* Get Album Box Icons ---------------------------------------------------- */
+.sharebox .album-icons li {
+  float: right;
+  list-style: none;
+  padding: 10px;
+}
+.sharebox .album-icons a {
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  padding: 10px;
+  opacity: 0.6;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: #666666;
+}
+.sharebox .album-icons a:hover {
   background-color: #666666 !important;
   opacity: 1;
   color: #ffffff;
@@ -7994,4 +8027,128 @@ ul.children {
   color: #ffffff;
   background-color: #2f96b4;
   *background-color: #2a85a0;
+}
+/* Discograohy/Albums Page (Multi Display) ---------------------------------------------------- */
+.thumbnail .caption {
+  margin: 0;
+  padding: 9px;
+  color: #555555;
+}
+/* Discograohy Single Album Page ---------------------------------------------------- */
+.album-attributes ul {
+  list-style: none;
+  margin: -7px 0 0 0;
+}
+.album-attributes ul li {
+  padding: 7px 0 6px 0;
+  background: url(../img/dotted.png) repeat-x bottom left;
+}
+.album-attributes ul li:last-child {
+  padding: 7px 0 0px 0;
+  background: url(../img/dotted.png) repeat-x bottom left;
+}
+.album-attributes ul li strong {
+  display: inline-block;
+  width: 120px;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #aeaeae;
+}
+.album-attributes ol li:first-child {
+  padding-top: 2px;
+}
+.album-attributes ol li:last-child {
+  background: none;
+  padding-bottom: 6px;
+}
+.dl-horizontal {
+  margin-top: 0 !important;
+}
+.album-attributes ol {
+  margin: 0px !important;
+}
+.dl-horizontal dt {
+  float: left;
+  width: 100px;
+  clear: left;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dl-horizontal dd {
+  margin-left: 140px;
+}
+ul.inline,
+ol.inline {
+  margin-left: 0;
+  list-style: none;
+}
+ul.inline > li,
+ol.inline > li {
+  display: inline-block;
+  *display: inline;
+  padding-right: 5px;
+  padding-left: 5px;
+  *zoom: 1;
+}
+/* Events Page ---------------------------------------------------- */
+.events {
+  margin-bottom: 20px;
+}
+.events-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.events-date {
+  width: 100%;
+  margin: 0 0 0 0;
+}
+.events-date:hover {
+  width: 100%;
+  margin: 0 0 0 0;
+  background-color: #f4f4f4;
+}
+.events-date .date {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 20px;
+  float: left;
+  max-width: 50px;
+  background: #f4f4f4;
+  color: #666666;
+  padding: 10px 0 0 0;
+}
+.events-date .date span {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 11px;
+  display: block;
+  background: #666666;
+  color: #ffffff;
+  margin: 10px 0 0 0;
+  padding: 5px 0;
+}
+.events .events-description {
+  padding-top: 20px;
+}
+.events h4 {
+  margin: 0;
+}
+.events .events-description span {
+  color: #999999;
+}
+.events-button {
+  margin: 28px 0 0 0;
+  padding: 0;
+  text-align: center;
+}
+.content-events {
+  margin-top: 20px;
+}
+/* Artists Page ---------------------------------------------------- */
+.artists img {
+  margin-right: 30px;
 }

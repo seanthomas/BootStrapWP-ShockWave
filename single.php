@@ -26,7 +26,7 @@ get_header(); ?>
         <?php get_template_part( 'includes/post-formats/single', get_post_format() ); ?>
 
 
-        <?php if($data['check_sharebox'] == true) { ?>
+        <?php if($data['check_blog_sharebox'] == true) { ?>
 				<?php get_template_part( 'includes/sharebox' ); ?>
 		<?php } ?>
 

@@ -3,17 +3,24 @@
 add_action( 'admin_init', 'rw_register_meta_boxes' );
 function rw_register_meta_boxes()
 {
-$prefix = 'gxg_';
+$prefix = 'sw_';
 $meta_boxes = array();
 
-/** AUDIO **/
+/** Audio **/
 $meta_boxes[] = array(
         'id' => 'songs',
-        'title' => __('SONGTITLES','gxg_textdomain'), 
+        'title' => __('Album Tracklisting','bootstrapwp'), 
         'pages' => array('discography'),
-        'fields' => array(                
+        'fields' => array(   
                 array(
-                        'name' => __('Add the Album\'s songtitles','gxg_textdomain'), 
+                        'name' => __('Display Tracklisting?','bootstrapwp'),  
+                        'id' => $prefix . 'display_tracklisting',
+                        'type' => 'checkbox',
+                        'desc' => __('Check if you would like to display the Tracklisting','bootstrapwp'), 
+                        'std' => '' 
+                ),              
+                array(
+                        'name' => __('Add the Album\'s songs to show the Tracklisting','bootstrapwp'), 
                         'id' => $prefix . 'song',
                         'clone' => true,
                         'type' => 'text',
@@ -23,11 +30,11 @@ $meta_boxes[] = array(
 
 $meta_boxes[] = array(
         'id' => 'soundcloud',
-        'title' => __('SOUNDCLOUD PLAYER','gxg_textdomain'), 
+        'title' => __('Soundcloud Audio Player','bootstrapwp'), 
         'pages' => array('discography'),
         'fields' => array(                
                 array(
-                        'name' => __('Paste Embed Code','gxg_textdomain'),              
+                        'name' => __('Paste Embed Code','bootstrapwp'),              
                         'desc' => '',        
                         'id' => $prefix . 'soundcloud',      
                         'type' => 'textarea',               
@@ -39,18 +46,18 @@ $meta_boxes[] = array(
 
 $meta_boxes[] = array(
         'id' => 'jwplayer',
-        'title' => __('AUDIO PLAYER (requires JW Player)','gxg_textdomain'), 
+        'title' => __('Jw Audio Player','bootstrapwp'), 
         'pages' => array('discography'),
         'fields' => array(
                 array(
-                        'name' => __('Display Audio Player?','gxg_textdomain'),  
-                        'id' => $prefix . 'audioplayer',
+                        'name' => __('Display JW Audio Player?','bootstrapwp'),  
+                        'id' => $prefix . 'jwaudioplayer',
                         'type' => 'checkbox',
-                        'desc' => __('Check if you would like to display an Audio Player','gxg_textdomain'), 
+                        'desc' => __('Check if you would like to display an Audio Player','bootstrapwp'), 
                         'std' => '' 
                 ),  
                 array( 
-                                'name' => __('Upload music files. They will start uploading once you hit the <b>Publish / Update</b> button above. If you upload many songtitles at once, this might take a while.','gxg_textdomain'), 
+                                'name' => __('Upload music files. They will start uploading once you hit the <b>Publish / Update</b> button above. If you upload many songtitles at once, this might take a while.','bootstrapwp'), 
                                 'id' => $prefix . 'jwplayer',
                                 'type' => 'file',
                 ),             
@@ -60,32 +67,32 @@ $meta_boxes[] = array(
 
 $meta_boxes[] = array(
         'id' => 'album-buy',
-        'title' => __('BUY / DOWNLOAD LINKS','gxg_textdomain'), 
+        'title' => __('Buy & Download Links','bootstrapwp'), 
         'pages' => array('discography'),
         'fields' => array(   
                 array(
-                        'name' => __('Amazon','gxg_textdomain'),                      
-                        'desc' => __('Enter the full URL to the album on Amazon','gxg_textdomain'),        
+                        'name' => __('Amazon','bootstrapwp'),                      
+                        'desc' => __('Enter the full URL to the album on Amazon','bootstrapwp'),        
                         'id' => $prefix . 'amazon',                 
                         'type' => 'text',                        
                         'std' => '',                             
                 ),
                 array(
-                        'name' => __('iTunes','gxg_textdomain'),                        
-                        'desc' => __('Enter the full URL to the album on iTunes','gxg_textdomain'),          
+                        'name' => __('iTunes','bootstrapwp'),                        
+                        'desc' => __('Enter the full URL to the album on iTunes','bootstrapwp'),          
                         'id' => $prefix . 'itunes',                 
                         'type' => 'text',                        
                         'std' => '',                             
                 ),                
                 array(
-                        'name' => __('Other buying / downloading link','gxg_textdomain'),                       
-                        'desc' => __('Enter the full URL to the album','gxg_textdomain'),         
+                        'name' => __('Other buying / downloading link','bootstrapwp'),                       
+                        'desc' => __('Enter the full URL to the album','bootstrapwp'),         
                         'id' => $prefix . 'buy_other',                 
                         'type' => 'text',                        
                         'std' => '',
                 ),      
                 array(
-                        'name' => __('Button Text for other buying / downloading link','gxg_textdomain'),                      
+                        'name' => __('Button Text for other buying / downloading link','bootstrapwp'),                      
                         'desc' => '',      
                         'id' => $prefix . 'buy_other_text',                 
                         'type' => 'text',                        
@@ -97,38 +104,115 @@ $meta_boxes[] = array(
 
 $meta_boxes[] = array(
         'id' => 'albums',
-        'title' => __('ALBUM INFO','gxg_textdomain'), 
+        'title' => __('Album Information','bootstrapwp'), 
         'pages' => array('discography'),
         'fields' => array(                
                 array(
-                        'name' => __('Release Date','gxg_textdomain'),              
+                        'name' => __('Release Date','bootstrapwp'),              
                         'desc' => '',        
-                        'id' => $prefix . 'releasedate', 
+                        'id' => $prefix . 'release_date', 
                         'type' => 'date',
                         'format' => 'd M yy',                
                         'std' => '',                    
                 ),  
                 array(
-                        'name' => __('Additional Info LEFT column','gxg_textdomain'),                          
-                        'desc' =>  __('Enter any additional info about the Album. It will be displayed in the left column. You can use HTML too.','gxg_textdomain'),        
-                        'id' => $prefix . 'albuminfo_left',                 
-                        'type' => 'textarea',                        
-                        'std' => '',                             
+                        'name' => __('Album Status','bootstrapwp'),              
+                        'desc' => 'For example - Out Now',        
+                        'id' => $prefix . 'Album_status', 
+                        'type' => 'text',              
+                        'std' => '',                    
+                ),
+                array(
+                        'name' => __('Record label','bootstrapwp'),              
+                        'desc' => 'For example - Universal Records',        
+                        'id' => $prefix . 'record_label', 
+                        'type' => 'text',              
+                        'std' => '',                    
+                ),                                 
+        )
+);
+
+/** Events **/
+$meta_boxes[] = array(
+        'id' => 'events',
+        'title' =>  __('Events','bootstrapwp'), 
+        'pages' => array('events'),
+        'fields' => array(                
+                array(
+                        'name' =>   __('Date','bootstrapwp'),             
+                        'desc' => '',        
+                        'id' => $prefix . 'date',      
+                        'type' => 'date',
+                        'format' => 'yy/mm/dd',               
+                        'std' => '',                    
+                ), 
+                array(
+                        'name' =>   __('Time','bootstrapwp'),             
+                        'desc' => '',        
+                        'id' => $prefix . 'time',      
+                        'type' => 'time',
+                        'format' => 'hh:mm',               
+                        'std' => '',                    
                 ),                 
                 array(
-                        'name' => __('Additional Info CENTER column','gxg_textdomain'),                          
-                        'desc' =>  __('Enter any additional info about the Album. It will be displayed in the center column. You can use HTML too.','gxg_textdomain'),        
-                        'id' => $prefix . 'albuminfo_center',                 
-                        'type' => 'textarea',                        
-                        'std' => '',                             
-                ),                    
+                        'name' => __('Address','bootstrapwp'),          
+                        'desc' => '',    
+                        'id' => $prefix . 'address',            
+                        'type' => 'text',                    
+                        'std' => '',                         
+                ),
                 array(
-                        'name' => __('Additional Info RIGHT column','gxg_textdomain'),                          
-                        'desc' =>  __('Enter any additional info (Lyrics, etc...) about the Album. It will be displayed in the right column. You can use HTML too.','gxg_textdomain'),        
-                        'id' => $prefix . 'albuminfo',                 
-                        'type' => 'textarea',                        
+                        'name' => __('Venue','bootstrapwp'),                     
+                        'desc' => '',           
+                        'id' => $prefix . 'venue',           
+                        'type' => 'text',                    
+                        'std' => '',                         
+                ),                
+                array(
+                        'name' => __('Ticket URL','bootstrapwp'),                          
+                        'desc' => __('Enter the full URL to the ticket sales website','bootstrapwp'),           
+                        'id' => $prefix . 'url',                 
+                        'type' => 'text',                        
                         'std' => '',                             
-                )                
+                ),
+                array(
+                        'name' => __('Ticket URL Button Text','bootstrapwp'),                          
+                        'desc' => __('Enter Button Text','bootstrapwp'),           
+                        'id' => $prefix . 'button_text',                 
+                        'type' => 'text',                        
+                        'std' => 'Buy Tickets',                             
+                ),              
+                array(
+                        'name' => __('Sold Out?','bootstrapwp'),      
+                        'id' => $prefix . 'soldout',
+                        'type' => 'checkbox',
+                        'desc' => __('Check if show is sold out.','bootstrapwp'),    
+                        'std' => ''                      // Value can be 0 or 1
+                ),
+                array(
+                        'name' => __('Cancelled?','bootstrapwp'),       
+                        'id' => $prefix . 'cancelled',
+                        'type' => 'checkbox',
+                        'desc' => __('Check if show is cancelled.','bootstrapwp'),    
+                        'std' => ''                      // Value can be 0 or 1
+                ),                
+        )
+);
+
+/** Events **/
+$meta_boxes[] = array(
+        'id' => 'artists',
+        'title' =>  __('Artists','bootstrapwp'), 
+        'pages' => array('artists'),
+        'fields' => array(                
+                array(
+                        'name' =>   __('Artist Role','bootstrapwp'),             
+                        'desc' => '',        
+                        'id' => $prefix . 'artist_role',      
+                        'type' => 'text',
+                        'desc' => __('For example - Drummer','bootstrapwp'),              
+                        'std' => '',                    
+                ),                                
         )
 );
 

@@ -287,10 +287,24 @@ $of_options[] = array( "name" => "",
 
 $of_options[] = array( "name" => "Enable 'Share This Story' Share Box on Single Posts",
 					"desc" => "Check to enable 'Share This Story' Share Box on Single Posts",
-					"id" => "check_sharebox",
+					"id" => "check_blog_sharebox",
 					"std" => 1,
 					"type" => "checkbox"); 
 
+
+/* ------------------------------------------------------------------------ */
+/* Sharebox Options
+/* ------------------------------------------------------------------------ */                                                         
+    
+$of_options[] = array( "name" => "Sharebox",
+					"type" => "heading");
+
+$of_options[] = array( "name" => "",
+					"desc" => "",
+					"id" => "general_heading",
+					"std" => "Social Sharing Box Icon Options",
+					"icon" => false,
+					"type" => "info"); 
 					
 $of_options[] = array( "name" => "Enable Facebook in Social Sharing Box",
 					"desc" => "Check to enable Facebook in Social Sharing Box",
@@ -328,6 +342,72 @@ $of_options[] = array( "name" => "Enable E-Mail in Social Sharing Box",
 					"id" => "check_sharingboxemail",
 					"std" => 1,
 					"type" => "checkbox"); 
+
+/* ------------------------------------------------------------------------ */
+/* Discography Options
+/* ------------------------------------------------------------------------ */                                                         
+    
+$of_options[] = array( "name" => "Discography",
+					"type" => "heading");
+
+$of_options[] = array( "name" => "",
+					"desc" => "",
+					"id" => "general_heading",
+					"std" => "Get Album Box Icons",
+					"icon" => false,
+					"type" => "info"); 
+
+$of_options[] = array( "name" => "Enable 'Get This Album' Box on Single Discography",
+					"desc" => "Check to enable 'Get This Album' Box on Single Discography",
+					"id" => "check_getalbum",
+					"std" => 1,
+					"type" => "checkbox"); 
+
+/* ------------------------------------------------------------------------ */
+/* Artists Options
+/* ------------------------------------------------------------------------ */                                                         
+    
+$of_options[] = array( "name" => "Artists",
+					"type" => "heading");
+
+$of_options[] = array( "name" => "",
+					"desc" => "",
+					"id" => "general_heading",
+					"std" => "Social Sharing Box Icons",
+					"icon" => false,
+					"type" => "info"); 
+
+$of_options[] = array( "name" => "Enable 'Share This Story' Share Box on Artists Page",
+					"desc" => "Check to enable 'Share This Story' Share Box on Artists Page",
+					"id" => "check_artists_sharebox",
+					"std" => 1,
+					"type" => "checkbox"); 
+
+/* ------------------------------------------------------------------------ */
+/* Event Options
+/* ------------------------------------------------------------------------ */                                                         
+    
+$of_options[] = array( "name" => "Events",
+					"type" => "heading");
+
+$of_options[] = array( "name" => "",
+					"desc" => "",
+					"id" => "general_heading",
+					"std" => "Display the 'Get Tickets' box",
+					"icon" => false,
+					"type" => "info"); 
+
+$of_options[] = array( "name" => "Enable 'Get Tickets' Box on Single Events Page",
+					"desc" => "Check to enable 'Get Tickets' Box on Single Events Page",
+					"id" => "check_gettickets",
+					"std" => 1,
+					"type" => "checkbox"); 
+
+$of_options[] = array( "name" => "Enable 'Share This Story' Share Box on Events Page",
+					"desc" => "Check to enable 'Share This Story' Share Box on Events Page",
+					"id" => "check_events_sharebox",
+					"std" => 1,
+					"type" => "checkbox");
 
 
 /* ------------------------------------------------------------------------ */

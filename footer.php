@@ -54,7 +54,7 @@
       	
           </div>
         </div>
-<hr>
+<hr class="footer-hr">
 		<div class="container">
         <div class="row-fluid">
       		<p class="pull-right"><a href="#"><i class="icon-arrow-up"></i> Back to top</a></p>
