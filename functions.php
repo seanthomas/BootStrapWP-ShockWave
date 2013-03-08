@@ -97,6 +97,7 @@ require_once ('admin/index.php');
 include_once(TEMPLATEPATH . '/includes/post-types/discography.php');
 include_once(TEMPLATEPATH . '/includes/post-types/events.php');
 include_once(TEMPLATEPATH . '/includes/post-types/artists.php');
+include_once(TEMPLATEPATH . '/includes/post-types/galleries.php');
 
 /*
 | -------------------------------------------------------------------
@@ -229,6 +230,7 @@ if ( function_exists( 'add_image_size' ) ) {
     add_image_size( 'single-discography', 570, 428, true );     // Single Page Discography Image
     add_image_size( 'single-event', 570, 428, true );     // Single Page Event Image
     add_image_size( 'single-artist', 570, 428, true );     // Single Page Artist Image
+    add_image_size( 'single-gallery', 300, 200, true );     // Single Page Gallery Images
 }
 /*
 | -------------------------------------------------------------------

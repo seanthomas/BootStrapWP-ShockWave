@@ -216,6 +216,29 @@ $meta_boxes[] = array(
         )
 );
 
+/** Galleries **/
+$meta_boxes[] = array(
+        'id' => 'galleries',
+        'title' =>  __('Galleries','bootstrapwp'), 
+        'pages' => array('galleries'),
+        'fields' => array(                
+                array(
+                        'name' => __('Upload Images for your Gallery. </br></br> Images can be dragged and dropped to re-arrange them.','bootstrapwp'), 
+                        'desc' => '',
+                        'id' => $prefix . 'gallery_images',
+                        'type' => 'plupload_image'       
+                ),
+                array(
+                        'name' =>   __('Caption','bootstrapwp'),             
+                        'desc' => '',        
+                        'id' => $prefix . 'galleries_caption',      
+                        'type' => 'text',
+                        'desc' => __('For example - London, UK or US Tour','bootstrapwp'),              
+                        'std' => '',
+                ),                             
+        )
+);
+
  foreach ( $meta_boxes as $meta_box )
 {
 new RW_Meta_Box( $meta_box );

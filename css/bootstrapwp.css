@@ -6734,8 +6734,6 @@ Overriding some defaults from the Bootstrap defaults to improve/fix integration 
 @media (max-width: 979px) {
   .navbar-relative-top {
     position: static;
-    margin-left: -20px;
-    margin-right: -20px;
     padding: 0;
   }
   .navbar-relative-top {
@@ -7365,7 +7363,7 @@ a:active {
 /* ------------------------------------------------------------------------ */
 /* Home Page Blog */
 /* ------------------------------------------------------------------------ */
-.thumbnail {
+.latest-blog .thumbnail {
   padding: 0;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -7374,7 +7372,7 @@ a:active {
   -moz-box-shadow: 0px 1px 2px 0px rgba(180, 180, 180, 0.2);
   box-shadow: 0px 1px 2px 0px rgba(180, 180, 180, 0.2);
 }
-.thumbnail .wp-post-image {
+.latest-blog .thumbnail .wp-post-image {
   -webkit-border-radius: 4px 4px 0px 0px;
   -moz-border-radius: 4px 4px 0px 0px;
   border-radius: 4px 4px 0px 0px;
@@ -7690,27 +7688,6 @@ h4.widget-title {
   font-style: italic;
   color: #999999;
 }
-/* Index
--------------------------------------------------- */
-/* Looking at img styling - In dev
-
-.thumbnail img, 
-.index img {
-  border: 1px solid @grayLighter;
-  -webkit-transition: all .1s ease-in-out;
-  -o-transition: all .1s ease-in-out;
-  -moz-transition: all .1s ease-in-out;
-  -ms-transition: all .1s ease-in-out;
-  transition: all .1s ease-in-out;
-  opacity: .9;
-}
-
-.thumbnail img:hover, 
-.index img:hover {
-  opacity: 1;
-}
-
-*/
 /* ------------------------------------------------------------------------ */
 /* Page Header
 /* ------------------------------------------------------------------------ */
