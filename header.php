@@ -55,9 +55,9 @@
   </head>
   <body <?php body_class(); ?>  data-spy="scroll" data-target=".bs-docs-sidebar" data-offset="10">
     <div class="navbar navbar-relative-top">
-           <div class="navbar-inner">
-             <div class="container">
-           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+       <div class="navbar-inner">
+         <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -72,16 +72,6 @@
               'fallback_cb'     => '',
               'walker' => new Bootstrapwp_Walker_Nav_Menu()
           ) ); ?>
-                    <?php
-           /** Loading WordPress Custom Menu  **/
-           wp_nav_menu( array(
-              'theme_location'   => 'secondary-menu',
-              'container_class' => 'nav-collapse',
-              'menu_class'      => 'nav icon pull-right',
-              'fallback_cb'     => 'false',
-              'walker' => new Bootstrapwp_Walker_Nav_Menu()
-          ) ); ?>
-
         </div>
       </div>
     </div>

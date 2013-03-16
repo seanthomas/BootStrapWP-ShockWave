@@ -25,8 +25,18 @@ get_header(); ?>
 
 <div <?php post_class(); ?>>
 
+  <div class="page-title">
+    <h1><?php the_title();?>
 
-<div class="row-fluid">
+      <?php if ($artist_role) { ?>
+        <small><em class="muted"> - <?php echo $artist_role; ?></em></small>
+      <?php } ?>
+
+    </h1>
+
+  </div>
+
+<div class="row">
 
 <div class="span6">
 
@@ -40,17 +50,11 @@ get_header(); ?>
 
 <div class="span6">
 
-    <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h3><?php the_title();?></h3></a>
+  <?php the_content();?>
 
 </div>
 
 </div>
-
-<div class="content-events row-fluid">
-<?php the_content();?>
-</div>
-
-
 
 </div>
 

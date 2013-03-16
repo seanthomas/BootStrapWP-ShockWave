@@ -16,5 +16,14 @@ jQuery(document).ready(function($){
 			$(this).remove(); 
 		});
 	});
+
+	$('.single-post-image a').hover(function() {
+		$(this).find('.single-overlay').stop().animate({'opacity' : 1}, 200, 'easeOutSine');
+		$(this).find('.post-icon').stop().animate({'top' : 50, 'opacity' : 1}, 160, 'easeOutSine');
+	}, function(){
+		$(this).find('.single-overlay').stop().animate({'opacity' : 0}, 300, 'easeInSine');
+		$(this).find('.post-icon').stop().animate({'top' : -25, 'opacity' : 0}, 260, 'easeOutSine');
+	});
 	
 });
+

@@ -106,3 +106,13 @@ Custom CSS
 Backup Options
 
 Get This Album:			itunes amazon download
+
+              <?php
+               /** Loading WordPress Custom Menu  **/
+               wp_nav_menu( array(
+                  'theme_location'   => 'secondary-menu',
+                  'container_class' => 'nav-collapse',
+                  'menu_class'      => 'nav icon pull-right',
+                  'fallback_cb'     => 'false',
+                  'walker' => new Bootstrapwp_Walker_Nav_Menu()
+              ) ); ?>

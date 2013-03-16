@@ -19,16 +19,25 @@ get_header(); ?>
 
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
   
-        $artist_role = get_post_meta($post->ID, 'sw_artist_role', true);
+        $galleries_caption = get_post_meta($post->ID, 'sw_galleries_caption', true);
         
         ?>
 
 <div <?php post_class(); ?>>
 
+  <div class="page-title">
+    <h1><?php the_title();?>
 
-<div class="row-fluid">
+      <?php if ($galleries_caption) { ?>
+        <small><em class="muted"> - <?php echo $galleries_caption; ?></em></small>
+      <?php } ?>
+      
+    </h1>
+  </div>
 
-<ul class="thumbnails">
+<div class="row post-types">
+
+<ul class="unstyled">
     <?php 
     
 $images = rwmb_meta( 'sw_gallery_images', 'type=image&size=single_gallery' );
@@ -36,7 +45,7 @@ $images = rwmb_meta( 'sw_gallery_images', 'type=image&size=single_gallery' );
 foreach ( $images as $image )
       {
     echo "<li class='span4'>
-    <a class='thumbnail img-polaroid' title='' alt='{$image['caption']}' data-rel='prettyPhoto[pp_gallery]' href='{$image['full_url']}'>
+    <a class='thumbnail' title='' alt='{$image['caption']}' data-rel='prettyPhoto[pp_gallery]' href='{$image['full_url']}'>
     <img data-src='holder.js/300x200' alt='' src='{$image['url']}' />
     </a>
     </li>";

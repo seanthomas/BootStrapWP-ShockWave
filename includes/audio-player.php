@@ -1,13 +1,13 @@
 
 
-<!-- Button to trigger modal -->
-<a href="#myModal" role="button" class="btn" data-toggle="modal">Click here to listen to Album</a>
+<!-- Button to Audio Player Modal -->
+<a href="#AudioModal" role="button" class="btn-modal" data-toggle="modal">Click here to listen to Album</a>
 
-<!-- Modal -->
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- Audio Play Modal -->
+<div id="AudioModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="AudioModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Modal header</h3>
+    <h3 id="AudioPlayerLabel">Modal header</h3>
   </div>
   <div class="modal-body">
     <div id="playlist" class="span9">
@@ -54,6 +54,6 @@
         </div>  
     </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn-modal" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>

@@ -36,8 +36,12 @@ get_header(); ?>
 
 <div <?php post_class(); ?>>
 
+  <div class="page-title">
+    <h1><?php the_title();?></h1>
 
-<div class="row-fluid">
+  </div>
+
+<div class="row">
 
 <div class="span6">
 
@@ -50,8 +54,6 @@ get_header(); ?>
 </div>
 
 <div class="span6 album-attributes">
-
-    <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h3><?php the_title();?></h3></a>
 
     <ul class="unstlyed">
 
@@ -67,48 +69,52 @@ get_header(); ?>
 
         <li><strong><?php _e('Address:', 'bootstrapwp') ?></strong><?php echo $address; ?></li>
 
+        <?php if($data['check_gettickets'] == true) { ?>
+        <li class="ticketbox">
+
+          <ul class="album-icons inline">
+
+          <strong class="hidden-phone"><?php _e('Get Tickets:', 'bootstrapwp') ?></strong>
+
+            <?php 
+            if ($cancelled){ ?>
+            <li> 
+                    <a href=""><?php _e('Cancelled', 'bootstrapwp') ?></a>
+            </li>       
+            <?php }
+
+            elseif ($soldout){ ?>    
+            <li>                                             
+                    <a href=""><?php _e('Sold Out', 'bootstrapwp') ?></a>  
+            </li>   
+            <?php }
+
+            if ($url){ ?>
+            <li> 
+                    <a href="<?php echo $itunes; ?>"><?php if ($button_text) { echo $button_text; } else { _e('Buy Tickets', 'bootstrapwp'); } ?></a>
+           </li>       
+            <?php } 
+            ?>
+
+          </ul>
+        </li>
+        <?php } ?>
+
+
+
     </ul>
+
+<?php the_content();?>
 
 </div>
 
 </div>
 
 <div class="content-events row-fluid">
-<?php the_content();?>
-</div>
 
 </div>
 
-<?php if($data['check_gettickets'] == true) { ?>
-<div class="sharebox row-fluid">
-  <h4>Get Tickets</h4>
-  <div class="album-icons pull-right inline">
-    <ul>
-
-      <?php 
-      if ($cancelled){ ?>
-      <li> 
-              <a href=""><?php _e('Cancelled', 'bootstrapwp') ?></a>
-      </li>       
-      <?php }
-
-      elseif ($soldout){ ?>    
-      <li>                                             
-              <a href=""><?php _e('Sold Out', 'bootstrapwp') ?></a>  
-      </li>   
-      <?php }
-
-      if ($url){ ?>
-      <li> 
-              <a href="<?php echo $itunes; ?>"><?php if ($button_text) { echo $button_text; } else { _e('Buy Tickets', 'bootstrapwp'); } ?></a>
-     </li>       
-      <?php } 
-      ?>
-
-    </ul>
-  </div>
 </div>
-<?php } ?>
 
         <?php if($data['check_events_sharebox'] == true) { ?>
         <?php get_template_part( 'includes/sharebox' ); ?>

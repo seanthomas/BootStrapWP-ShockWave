@@ -68,6 +68,8 @@ add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
        wp_enqueue_script('demojs', get_template_directory_uri().'/js/bootstrapwp.demo.js', array('jquery'),'0.90', true );
        wp_enqueue_script('twitter', get_template_directory_uri().'/js/twitter.js', array('jquery'),'1.0', true ); 
        wp_enqueue_script('functions', get_template_directory_uri().'/js/functions.js', array('jquery'),'1.0', true );
+       wp_register_script('prettyPhoto', get_template_directory_uri() . '/js/prettyPhoto.js', 'jquery', '3.1', true);
+       wp_enqueue_script('lightbox-script', get_template_directory_uri().'/js/lightbox-script.js', array('jquery'),'1.0', true );
        wp_enqueue_script('jwplayer', get_template_directory_uri().'/includes/jwplayer/jwplayer.js' );      
   }
 add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
@@ -226,11 +228,12 @@ if ( function_exists( 'add_theme_support' ) ) {
  }
 
 if ( function_exists( 'add_image_size' ) ) { 
-    add_image_size( 'standard', 770, 300, true );     // Standard Blog Image
-    add_image_size( 'single-discography', 570, 428, true );     // Single Page Discography Image
-    add_image_size( 'single-event', 570, 428, true );     // Single Page Event Image
-    add_image_size( 'single-artist', 570, 428, true );     // Single Page Artist Image
-    add_image_size( 'single-gallery', 300, 200, true );     // Single Page Gallery Images
+    add_image_size( 'standard', 870, 300, true );     // Standard Blog Image
+    add_image_size( 'page-post-types', 370, 200, true );     // Pages Post Types Image
+    add_image_size( 'single-discography', 570, 862, true );     // Single Page Discography Image
+    add_image_size( 'single-event', 570, 862, true );     // Single Page Event Image
+    add_image_size( 'single-artist', 570, 862, true );     // Single Page Artist Image
+    add_image_size( 'single-gallery', 300, 862, true );     // Single Page Gallery Images
 }
 /*
 | -------------------------------------------------------------------
@@ -240,7 +243,7 @@ if ( function_exists( 'add_image_size' ) ) {
 | */
 function bootstrapwp_excerpt($more) {
        global $post;
-  return '&nbsp; &nbsp;</p><p><a class="btn btn-mini btn-primary btn-readmore" href="'. get_permalink($post->ID) . '">Read more &raquo;</a>';
+  return '&nbsp; &nbsp;</p><p><a href="'. get_permalink($post->ID) . '">Read more...</a>';
 }
 add_filter('excerpt_more', 'bootstrapwp_excerpt');
 
@@ -351,7 +354,7 @@ function bootstrapwp_comment( $comment, $args, $depth ) {
 			break;
 		default :
 	?>
-	<li <?php comment_class(); ?> class="media" id="li-comment-<?php comment_ID(); ?>">
+	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 
     <div class="pull-left">
       <?php echo get_avatar($comment, $size = '50'); ?>
@@ -359,11 +362,25 @@ function bootstrapwp_comment( $comment, $args, $depth ) {
 
     <div class="media-body">
 
-    <h4 class="media-heading"><?php printf( __( '%s', 'bootstrap'), get_comment_author_link() ) ?> </h4>
+      <div class="comment-details">
 
-      <small><?php printf(__('%1$s at %2$s', 'bootstrap'), get_comment_date(),  get_comment_time() ) ?><?php edit_comment_link( __( '(Edit)', 'bootstrap'),'  ','' ) ?> &middot; <?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?></small>
+        <strong><?php printf( __( '%s', 'bootstrap'), get_comment_author_link() ) ?></strong>
 
-      <?php comment_text() ?>
+        <div class="pull-right">
+
+          <span class="reply">
+            <?php printf(__('%1$s at %2$s', 'bootstrap'), get_comment_date(),  get_comment_time() ) ?><?php edit_comment_link( __( '(Edit)', 'bootstrap'),'  ','' ) ?>
+          </span>
+
+          <span class="date">
+            / <?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+          </span>
+
+        </div>
+
+        <?php comment_text() ?>
+
+      </div>
 
     </div>
 

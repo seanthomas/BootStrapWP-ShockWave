@@ -7183,6 +7183,14 @@ a:hover,
 a:active {
   text-decoration: none;
 }
+a {
+  color: #0088cc;
+  text-decoration: none;
+}
+a:hover {
+  color: #005580;
+  text-decoration: underline;
+}
 /* ------------------------------------------------------------------------ */
 /* Navbar
 /* ------------------------------------------------------------------------ */
@@ -7361,23 +7369,6 @@ a:active {
   opacity: 1;
 }
 /* ------------------------------------------------------------------------ */
-/* Home Page Blog */
-/* ------------------------------------------------------------------------ */
-.latest-blog .thumbnail {
-  padding: 0;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: 0px 1px 2px 0px rgba(180, 180, 180, 0.2);
-  -moz-box-shadow: 0px 1px 2px 0px rgba(180, 180, 180, 0.2);
-  box-shadow: 0px 1px 2px 0px rgba(180, 180, 180, 0.2);
-}
-.latest-blog .thumbnail .wp-post-image {
-  -webkit-border-radius: 4px 4px 0px 0px;
-  -moz-border-radius: 4px 4px 0px 0px;
-  border-radius: 4px 4px 0px 0px;
-}
-/* ------------------------------------------------------------------------ */
 /* Blog Standard - Overview */
 /* ------------------------------------------------------------------------ */
 .post {
@@ -7397,7 +7388,7 @@ a:active {
 
 }
 .post-title {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   margin-top: 0;
 }
 .post-title h3 {
@@ -7405,19 +7396,6 @@ a:active {
 }
 i.icon-white {
   color: #fff;
-}
-ul.post-meta li,
-ul.post-meta li a {
-  font-size: 11px;
-  line-height: 18px;
-  letter-spacing: 1px;
-  padding-bottom: 6px;
-}
-.date-color {
-  color: #049cdb;
-}
-.no-color {
-  color: #222222;
 }
 .btn-readmore {
   color: #ffffff;
@@ -7487,6 +7465,36 @@ ul.post-meta li a {
 .btn-sticky.active {
   background-color: #0378a9 \9;
 }
+.post-meta {
+  background: #fff;
+  color: #666;
+  margin: 5px 0px;
+  padding: 10px 5px;
+  border-top: 1px solid #eee;
+}
+.post-meta a {
+  text-decoration: none;
+}
+.post-meta i {
+  opacity: 0.35;
+  margin-right: 5px;
+  zoom: 1;
+}
+.post-meta span {
+  margin-right: 10px;
+}
+/* Sticky Post Styles
+----------------------------------------------------------------------------------------*/
+.sticky {
+  padding: none;
+  border: none;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: navbarLinkBackgroundActive;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
 /* Image Hover Overlay ---------------------------------------------------- */
 .overlay {
   position: absolute;
@@ -7503,6 +7511,21 @@ ul.post-meta li a {
 }
 .post-image .overlay {
   background-image: url(../img/overlay-link.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.single .post-image .overlay {
+  background-image: url(../img/overlay-lightbox.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.post-gallery .overlay {
+  background-image: url(../img/overlay-link.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.single .post-gallery .overlay {
+  background-image: url(../img/overlay-lightbox.png);
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -7807,11 +7830,25 @@ ul.event-meta li a {
   margin-bottom: 40px;
 }
 /* Sharebox Social Icons ---------------------------------------------------- */
-.sharebox {
-  border-top: 1px solid #efefef;
-  border-bottom: 1px solid #efefef;
+.sharebox,
+.post-meta {
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  margin-top: 20px;
   margin-bottom: 30px;
   padding: 10px 0 10px 0;
+}
+/* Large desktop */
+@media (min-width: 1200px) {
+  .sharebox {
+    margin-left: 0px;
+  }
+}
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+  .sharebox {
+    margin-left: 0px;
+  }
 }
 .sharebox h4 {
   float: left;
@@ -7841,29 +7878,6 @@ ul.event-meta li a {
   border-radius: 3px;
 }
 .sharebox .social-icons a:hover {
-  background-color: #666666 !important;
-  opacity: 1;
-  color: #ffffff;
-}
-/* Get Album Box Icons ---------------------------------------------------- */
-.sharebox .album-icons li {
-  float: right;
-  list-style: none;
-  padding: 10px;
-}
-.sharebox .album-icons a {
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-  padding: 10px;
-  opacity: 0.6;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  color: #666666;
-}
-.sharebox .album-icons a:hover {
   background-color: #666666 !important;
   opacity: 1;
   color: #ffffff;
@@ -7975,7 +7989,14 @@ ul.children {
   list-style: none;
 }
 .comment {
-  margin: 20px 0 20px 0;
+  margin: 20px 0 30px 0;
+}
+li.comment {
+  border-top: 1px solid #efefef;
+  padding-top: 20px;
+}
+.comment-details p {
+  margin-top: 10px;
 }
 #respond-textarea {
   margin-bottom: 20px;
@@ -8005,24 +8026,20 @@ ul.children {
   background-color: #2f96b4;
   *background-color: #2a85a0;
 }
-/* Discograohy/Albums Page (Multi Display) ---------------------------------------------------- */
-.thumbnail .caption {
-  margin: 0;
-  padding: 9px;
-  color: #555555;
-}
 /* Discograohy Single Album Page ---------------------------------------------------- */
 .album-attributes ul {
   list-style: none;
-  margin: -7px 0 0 0;
+  margin: 0 0 0 0;
+  margin-bottom: 20px;
 }
 .album-attributes ul li {
   padding: 7px 0 6px 0;
-  background: url(../img/dotted.png) repeat-x bottom left;
+  border-top: 1px solid #e5e5e5;
 }
 .album-attributes ul li:last-child {
-  padding: 7px 0 0px 0;
-  background: url(../img/dotted.png) repeat-x bottom left;
+  padding: 7px 0 0 0;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
 }
 .album-attributes ul li strong {
   display: inline-block;
@@ -8033,10 +8050,14 @@ ul.children {
 }
 .album-attributes ol li:first-child {
   padding-top: 2px;
+  border-top: none;
+  border-bottom: none;
 }
 .album-attributes ol li:last-child {
   background: none;
-  padding-bottom: 6px;
+  margin-bottom: none;
+  border-top: none;
+  border-bottom: none;
 }
 .dl-horizontal {
   margin-top: 0 !important;
@@ -8068,6 +8089,57 @@ ol.inline > li {
   padding-right: 5px;
   padding-left: 5px;
   *zoom: 1;
+}
+/* Get Album Box Icons ---------------------------------------------------- */
+.albumbox ul li {
+  padding: 12px 0 0 0;
+  border: none;
+}
+.albumbox ul li:last-child {
+  border: none;
+}
+.album-icons a {
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  padding: 10px;
+  opacity: 0.6;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: #666666;
+}
+.album-icons a:hover {
+  background-color: #666666 !important;
+  opacity: 1;
+  color: #ffffff;
+}
+.btn-modal {
+  margin-top: none;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  display: inline-block;
+  background-image: linear-gradient(bottom, #f7f7f7 0%, #ffffff 100%);
+  background-image: -o-linear-gradient(bottom, #f7f7f7 0%, #ffffff 100%);
+  background-image: -moz-linear-gradient(bottom, #f7f7f7 0%, #ffffff 100%);
+  background-image: -webkit-linear-gradient(bottom, #f7f7f7 0%, #ffffff 100%);
+  background-image: -ms-linear-gradient(bottom, #f7f7f7 0%, #ffffff 100%);
+  background-color: #F9F9F9;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 1px 1px 0px rgba(180, 180, 180, 0.2);
+  -moz-box-shadow: 0px 1px 1px 0px rgba(180, 180, 180, 0.2);
+  box-shadow: 0px 1px 1px 0px rgba(180, 180, 180, 0.2);
+}
+.ticketbox ul li {
+  margin-top: 8px;
+  border: none;
+}
+.ticketbox ul li:last-child {
+  border: none;
 }
 /* Events Page ---------------------------------------------------- */
 .events {
@@ -8128,4 +8200,65 @@ ol.inline > li {
 /* Artists Page ---------------------------------------------------- */
 .artists img {
   margin-right: 30px;
+}
+/* Custom Btns ---------------------------------------------------- */
+.btn {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+/* Custom Post Type Styling ---------------------------------------------------- */
+.page-title {
+  border-bottom: 4px solid #049cdb;
+  margin-bottom: 40px;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+.page-title h1 {
+  font-family: 'Droid Sans';
+  font-size: 24px;
+  float: left;
+  padding: 0 20px 10px 0;
+  margin: 0;
+  position: relative;
+  z-index: 999;
+}
+/* Page - Post Types ---------------------------------------------------- */
+.post-types {
+  margin-top: 50px;
+}
+.post-types-title h4 {
+  background: #fff;
+  font-family: 'Lobster', cursive;
+  font-size: 24px;
+  color: #5d5d5d;
+}
+.post-types .post {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.post-types .post:hover {
+  border-bottom: 1px solid #049cdb;
+  -o-transition: all .5s;
+  -moz-transition: all .5s;
+  -webkit-transition: all .5s;
+  -ms-transition: all .5s;
+}
+.post-types .post h4 {
+  margin-top: 20px;
+  font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #5d5d5d;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+.post-types .post p {
+  line-height: 24px;
+  text-align: center;
+  font-style: italic;
+}
+.post-types .thumbnail {
+  border-radius: 0px;
 }

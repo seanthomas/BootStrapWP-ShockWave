@@ -23,13 +23,13 @@ get_header(); ?>
 
 <div class="container">
 
-<div class="page-wrap row-fluid">
+<div class="row post-types">
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>                                                           
         <?php the_content(); ?> 
 <?php endwhile; endif; ?>    
 
-<ul class="thumbnails albums">
+<ul class="unstyled">
 
 <?php  
         global $post;
@@ -43,25 +43,22 @@ get_header(); ?>
         
         while ( $loop->have_posts() ) : $loop->the_post();
                          
-        $gallery_caption = get_post_meta($post->ID, 'sw_gallery_caption', true);
+        $galleries_caption = get_post_meta($post->ID, 'sw_galleries_caption', true);
 
-?>                
-                
-<li class="span3">
-<div class="thumbnail">
-  <div class="post-image">
-  <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-    <?php the_post_thumbnail( '' ); ?>
-  </a>
-</div>
-  <div class="caption">
-    <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h4><?php the_title();?></h4></a>
-    <p>
-      <small><?php echo $gallery_caption; ?></small>
-    </p>
-  </div>
-</div>
-</li>  
+?> 
+        <li class="span4">
+            <div class="post">
+                <div class="post-image">
+                  <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+                    <?php the_post_thumbnail( 'page-post-types' ); ?>
+                  </a>
+                </div>
+                <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h4><?php the_title();?></h4></a>
+                <p>
+                  <small><?php echo $galleries_caption; ?></small>
+                </p>
+            </div>
+        </li>                 
 
 <?php       
   endwhile;

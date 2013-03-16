@@ -363,6 +363,19 @@ $of_options[] = array( "name" => "Enable 'Get This Album' Box on Single Discogra
 					"std" => 1,
 					"type" => "checkbox"); 
 
+$of_options[] = array( "name" => "",
+					"desc" => "",
+					"id" => "general_heading",
+					"std" => "Social Sharing Box Icons",
+					"icon" => false,
+					"type" => "info"); 
+
+$of_options[] = array( "name" => "Enable 'Share This Story' Share Box on Artists Page",
+					"desc" => "Check to enable 'Share This Story' Share Box on Artists Page",
+					"id" => "check_disco_sharebox",
+					"std" => 1,
+					"type" => "checkbox"); 
+
 /* ------------------------------------------------------------------------ */
 /* Artists Options
 /* ------------------------------------------------------------------------ */                                                         
@@ -409,6 +422,74 @@ $of_options[] = array( "name" => "Enable 'Share This Story' Share Box on Events 
 					"std" => 1,
 					"type" => "checkbox");
 
+/* ------------------------------------------------------------------------ */
+/* Lightbox Settings
+/* ------------------------------------------------------------------------ */
+$of_options[] = array( "name" => "Lightbox",
+					"type" => "heading");
+					
+$of_options[] = array( "name" => "Lightbox Theme",
+					"desc" => "",
+					"id" => "lightbox_theme",
+					"std" => "pp_default",
+					"type" => "select",
+					"options" => array(
+						'pp_default' => 'pp_default',
+						'light_rounded' => 'light_rounded',
+						'dark_rounded' => 'dark_rounded',
+						'light_square' => 'light_square',
+						'dark_square' => 'dark_square',
+						'facebook' => 'facebook'
+					));
+					
+$of_options[] = array( "name" => "Animation Speed",
+					"desc" => "",
+					"id" => "lightbox_animation_speed",
+					"std" => "fast",
+					"type" => "select",
+					"options" => array('fast' => 'Fast', 'slow' => 'Slow', 'normal' => 'Normal'));
+
+$of_options[] = array( "name" => "Background Opacity",
+					"desc" => "",
+					"id" => "lightbox_opacity",
+					"std" => "0.8",
+					"type" => "text");
+
+$of_options[] = array( "name" => "Show title",
+					"desc" => "Check to show the title",
+					"id" => "lightbox_title",
+					"std" => 1,
+					"type" => "checkbox");
+					
+$of_options[] = array( "name" => "Show Gallery Thumbnails",
+					"desc" => "Check to show gallery thumbnails",
+					"id" => "lightbox_gallery",
+					"std" => 1,
+					"type" => "checkbox");
+
+$of_options[] = array( "name" => "Autoplay Gallery",
+					"desc" => "Check to autoplay the lightbox gallery",
+					"id" => "lightbox_autoplay",
+					"std" => 0,
+					"type" => "checkbox");
+
+$of_options[] = array( "name" => "Autoplay Gallery Speed",
+					"desc" => "If autoplay is set to true, select the slideshow speed in ms. (Default: 5000, 1000 ms = 1 second)",
+					"id" => "lightbox_slideshow_speed",
+					"std" => "5000",
+					"type" => "text");
+
+$of_options[] = array( "name" => "Social Icons",
+					"desc" => "Check to show social sharing icons",
+					"id" => "lightbox_social",
+					"std" => 1,
+					"type" => "checkbox");		
+					
+$of_options[] = array( "name" => "Disable Lightbox on Smartphone",
+					"desc" => "Check to disable Lightbox on Smartphones. This will link directly to the image",
+					"id" => "lightbox_smartphones",
+					"std" => 0,
+					"type" => "checkbox");	
 
 /* ------------------------------------------------------------------------ */
 /* Example Options

@@ -1,7 +1,11 @@
 <?php global $data; ?>
-<div class="sharebox row-fluid">
-	<h4>Share This Story</h4>
-	<div class="social-icons pull-right">
+<div class="sharebox row">
+
+	<div class="span3 hidden-phone">
+	<span><h4>Share This Story</h4></span>
+	</div>
+
+	<div class="social-icons pull-right span5">
 		<ul>
 
 			<?php if($data['check_sharingboxemail'] == true) { ?>	

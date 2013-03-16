@@ -17,8 +17,8 @@ get_header(); ?>
    <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
 <div class="container">
 
-<div class="page-wrap row-fluid">
-  <div class="span8">
+<div class="row">
+  <div class="span9">
     <?php if ( have_posts() ) : ?>
 
       <?php /* Start the Loop */ ?>
@@ -38,7 +38,7 @@ get_header(); ?>
 
  <?php bootstrapwp_content_nav('nav-below');?>
 
-          </div><!-- /.span8 -->
+          </div><!-- /.span9 -->
           <?php get_sidebar('blog'); ?>
 
 

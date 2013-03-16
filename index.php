@@ -20,20 +20,20 @@ get_header(); ?>
 
 <div class="container">
 
-<div class="page-wrap row-fluid">
-  <div class="span8">
-    <?php if ( have_posts() ) : ?>
+<div class="row">
+  <div class="span9">
+  <?php if ( have_posts() ) : ?>
 
-      <?php /* Start the Loop */ ?>
-      <?php while ( have_posts() ) : the_post(); ?>
+  <?php /* Start the Loop */ ?>
+  <?php while ( have_posts() ) : the_post(); ?>
 
-        <?php get_template_part( 'includes/post-formats/post', get_post_format() ); ?>
-        
-      <?php endwhile; ?>
+    <?php get_template_part( 'includes/post-formats/post', get_post_format() ); ?>
+    
+  <?php endwhile; ?>
 
-        <?php get_template_part( 'includes/nav' ); ?>
+    <?php get_template_part( 'includes/nav' ); ?>
 
-      <?php endif; ?>
+  <?php endif; ?>
 
 
 

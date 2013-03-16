@@ -23,13 +23,13 @@ get_header(); ?>
 
 <div class="container">
 
-<div class="page-wrap row-fluid">
+<div class="row post-types">
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>                                                           
         <?php the_content(); ?> 
 <?php endwhile; endif; ?>    
 
-<ul class="thumbnails albums">
+<ul class="unstyled">
 <?php  
         global $post;
         
@@ -49,23 +49,21 @@ get_header(); ?>
         $pretty_date_d = date('d', $timestamp);
         $pretty_date_Y = date('Y', $timestamp); 
                                        
-?>                
-                
-<li class="span3">
-<div class="thumbnail">
-  <div class="post-image">
-  <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-    <?php the_post_thumbnail( '' ); ?>
-  </a>
-</div>
-  <div class="caption">
-    <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h4><?php echo $album_title; ?></h4></a>
-    <p>
-      <small><?php _e('Release Date:', 'bootstrapwp') ?> <?php echo $pretty_date_M . ' ' . $pretty_date_d . ', ' . $pretty_date_Y; ?></small>
-    </p>
-  </div>
-</div>
-</li>  
+        ?>
+
+        <li class="span4">
+            <div class="post">
+                <div class="post-image">
+                  <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+                    <?php the_post_thumbnail( 'page-post-types' ); ?>
+                  </a>
+                </div>
+                <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h4><?php echo $album_title; ?></h4></a>
+                <p>
+                  <small><?php _e('Release Date:', 'bootstrapwp') ?> <?php echo $pretty_date_M . ' ' . $pretty_date_d . ', ' . $pretty_date_Y; ?></small>
+                </p>
+            </div>
+        </li>            
 
 <?php       
   endwhile;

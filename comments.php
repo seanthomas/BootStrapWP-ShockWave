@@ -14,7 +14,7 @@
  * Last Revised: February 4, 2012
  */
 ?>
-	<div id="comments" class="row-fluid">
+	<div id="comments">
 	<?php if ( post_password_required() ) : ?>
 		<p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'bootstrapwp' ); ?></p>
 	</div><!-- #comments -->
@@ -68,7 +68,7 @@
 
 		//Custom Fields
 		$fields =  array(
-			'author'=> '<div class="controls controls-row"><input class="span3" placeholder=".span3" name="author" type="text" value="' . __('Name (required)', 'bootstrapwp') . '" size="30"' . $aria_req . ' />',
+			'author'=> '<div class="controls controls-row"><input class="span2" placeholder=".span2" name="author" type="text" value="' . __('Name (required)', 'bootstrapwp') . '" size="30"' . $aria_req . ' />',
 			
 			'email' => '<input class="span3" placeholder=".span3"name="email" type="text" value="' . __('E-Mail (required)', 'bootstrapwp') . '" size="30"' . $aria_req . ' />',
 			

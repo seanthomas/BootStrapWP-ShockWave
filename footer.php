@@ -18,7 +18,7 @@
 <?php if($data['check_twitterbar'] == true) { ?>
   <div id="twitterbar" class="clearfix">
     <div class="container">
-      <div class="row-fluid">
+      <div class="row">
         <ul class="twitterpost"><?php _e('loading...') ?></ul>
         <script type='text/javascript'>
         jQuery(document).ready(function($){
@@ -34,7 +34,7 @@
     <footer class="footer">
 
       	<div class="container">
-          <div class="row-fluid">
+          <div class="row">
 
         		<?php
            			if ( function_exists('dynamic_sidebar')) dynamic_sidebar("footer-one");
@@ -56,7 +56,7 @@
         </div>
 <hr class="footer-hr">
 		<div class="container">
-        <div class="row-fluid">
+        <div class="row">
       		<p class="pull-right"><a href="#"><i class="icon-arrow-up"></i> Back to top</a></p>
         	<p>&copy; <?php bloginfo('name'); ?> <?php the_time('Y') ?></p>
         </div>

@@ -38,28 +38,36 @@ get_header(); ?>
 
 <div <?php post_class(); ?>>
 
+  <div class="page-title">
+    <h1><?php the_title();?>
 
-<div class="row-fluid">
+      <?php if ($Album_status) { ?>
+        <small><em class="muted"> - <?php echo $Album_status; ?></em></small>
+      <?php } ?>
+
+    </h1>
+
+  </div>
+
+<div class="row">
 
 <div class="span6">
 
   <?php // Checking for a post thumbnail
   if ( has_post_thumbnail() ) ?>
-  <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-    <?php the_post_thumbnail( 'single-discography' ); ?>
-  </a>
+    <div class="post-image">
+      <a href="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>" title="<?php the_title(); ?>" rel="bookmark">
+        <?php the_post_thumbnail('single-discography'); ?>
+      </a>
+    </div>
 
 </div>
 
-<div class="span6 album-attributes">
+<div class="span6">
 
-    <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h3><?php the_title();?></h3></a>
+  <div class="album-attributes">
 
     <ul class="unstlyed">
-
-      <?php if ($Album_status) { ?>
-        <li><strong><?php echo $Album_status; ?></strong></li>
-      <?php } ?>
 
       <?php if ($release_date) { ?>
         <li><strong><?php _e('Release Date:', 'bootstrapwp') ?></strong> <?php echo $pretty_date_M . ' ' . $pretty_date_d . ', ' . $pretty_date_Y; ?></li>
@@ -86,56 +94,53 @@ get_header(); ?>
         </dl>
       </li>
       <?php } ?>
+      <?php if($data['check_getalbum'] == true) { ?>
+      <li class="albumbox">
+
+        <ul class="album-icons inline">
+
+        <strong class="hidden-phone"><?php _e('Get This Album:', 'bootstrapwp') ?></strong>
+
+        <?php 
+        if ($buy_other){ ?>
+        <li> 
+                <a href="<?php echo $buy_other; ?>"><?php echo $buy_other_text; ?></a>
+        </li>       
+        <?php }
+
+        if ($amazon){ ?>    
+        <li>                                             
+                <a href="<?php echo $amazon; ?>"><?php _e('Amazon', 'bootstrapwp') ?></a>  
+        </li>   
+        <?php }
+
+        if ($itunes){ ?>
+        <li> 
+                <a href="<?php echo $itunes; ?>"><?php _e('iTunes', 'bootstrapwp') ?></a>
+       </li>       
+        <?php } 
+        ?>
+
+        </ul>
+    </li>
+    <?php } ?>
     </ul>
 
     <?php if ($jwaudioplayer) { ?>
     <?php get_template_part( 'includes/audio-player' ); ?>
     <?php } ?>
 
+    </div>
+
+    <?php the_content();?>
+
+</div>
+
 </div>
 
 </div>
 
-<div class="row-fluid">
-<?php the_content();?>
-</div>
-
-
-
-</div>
-
-<?php if($data['check_getalbum'] == true) { ?>
-<div class="sharebox row-fluid">
-  <h4>Get This Album</h4>
-  <div class="album-icons pull-right inline">
-    <ul>
-
-      <?php 
-      if ($buy_other){ ?>
-      <li> 
-              <a href="<?php echo $buy_other; ?>"><?php echo $buy_other_text; ?></a>
-      </li>       
-      <?php }
-
-      if ($amazon){ ?>    
-      <li>                                             
-              <a href="<?php echo $amazon; ?>"><?php _e('Amazon', 'bootstrapwp') ?></a>  
-      </li>   
-      <?php }
-
-      if ($itunes){ ?>
-      <li> 
-              <a href="<?php echo $itunes; ?>"><?php _e('iTunes', 'bootstrapwp') ?></a>
-     </li>       
-      <?php } 
-      ?>
-
-    </ul>
-  </div>
-</div>
-<?php } ?>
-
-        <?php if($data['check_sharebox'] == true) { ?>
+        <?php if($data['check_disco_sharebox'] == true) { ?>
         <?php get_template_part( 'includes/sharebox' ); ?>
         <?php } ?>
 

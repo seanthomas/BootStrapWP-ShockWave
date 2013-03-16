@@ -73,7 +73,7 @@ get_header(); ?>
         <span><?php echo $address; ?></span>
       </div>
 
-      <div class="events-button span3 pull-right">
+      <div class="events-button span3 pull-right hidden-phone">
         <?php 
           if ($cancelled){
         ?>
