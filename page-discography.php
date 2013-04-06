@@ -12,18 +12,20 @@
  */
 
 get_header(); ?>
-      <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
-  <!-- Subhead
+
+<!-- Subhead
 ================================================== -->
-<header class="subhead" id="overview">
+<header class="jumbotron subhead" id="overview">
   <div class="container">
     <h1><?php wp_title(''); ?></h1>
   </div>
 </header>
 
+<?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
+
 <div class="container">
 
-<div class="row post-types">
+<div class="row-fluid post-types">
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>                                                           
         <?php the_content(); ?> 
@@ -55,7 +57,7 @@ get_header(); ?>
             <div class="post">
                 <div class="post-image">
                   <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-                    <?php the_post_thumbnail( 'page-post-types' ); ?>
+                    <?php the_post_thumbnail( 'large' ); ?>
                   </a>
                 </div>
                 <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h4><?php echo $album_title; ?></h4></a>

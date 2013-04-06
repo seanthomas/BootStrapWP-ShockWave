@@ -21,7 +21,7 @@
         </a>
       <?php endif;?>
       </div>
-      <div class="span7 post-title">
+      <div class="span6 post-title">
           <blockquote>
             <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h3>
               <?php the_content(); ?></h3></a>

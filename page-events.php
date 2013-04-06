@@ -12,14 +12,16 @@
  */
 
 get_header(); ?>
-      <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
-  <!-- Subhead
+
+<!-- Subhead
 ================================================== -->
-<header class="subhead" id="overview">
+<header class="jumbotron subhead" id="overview">
   <div class="container">
     <h1><?php wp_title(''); ?></h1>
   </div>
 </header>
+
+<?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
 
 <div class="container">
 

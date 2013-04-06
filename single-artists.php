@@ -13,50 +13,46 @@
 
 get_header(); ?>
 
-<?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
-
-<div class="container">
-
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
   
         $artist_role = get_post_meta($post->ID, 'sw_artist_role', true);
         
         ?>
 
-<div <?php post_class(); ?>>
-
-  <div class="page-title">
-    <h1><?php the_title();?>
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1><?php wp_title(''); ?></h1>
 
       <?php if ($artist_role) { ?>
-        <small><em class="muted"> - <?php echo $artist_role; ?></em></small>
+        <p class="lead"><?php echo $artist_role; ?></p>
       <?php } ?>
 
-    </h1>
-
   </div>
+</header>
+
+<?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
+
+<div class="container">
+
+<div <?php post_class(); ?>>
 
 <div class="row">
 
-<div class="span6">
+<div class="span8">
 
   <?php // Checking for a post thumbnail
   if ( has_post_thumbnail() ) ?>
-  <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-    <?php the_post_thumbnail( 'single-discography' ); ?>
-  </a>
+    <div class="post-image">
+      <a href="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>" title="<?php the_title(); ?>">
+        <?php the_post_thumbnail('large'); ?>
+      </a>
+    </div>
 
-</div>
+    <?php the_content();?>
 
-<div class="span6">
 
-  <?php the_content();?>
-
-</div>
-
-</div>
-
-</div>
 
         <?php if($data['check_artists_sharebox'] == true) { ?>
         <?php get_template_part( 'includes/sharebox' ); ?>
@@ -69,5 +65,11 @@ get_header(); ?>
  <?php comments_template(); ?>
 
  <?php bootstrapwp_content_nav('nav-below');?>
+
+ </div>
+
+ <?php get_sidebar('blog'); ?>
+
+ </div>
 
 <?php get_footer(); ?>

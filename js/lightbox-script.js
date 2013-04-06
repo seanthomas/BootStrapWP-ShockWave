@@ -1,7 +1,3 @@
-/* ------------------------------------------------------------------------ */
-/* Adds PrettyPhoto Theme Options to Script*/
-/* ------------------------------------------------------------------------ */
-
 <?php
 function shockwave_js_function() {
 global $data; 
@@ -35,7 +31,7 @@ global $data;
 			allow_resize: true, 			/* Resize the photos bigger than viewport. true/false */
 			counter_separator_label: '/', 	/* The separator for the gallery counter 1 "of" 2 */
 			default_width: 940,
-			default_height: 529
+			default_height: 529,
 		};
 
 		$('a[href$=jpg], a[href$=JPG], a[href$=jpeg], a[href$=JPEG], a[href$=png], a[href$=gif], a[href$=bmp]:has(img), a[class^="prettyPhoto"]').prettyPhoto(lightboxArgs);
@@ -52,8 +48,10 @@ global $data;
         <?php endif; ?>
 		
 	});
+
 </script>
 	
 <?php }
 add_action( 'wp_footer', 'shockwave_js_function', 100 );
 ?>
+

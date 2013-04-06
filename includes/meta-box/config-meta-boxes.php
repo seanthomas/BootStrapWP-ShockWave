@@ -239,6 +239,22 @@ $meta_boxes[] = array(
         )
 );
 
+/** Video **/
+$meta_boxes[] = array(
+        'id' => 'videos',
+        'title' => __('Youtube or Vimeo Videos', 'bootstrapwp'), 
+        'pages' => array('videos'),
+        'fields' => array(        
+                array(
+                        'name' => __('Enter the link to the video','bootstrapwp'),               
+                        'desc' => __('It should look like this: http://vimeo.com/31956969 or http://youtu.be/nVssYUGs-R4','bootstrapwp'),  
+                        'id' => $prefix . 'video_embed_code',      
+                        'type' => 'text',               
+                        'std' => '',                    
+                ),                    
+        )
+);
+
  foreach ( $meta_boxes as $meta_box )
 {
 new RW_Meta_Box( $meta_box );

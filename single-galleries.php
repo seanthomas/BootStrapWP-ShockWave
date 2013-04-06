@@ -13,29 +13,32 @@
 
 get_header(); ?>
 
-<?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
-
-<div class="container">
-
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
   
         $galleries_caption = get_post_meta($post->ID, 'sw_galleries_caption', true);
         
         ?>
 
-<div <?php post_class(); ?>>
-
-  <div class="page-title">
-    <h1><?php the_title();?>
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1><?php wp_title(''); ?></h1>
 
       <?php if ($galleries_caption) { ?>
-        <small><em class="muted"> - <?php echo $galleries_caption; ?></em></small>
+        <p class="lead"><?php echo $galleries_caption; ?></p>
       <?php } ?>
-      
-    </h1>
-  </div>
 
-<div class="row post-types">
+  </div>
+</header>
+
+<?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
+
+<div class="container">
+
+<div <?php post_class(); ?>>
+
+<div class="row-fluid post-types">
 
 <ul class="unstyled">
     <?php 
@@ -45,7 +48,7 @@ $images = rwmb_meta( 'sw_gallery_images', 'type=image&size=single_gallery' );
 foreach ( $images as $image )
       {
     echo "<li class='span4'>
-    <a class='thumbnail' title='' alt='{$image['caption']}' data-rel='prettyPhoto[pp_gallery]' href='{$image['full_url']}'>
+    <a class='thumbnail' title='' alt='{$image['caption']}' href='{$image['full_url']}'>
     <img data-src='holder.js/300x200' alt='' src='{$image['url']}' />
     </a>
     </li>";

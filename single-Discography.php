@@ -13,10 +13,6 @@
 
 get_header(); ?>
 
-<?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
-
-<div class="container">
-
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
   
         $release_date = get_post_meta($post->ID, 'sw_release_date', true);
@@ -36,28 +32,34 @@ get_header(); ?>
         
         ?>
 
-<div <?php post_class(); ?>>
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1><?php wp_title(''); ?></h1>
 
-  <div class="page-title">
-    <h1><?php the_title();?>
-
-      <?php if ($Album_status) { ?>
-        <small><em class="muted"> - <?php echo $Album_status; ?></em></small>
-      <?php } ?>
-
-    </h1>
+    <?php if ($Album_status) { ?>
+      <p class="lead"><?php echo $Album_status; ?></p>
+    <?php } ?>
 
   </div>
+</header>
 
-<div class="row">
+<?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
+
+<div class="container">
+
+<div <?php post_class(); ?>>
+
+<div class="row-fluid">
 
 <div class="span6">
 
   <?php // Checking for a post thumbnail
   if ( has_post_thumbnail() ) ?>
     <div class="post-image">
-      <a href="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>" title="<?php the_title(); ?>" rel="bookmark">
-        <?php the_post_thumbnail('single-discography'); ?>
+      <a href="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>" title="<?php the_title(); ?>">
+        <?php the_post_thumbnail('large'); ?>
       </a>
     </div>
 
@@ -132,10 +134,16 @@ get_header(); ?>
 
     </div>
 
-    <?php the_content();?>
+</div>
 
 </div>
 
+<hr>
+
+<div class="row">
+  <div class="span12">
+    <?php the_content();?>
+  </div>
 </div>
 
 </div>

@@ -9,28 +9,17 @@
     </div>
 
     <div class="row">
-      <div class="span2">
-        <a class="btn btn-inverse" href="<?php the_permalink(); ?>">
-          <i class="icon-file icon-white"></i>
-        </a>
-        <?php if(!is_sticky()):?>
-
-      <?php else : ?>
-        <a class="btn btn-sticky" href="<?php the_permalink(); ?>" rel="tooltip" title="Sticky Post">
-          <i class="icon-arrow-up icon-white"></i>
-        </a>
-      <?php endif;?>
-      </div>
       <div class="span7 post-title">
         <a href="<?php the_permalink(); ?>" title="<?php the_title();?>">
           <h3><?php the_title();?></h3>
         </a>
+
+       <?php get_template_part( 'includes/post-meta-single' ); ?>
+
+       <?php the_content();?>
+
       </div>
     </div>
-
-    <?php get_template_part( 'includes/meta' ); ?>
-
-    <div><?php the_content();?></div>
 
 </div>
 <!-- end: Post -->

@@ -196,6 +196,18 @@ $of_options[] = array( "name" => "Footer Text",
                     "type" => "textarea"); 
 
 /* ------------------------------------------------------------------------ */
+/* Header
+/* ------------------------------------------------------------------------ */
+$of_options[] = array( "name" => "Header",
+					"type" => "heading");
+
+$of_options[] = array( "name" => "Show Social Bar in Header - Just below Main Navigation",
+					"desc" => "Check to show Social Bar in Header (Configuration is made within Social Media)",
+					"id" => "check_socialbar_header",
+					"std" => 1,
+					"type" => "checkbox"); 
+
+/* ------------------------------------------------------------------------ */
 /* Footer
 /* ------------------------------------------------------------------------ */                                                         
     
@@ -205,6 +217,12 @@ $of_options[] = array( "name" => "Footer",
 $of_options[] = array( "name" => "Enable Twitter-Bar in Footer",
 					"desc" => "Check to show Twitter-Bar in Footer.",
 					"id" => "check_twitterbar",
+					"std" => 1,
+					"type" => "checkbox"); 
+
+$of_options[] = array( "name" => "Show Social Bar in Footer",
+					"desc" => "Check to show Social Bar in Footer (Configuration is made within Social Media)",
+					"id" => "check_socialbar_footer",
 					"std" => 1,
 					"type" => "checkbox"); 
 
@@ -223,9 +241,123 @@ $of_options[] = array( "name" => "Hello there!",
 					
 $of_options[] = array( "name" => "Twitter Username",
 					"desc" => "Enter your Twitter username",
-					"id" => "social_twitter",
+					"id" => "socialbar_twitter",
 					"std" => "",
 					"type" => "text"); 
+
+$of_options[] = array( "name" => "Forrst URL",
+					"desc" => "Enter URL to your Forrst Account",
+					"id" => "socialbar_forrst",
+					"std" => "",
+					"type" => "text"); 
+
+$of_options[] = array( "name" => "Dribbble URL",
+					"desc" => "Enter URL to your Dribbble Account",
+					"id" => "socialbar_dribbble",
+					"std" => "",
+					"type" => "text"); 
+					
+$of_options[] = array( "name" => "Flickr URL",
+					"desc" => "Enter URL to your Flickr Account",
+					"id" => "socialbar_flickr",
+					"std" => "",
+					"type" => "text"); 
+
+$of_options[] = array( "name" => "Facebook URL",
+					"desc" => "Enter URL to your Facebook Account",
+					"id" => "socialbar_facebook",
+					"std" => "",
+					"type" => "text"); 
+					
+$of_options[] = array( "name" => "Skype URL",
+					"desc" => "Enter URL to your Skype Account",
+					"id" => "socialbar_skype",
+					"std" => "",
+					"type" => "text"); 
+					
+$of_options[] = array( "name" => "Digg URL",
+					"desc" => "Enter URL to your Digg Account",
+					"id" => "socialbar_digg",
+					"std" => "",
+					"type" => "text"); 
+
+$of_options[] = array( "name" => "Google+ URL",
+					"desc" => "Enter URL to your Google+ Account",
+					"id" => "socialbar_google",
+					"std" => "",
+					"type" => "text"); 
+					
+$of_options[] = array( "name" => "LinkedIn URL",
+					"desc" => "Enter URL to your LinkedIn Account",
+					"id" => "socialbar_linkedin",
+					"std" => "",
+					"type" => "text"); 
+					
+$of_options[] = array( "name" => "Vimeo URL",
+					"desc" => "Enter URL to your Vimeo Account",
+					"id" => "socialbar_vimeo",
+					"std" => "",
+					"type" => "text"); 
+					
+$of_options[] = array( "name" => "Yahoo URL",
+					"desc" => "Enter URL to your Yahoo Account",
+					"id" => "socialbar_yahoo",
+					"std" => "",
+					"type" => "text"); 
+					
+$of_options[] = array( "name" => "Tumblr URL",
+					"desc" => "Enter URL to your Tumblr Account",
+					"id" => "socialbar_tumblr",
+					"std" => "",
+					"type" => "text"); 
+					
+$of_options[] = array( "name" => "YouTube URL",
+					"desc" => "Enter URL to your YouTube Account",
+					"id" => "socialbar_youtube",
+					"std" => "",
+					"type" => "text"); 
+					
+$of_options[] = array( "name" => "Picasa URL",
+					"desc" => "Enter URL to your Picasa Account",
+					"id" => "socialbar_picasa",
+					"std" => "",
+					"type" => "text"); 
+					
+$of_options[] = array( "name" => "DeviantArt URL",
+					"desc" => "Enter URL to your DeviantArt Account",
+					"id" => "socialbar_deviantart",
+					"std" => "",
+					"type" => "text"); 
+					
+$of_options[] = array( "name" => "Behance URL",
+					"desc" => "Enter URL to your Behance Account",
+					"id" => "socialbar_behance",
+					"std" => "",
+					"type" => "text");
+					
+$of_options[] = array( "name" => "Pinterest URL",
+					"desc" => "Enter URL to your Pinterest Account",
+					"id" => "socialbar_pinterest",
+					"std" => "",
+					"type" => "text");  
+					
+$of_options[] = array( "name" => "PayPal URL",
+					"desc" => "Enter URL to your PayPal Account",
+					"id" => "socialbar_paypal",
+					"std" => "",
+					"type" => "text"); 
+					
+$of_options[] = array( "name" => "Delicious URL",
+					"desc" => "Enter URL to your Delicious Account",
+					"id" => "socialbar_delicious",
+					"std" => "",
+					"type" => "text"); 
+					
+$of_options[] = array( "name" => "Show RSS",
+					"desc" => "Check to Show RSS Icon",
+					"id" => "socialbar_rss",
+					"std" => 1,
+					"type" => "checkbox"); 
 
 /* ------------------------------------------------------------------------ */
 /* Styling Options

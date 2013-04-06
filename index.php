@@ -21,7 +21,7 @@ get_header(); ?>
 <div class="container">
 
 <div class="row">
-  <div class="span9">
+  <div class="span8">
   <?php if ( have_posts() ) : ?>
 
   <?php /* Start the Loop */ ?>

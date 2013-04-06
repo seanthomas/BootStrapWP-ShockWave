@@ -55,9 +55,11 @@ endif;
   function bootstrapwp_css_loader() {
     wp_enqueue_style('bootstrapwp', get_template_directory_uri().'/css/bootstrapwp.css', false ,'0.90', 'all' );
     wp_enqueue_style('prettify', get_template_directory_uri().'/js/google-code-prettify/prettify.css', false ,'1.0', 'all' );
+    wp_enqueue_style('prettyPhoto', get_template_directory_uri().'/css/prettyPhoto.css', false ,'1.0', 'all' );
   }
 add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
 
+include_once('/js/lightbox-script.js'); // Load Custom JS
 
 ################################################################################
 // Loading all JS Script Files.  Remove any files you are not using!
@@ -68,8 +70,8 @@ add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
        wp_enqueue_script('demojs', get_template_directory_uri().'/js/bootstrapwp.demo.js', array('jquery'),'0.90', true );
        wp_enqueue_script('twitter', get_template_directory_uri().'/js/twitter.js', array('jquery'),'1.0', true ); 
        wp_enqueue_script('functions', get_template_directory_uri().'/js/functions.js', array('jquery'),'1.0', true );
-       wp_register_script('prettyPhoto', get_template_directory_uri() . '/js/prettyPhoto.js', 'jquery', '3.1', true);
-       wp_enqueue_script('lightbox-script', get_template_directory_uri().'/js/lightbox-script.js', array('jquery'),'1.0', true );
+       wp_enqueue_script('prettyPhoto', get_template_directory_uri() .'/js/prettyPhoto.js', array('jquery'), '3.1', true);
+       wp_enqueue_script('fitvids', get_template_directory_uri() . '/js/fitvids.js', array('jquery'), '1.0');
        wp_enqueue_script('jwplayer', get_template_directory_uri().'/includes/jwplayer/jwplayer.js' );      
   }
 add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
@@ -100,6 +102,13 @@ include_once(TEMPLATEPATH . '/includes/post-types/discography.php');
 include_once(TEMPLATEPATH . '/includes/post-types/events.php');
 include_once(TEMPLATEPATH . '/includes/post-types/artists.php');
 include_once(TEMPLATEPATH . '/includes/post-types/galleries.php');
+include_once(TEMPLATEPATH . '/includes/post-types/videos.php');
+
+/** INCLUDE WIDGETS ***********************************************************/
+include(TEMPLATEPATH . '/framework/includes/widgets/flickr.php');
+include(TEMPLATEPATH . '/framework/includes/widgets/discography.php');
+include(TEMPLATEPATH . '/framework/includes/widgets/events.php');
+include(TEMPLATEPATH . '/framework/includes/widgets/event.php');
 
 /*
 | -------------------------------------------------------------------
@@ -229,11 +238,6 @@ if ( function_exists( 'add_theme_support' ) ) {
 
 if ( function_exists( 'add_image_size' ) ) { 
     add_image_size( 'standard', 870, 300, true );     // Standard Blog Image
-    add_image_size( 'page-post-types', 370, 200, true );     // Pages Post Types Image
-    add_image_size( 'single-discography', 570, 862, true );     // Single Page Discography Image
-    add_image_size( 'single-event', 570, 862, true );     // Single Page Event Image
-    add_image_size( 'single-artist', 570, 862, true );     // Single Page Artist Image
-    add_image_size( 'single-gallery', 300, 862, true );     // Single Page Gallery Images
 }
 /*
 | -------------------------------------------------------------------
@@ -647,73 +651,16 @@ function bootstrapwp_autoset_featured_img() {
 
   }
 } // end bootstrapwp_breadcrumbs()
-/*
-A custom function to echo specified number of categories a
-post is filed in.
-(Takes number of categories to be displayed as argument)
-Written by Satish Gandham
-Author URL: http://swiftthemes.com
-Contact: http://swiftthemes.com/contact-me/
-*/
-function swift_list_cats($num){
-    $temp=get_the_category();
-    $count=count($temp);// Getting the total number of categories the post is filed in.
-    for($i=0;$i<$num&&$i<$count;$i++){
-        //Formatting our output.
-        $cat_string.='<a href=&quot;'.get_category_link( $temp[$i]->cat_ID  ).'&quot;>'.$temp[$i]->cat_name.'</a>';
-        if($i!=$num-1&&$i+1<$count)
-        //Adding a ',' if it's not the last category.
-        //You can add your own separator here.
-        $cat_string.=', ';
-    }
-    echo $cat_string;
-}
 
-remove_filter('dbem_notes', 'wpautop');
-
-/*
-| -------------------------------------------------------------------
-| Event Manager - Adding event attributes
-| -------------------------------------------------------------------
-|
-| */
-/**
-* add some conditional output conditions for Events Manager
-* @param string $replacement
-* @param string $condition
-* @param string $match
-* @param object $EM_Event
-* @return string
-*/
-function filterEventOutputCondition($replacement, $condition, $match, $EM_Event){
-    if (is_object($EM_Event)) {
+  /* ------------------------------------------------------------------------ */
+  /* Add prettyPhoto rel= Tag to slide through photos */
+  
+  add_filter( 'wp_get_attachment_link', 'sant_prettyadd');
  
-        switch ($condition) {
- 
-            // #_ATT{externallink}
-            case 'has_att_externallink':
-                if (is_array($EM_Event->event_attributes) && !empty($EM_Event->event_attributes['externallink']))
-                    $replacement = preg_replace('/\{\/?has_att_externallink\}/', '', $match);
-                else
-                    $replacement = '';
-                break;
-
-            // #_ATT{soldout}
-            case 'has_att_soldout':
-                if (is_array($EM_Event->event_attributes) && !empty($EM_Event->event_attributes['soldout']))
-                    $replacement = preg_replace('/\{\/?has_att_soldout\}/', '', $match);
-                else
-                    $replacement = '';
-                break;
- 
-        }
- 
-    }
- 
-    return $replacement;
-}
- 
-add_filter('em_event_output_condition', 'filterEventOutputCondition', 10, 4);
+  function sant_prettyadd ($content) {
+    $content = preg_replace("/<a/","<a rel=\"prettyPhoto[slides]\"",$content,1);
+    return $content;
+  }
 
 
 /**

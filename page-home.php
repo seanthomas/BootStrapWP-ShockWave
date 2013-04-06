@@ -74,32 +74,31 @@ get_header(); ?>
     <div class="page-header">
     <h1>Featured News<small> </small></h1>
     </div>
-  
-         <div class="latest-blog row-fluid">
-          <ul class="thumbnails">
+
+   <div class="row post-types">
+      <ul class="unstyled">
                 <?php
                 $cat_id = get_cat_ID('Home Slider');
-                $args = array( 'category__not_in' => array($cat_id), 'numberposts' => 4, 'post_status'=>"publish",'post_type'=>"post",'orderby'=>"post_date", 'meta_key' => '_thumbnail_id' );
+                $args = array( 'category__not_in' => array($cat_id), 'numberposts' => 3, 'post_status'=>"publish",'post_type'=>"post",'orderby'=>"post_date", 'meta_key' => '_thumbnail_id' );
                 $postslist = get_posts( $args ); 
                 foreach ($postslist as $post) : setup_postdata($post); ?>
-              <li class="span3">
-                <div class="thumbnail">
+          <li class="span4">
+              <div class="post">
                   <div class="post-image">
-                  <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-                    <?php the_post_thumbnail( '' ); ?>
-                  </a>
-                </div>
-                  <div class="caption">
-                    <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h2><?php the_title();?></h2></a>
-                    <?php the_excerpt();?>
+                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+                      <?php the_post_thumbnail( 'page-post-types' ); ?>
+                    </a>
                   </div>
-                </div>
-              </li>
-            <?php endforeach; ?> 
-          </ul>
-      </div>
+                  <a href="<?php the_permalink(); ?>" title="<?php the_title();?>"><h4><?php the_title();?></h4></a>
+                  <p>
+                    <small><?php the_excerpt();?></small>
+                  </p>
+              </div>
+          </li>
+          <?php endforeach; ?>
+      </ul>
+   </div>
   </div>
-
 
 <div class="container">
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

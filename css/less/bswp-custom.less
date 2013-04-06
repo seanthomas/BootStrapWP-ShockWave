@@ -59,7 +59,7 @@
 // Body Styling
 // -------------------------
 
-@footerBackground:      @grayDarker;
+@footerBackground:      #90979f;
 
 // Headings
 // -------------------------
@@ -150,12 +150,12 @@ h4 small { font-size: 8px; }
 @navbarCollapseWidth:             979px;
 
 @navbarHeight:                    60px;
-@navbarBackgroundHighlight:       #333333;
-@navbarBackground:                #222222;
+@navbarBackgroundHighlight:       @blue;
+@navbarBackground:                @white;
 @navbarBorder:                    darken(@navbarBackground, 12%);
 
-@navbarText:                      @white;
-@navbarLinkColor:                 @white;
+@navbarText:                      @gray;
+@navbarLinkColor:                 @gray;
 @navbarLinkColorHover:            @white;
 @navbarLinkColorActive:           @white;
 @navbarLinkBackgroundHover:       @blue;
@@ -164,18 +164,16 @@ h4 small { font-size: 8px; }
 @navbarBrandColor:                @navbarLinkColor;
 @navbarBrandColorHover:           @blue;
 
-@dropdownBackground:              @navbarBackground;
-
 // navbardropdowns
 // -------------------------
-@dropdownBackground:            @navbarBackground;
+@dropdownBackground:            @white;
 @dropdownBorder:                rgba(0,0,0,.2);
 @dropdownDividerTop:            #e5e5e5;
 @dropdownDividerBottom:         @white;
 
-@dropdownLinkColor:             @navbarLinkColor;
-@dropdownLinkColorHover:        @navbarLinkColor;
-@dropdownLinkColorActive:       @navbarLinkColor;
+@dropdownLinkColor:             @gray;
+@dropdownLinkColorHover:        @white;
+@dropdownLinkColorActive:       @white;
 
 @dropdownLinkBackgroundActive:  @navbarLinkBackgroundHover;
 @dropdownLinkBackgroundHover:   @navbarLinkBackgroundHover;
@@ -292,129 +290,173 @@ a:hover {
 /* Navbar
 /* ------------------------------------------------------------------------ */
 
-.navbar-inner, .btn-navbar {
-border: none;
-background: #333333; /* Old browsers */
-background: -moz-linear-gradient(top, @navbarBackgroundHighlight 0%, @navbarBackground 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@navbarBackgroundHighlight), color-stop(100%,@navbarBackground)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, @navbarBackgroundHighlight 0%,@navbarBackground 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, @navbarBackgroundHighlight 0%,@navbarBackground 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, @navbarBackgroundHighlight 0%,@navbarBackground 100%); /* IE10+ */
-background: linear-gradient(to bottom, @navbarBackgroundHighlight 0%,@navbarBackground 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@navbarBackgroundHighlight', endColorstr='@navbarBackground',GradientType=0 ); /* IE6-9 */
-border: none;
-opacity: 0.9;   /* Current issue with drop down menu - Put 0.9 and it dont work?!? */
--moz-opacity: 0.9;
-filter: none;
--webkit-box-shadow: none;
--moz-box-shadow: none;
-box-shadow: none;
--webkit-border-radius: none;
--moz-border-radius: none;
-border-radius: none;
-border-bottom: 2px solid @navbarLinkBackgroundHover;
+/* Header
+=================================================================== */
+
+.topbar {
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid @grayLighter;
+  border-top: 4px solid @blue
+}
+  
+header {
+  background: #fff;
+  border-bottom: 5px solid #f6f6f6;
 }
 
-.navbar .divider-vertical {
-background-color: @navbarBackground;
-border-right: 1px solid @navbarBackgroundHighlight;
+.brand  {
+  color: #ddd !important;
+  text-decoration: none !important;
+  font-size: 20px !important;
+  margin-left: 10px;
+  text-shadow: none !important;
+  margin-top: 0px;
+}
+
+.brand  i {
+  margin-top: -10px;
+  margin-right: 10px;
+}
+
+.brand span {
+  color: #29a9df;
+}
+
+#social-links {
+  margin-top:20px;
+  float: right;
+}
+
+.nav-collapse.collapse {
+    height: auto \9 !important;
+    overflow: visible \9 !important;
+}
+
+.navbar-relative-top .navbar-inner {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+.navbar, 
+.navbar-inner, 
+.navbar-inverse {
+  background: #2c2e33 !important;
+  filter: none !important;
+  border: none;
+  -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
+  padding: 0;
+  margin: 0; 
+  text-transform: uppercase;
+}
+
+.navbar-inner {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
 .navbar .nav > li > a {
-color: @navbarLinkColorActive;
-text-decoration: none;
-text-shadow: none;
--webkit-transition: background-color .3s ease-in-out;
--o-transition: background-color .3s ease-in-out;
--moz-transition: background-color .3s ease-in-out;
--ms-transition: background-color .3s ease-in-out;
-transition: background-color .3s ease-in-out;
-}
-
-// Active nav items
-.navbar .nav > .active {
-  background-color: @navbarBackgroundHighlight;
-}
-
-.navbar .nav > .active > a,
-.navbar .nav > .active > a:hover,
-.navbar .nav > .active > a:focus {
-color: @navbarLinkColorActive;
-text-decoration: none;
-background-color: @navbarBackgroundHighlight;
--webkit-box-shadow: none;
--moz-box-shadow: none;
-box-shadow: none;
+  color: #fff;
+  text-shadow: none;
+  font-size: 11px;
+  padding: 22px;
+  padding: 22px 15px \9;
 }
 
 .navbar .nav > li > a:focus,
-.navbar .nav > li > a:hover {
-background-color: transparent;
-color: @navbarLinkColorActive;
-background-color: @navbarBrandColorHover;
-text-decoration: none;
+.navbar .nav > li > a:hover { 
+    background: #29a9df !important;   
+    color: #fff;
 }
 
-.navbar .brand {
-text-decoration: none;
-color: @navbarLinkColorActive;
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:focus {
+    color: #29a9df !important;  
+    text-decoration: none; 
+    background-color: #fff !important;  
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
 }
 
-.navbar .brand:hover {
-text-decoration: none;
-color: @navbarBrandColorHover;
+.navbar .nav > .active > a:hover {
+    background: #29a9df !important;   
+    color: #fff !important;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
 }
 
-/* ------------------------------------------------------------------------ */
-/* Drop Down Menu
-/* ------------------------------------------------------------------------ */
+.navbar .nav .active a:hover > .caret {
+  border-top-color: #fff !important;  
+  border-bottom-color: #fff !important; 
+}
 
+.dropdown-menu {
+  background: #2c2e33;
+  margin: 0;
+  border-radius: 0;
+  color: #ffffff;
+  border-top: 2px solid @blue;
+  font-size: 10px;
+}
+
+.dropdown-menu li > a {
+  color: #ffffff;
+}
+
+.dropdown-menu li > a:hover,
+.dropdown-menu li > a:focus,
+.dropdown-submenu:hover > a {
+  color: #29a9df;
+  background: none !important; 
+  margin-left: 5px;
+}
+
+.dropdown-menu .active > a {
+  color: #29a9df !important;
+    background: none !important;
+}
+.dropdown-menu .active > a:hover {
+    color: #29a9df !important;
+    background: none !important; 
+}
+
+.navbar .btn-navbar {
+  margin-top: 15px;
+  background: @black;
+}
+
+.navbar .btn-navbar:hover {
+  margin-top: 15px;
+  background: @black;
+}
+
+.nav .active .dropdown-toggle .caret {
+  border-top-color: #29a9df !important; 
+  border-bottom-color: #29a9df !important;  
+}
+
+/* Remove caret */
 .navbar .nav > li > .dropdown-menu {
   &:before {
-    content: none;
-    display: none;
-    border: none;
-  }
-  &:after {
-    content: none;
-    display: none;
-    border: none;
-  }
-}
-
-// The dropdown menu (ul)
-// ----------------------
-.dropdown-menu {
-  min-width: 160px;
-  padding: 0 0;
-  margin: 0 0 0; // override default ul
-  list-style: none;
-  background-color: @dropdownBackground;
+  content: none;
+  display: none;
   border: none;
-  border-top: 2px solid @navbarLinkBackgroundHover;
-  *border-right-width: none;
-  *border-bottom-width: none;
-  .border-radius(0px);
-  box-shadow: none;
-  -webkit-background-clip: none;
-     -moz-background-clip: none;
-          background-clip: none;
-
-    // Links within the dropdown menu
-  a {
-    padding: 10px 20px 10px 20px;
-  -webkit-transition: background-color .3s ease-in-out;
-  -o-transition: background-color .3s ease-in-out;
-  -moz-transition: background-color .3s ease-in-out;
-  -ms-transition: background-color .3s ease-in-out;
-  transition: background-color .3s ease-in-out;
-  }
 }
-
-
-
-
-
+  &:after {
+  content: none;
+  display: none;
+  border: none;
+}
+}
 
 /* ------------------------------------------------------------------------ */
 /* Home Page Carousel
@@ -486,16 +528,12 @@ margin-top: 10px;
 
 .post .post-image {
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .post-image a {
     display: block;
     position: relative;
-}
-
-.post-image img{
-  max-width: 100%;
-  height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
 }
 
 .post-title {
@@ -530,17 +568,12 @@ i.icon-white {
 .post-meta {
   background: #fff;
   color: #666;
-  margin: 5px 0px;
-  padding: 10px 5px;
-  border-top: 1px solid #eee;
-  
+  margin: 0 0 20px 0;
+  padding: 0 5px 0 0;
 }
 
 .post-meta a {
   text-decoration: none;
-}
-
-.post-meta a:hover {
 }
 
 .post-meta i {
@@ -551,6 +584,10 @@ i.icon-white {
 
 .post-meta span {
   margin-right: 10px;
+}
+
+.post-hr {
+  margin-bottom: 30px
 }
 
 /* Sticky Post Styles
@@ -719,23 +756,52 @@ img.wp-post-image {
 /* ------------------------------------------------------------------------ */
 
 .footer {
-  padding: 20px 0;
   margin: 0;
-  border-top: 2px solid @footerBackground;
-  background-color: @footerBackground;
-  opacity: .9;  
-  -moz-opacity: .9;
+  padding: 20px 0;
+  background-color: #313339;
+  border-top: 1px solid #313339
 }
+
+@media (max-width: 767px) {
+  .footer {
+    margin: 0px;
+    padding: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.footer-bottom {
+  margin: 0;
+  padding: 0;
+  background: #2c2e33;
+  width: 100%;
+  color: @grayLight
+}
+
+@media (max-width: 767px) {
+  .footer-bottom {
+    margin: 0px;
+    padding: 0px;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 .footer p {
   margin-bottom: 0;
-  color: @grayLighter;
+  color: @grayLight;
 }
   .footer a{
-    color:#999999;
+    color: @grayLight;
   }
   
   .footer a:hover{
-    color:#ffffff;
+    color: @white;
   }
 .footer-links {
   margin: 10px 0;
@@ -745,7 +811,9 @@ img.wp-post-image {
   margin-right: 10px;
 }
 
-
+.footer-bottom p { 
+  margin-top: 10px
+}
 
 
 /* ------------------------------------------------------------------------ */
@@ -829,6 +897,12 @@ h4.widget-title {
   border-bottom: none;
 }
 
+.jumbotron {
+  background: #eff0f1;
+  color: @gray;
+  margin-bottom: 0
+}
+
 /* ------------------------------------------------------------------------ */
 /* Breadcrumbs
 /* ------------------------------------------------------------------------ */
@@ -863,10 +937,23 @@ h4.widget-title {
     color: #ffffff;
     background: @blue;
     margin: 0;
+    padding: 0;
     padding: 15px 0;
+    border-top: 4px solid #ececef
+}
+
+@media (max-width: 767px) {
+  #twitterbar {
+    margin: 0px;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
     #twitterbar .twitterpost {
+      background: url(../framework/images/icons/twitter.png) no-repeat -10px -49px;
         padding: 0 0 0 30px;
         list-style: none;
         margin: 0;
@@ -892,41 +979,39 @@ h4.widget-title {
 
             #twitterbar .twitterpost li b { display: none }
 
-/* ------------------------------------------------------------------------ */
-/* Events Manager Styling */
-/* ------------------------------------------------------------------------ */
-
-.btn-blue {
-  .buttonBackground(@btnBlueBackground, @btnBlueBackgroundHighlight);
-}
-
-.event-list {
-  border-bottom: 1px solid #ccc;
-  padding: 20px 0 20px 0;
-}
-
-.em-location-map, .em-locations-map { width:100% !important; height: 300px !important; margin-bottom: 40px; border-bottom: 3px solid @linkColorHover;}
-
-ul.event-meta li,
-ul.event-meta li a,
- {
-  font-size: 12px;
-
-}
-
-.content {
-  margin-bottom: 40px;
-}
-
 /* Sharebox Social Icons ---------------------------------------------------- */
 
-.sharebox,
-.post-meta {
-    border-top: 1px solid #e5e5e5;
-    border-bottom: 1px solid #e5e5e5;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    padding: 10px 0 10px 0;
+.sharebox {
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 10px 0 10px 0;
+}
+
+.socialbar {
+  width: 100%;
+  background: #3f3f3f;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 767px) {
+  .socialbar {
+    margin: 0px;
+    padding: 10px 10px 10px 10px;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.socialbar ul {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 5px;
 }
 
 /* Large desktop */
@@ -943,42 +1028,81 @@ ul.event-meta li a,
   } 
  }
 
-    .sharebox h4 {
-        float: left;
-        margin: 10px 0 0 10px;
-        color: #777777;
-        font-size: 13px;
-    }
+.sharebox h4 {
+  float: left;
+  margin: 10px 0 0 10px;
+  color: #777777;
+  font-size: 13px;
+}
 
-    .sharebox .social-icons li {
-      float: right;
-      list-style: none;
-      margin: 0;
-    }
+.sharebox .social-icons li,
+.socialbar .social-icons li,
+.socialbar-footer .social-icons li {
+  float: right;
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
 
-    .sharebox .social-icons i {
-      margin: 10px;
-    }
+.socialbar .social-icons ul li {
+  float: none;
+  display: inline-block;
+  padding: 0 20px 0 20px;
+}
 
-        .sharebox .social-icons a {
-            -webkit-transition:all 0.3s ease 0s;
-         -moz-transition:all 0.3s ease 0s;
-           -o-transition:all 0.3s ease 0s;
-              transition:all 0.3s ease 0s;
-            display: block;
-            width: 40px;
-            height: 40px;
-            opacity: 0.6;
-      -webkit-border-radius:3px;
-         -moz-border-radius:3px;
-              border-radius:3px;
-        }
+.sharebox .social-icons a,
+.socialbar .social-icons a,
+.socialbar-footer .social-icons a {
+  -webkit-transition:all 0.3s ease 0s;
+  -moz-transition:all 0.3s ease 0s;
+  -o-transition:all 0.3s ease 0s;
+  transition:all 0.3s ease 0s;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:3px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  text-indent: -9999px;
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+}
 
-        .sharebox .social-icons a:hover {
-            background-color: #666666 !important;
-            opacity: 1;
-            color: @white;
-        }
+.sharebox .social-icons a {
+  opacity: 0.6
+}
+
+.socialbar .social-icons a,
+.socialbar-footer .social-icons a {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+
+.sharebox .social-icons a:hover,
+.socialbar .social-icons a:hover,
+.socialbar-footer .social-icons a:hover {
+  opacity: 1;
+  background-position: 0px -40px !important;
+}
+
+.socialbar .social-icons ul li a{
+  opacity: 1;
+}
+.socialbar .social-icons ul li a:hover{
+  background-color: transparent !important;
+}
+
+.socialbar-footer ul {
+  float: right;
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+.socialbar-footer ul li {
+  display: inline-block;
+}
 
 //
 // Pagination (multiple pages)
@@ -1215,60 +1339,60 @@ ol.inline > li {
 /* Get Album Box Icons ---------------------------------------------------- */
 
 .albumbox ul li {
-    padding: 12px 0 0 0;
-    border: none;
+  padding: 12px 0 0 0;
+  border: none;
 }
 
 .albumbox ul li:last-child {
-    border: none;
+  border: none;
 }
 
 .album-icons a {
-    -webkit-transition:all 0.3s ease 0s;
- -moz-transition:all 0.3s ease 0s;
-   -o-transition:all 0.3s ease 0s;
-      transition:all 0.3s ease 0s;
-      padding: 10px;
-    opacity: 0.6;
--webkit-border-radius:3px;
- -moz-border-radius:3px;
-      border-radius:3px;
-      color: #666666;
+  -webkit-transition:all 0.3s ease 0s;
+  -moz-transition:all 0.3s ease 0s;
+  -o-transition:all 0.3s ease 0s;
+  transition:all 0.3s ease 0s;
+  padding: 10px;
+  opacity: 0.6;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:3px;
+  color: #666666;
 }
 
 .album-icons a:hover {
-    background-color: #666666 !important;
-    opacity: 1;
-    color: @white;
+  background-color: #666666 !important;
+  opacity: 1;
+  color: @white;
 }
 
 .btn-modal {
-    margin-top: none;
-    margin-bottom: 10px;
-    padding: 10px 20px;
-    border: 1px solid #ddd;
-    display: inline-block;
-    background-image: linear-gradient(bottom, #F7F7F7 0%, #FFFFFF 100%);
-    background-image: -o-linear-gradient(bottom, #F7F7F7 0%, #FFFFFF 100%);
-    background-image: -moz-linear-gradient(bottom, #F7F7F7 0%, #FFFFFF 100%);
-    background-image: -webkit-linear-gradient(bottom, #F7F7F7 0%, #FFFFFF 100%);
-    background-image: -ms-linear-gradient(bottom, #F7F7F7 0%, #FFFFFF 100%);
-    background-color: #F9F9F9;
-    -webkit-border-radius:3px;
-       -moz-border-radius:3px;
-            border-radius:3px;
-    -webkit-box-shadow:0px 1px 1px 0px rgba(180, 180, 180, 0.2);
-       -moz-box-shadow:0px 1px 1px 0px rgba(180, 180, 180, 0.2);
-            box-shadow:0px 1px 1px 0px rgba(180, 180, 180, 0.2);
+  margin-top: none;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  display: inline-block;
+  background-image: linear-gradient(bottom, #F7F7F7 0%, #FFFFFF 100%);
+  background-image: -o-linear-gradient(bottom, #F7F7F7 0%, #FFFFFF 100%);
+  background-image: -moz-linear-gradient(bottom, #F7F7F7 0%, #FFFFFF 100%);
+  background-image: -webkit-linear-gradient(bottom, #F7F7F7 0%, #FFFFFF 100%);
+  background-image: -ms-linear-gradient(bottom, #F7F7F7 0%, #FFFFFF 100%);
+  background-color: #F9F9F9;
+  -webkit-border-radius:3px;
+     -moz-border-radius:3px;
+          border-radius:3px;
+  -webkit-box-shadow:0px 1px 1px 0px rgba(180, 180, 180, 0.2);
+     -moz-box-shadow:0px 1px 1px 0px rgba(180, 180, 180, 0.2);
+          box-shadow:0px 1px 1px 0px rgba(180, 180, 180, 0.2);
 }
 
 .ticketbox ul li {
-    margin-top: 8px;
-    border: none;
+  margin-top: 8px;
+  border: none;
 }
 
 .ticketbox ul li:last-child {
-    border: none;
+  border: none;
 }
 
 
@@ -1294,7 +1418,8 @@ ol.inline > li {
   background-color: #f4f4f4;
 }
 
-.events-date .date {
+.events-date .date,
+.blog-post-date {
   text-align: center;
   font-size: 20px;
   font-weight: bold;
@@ -1306,7 +1431,8 @@ ol.inline > li {
   padding: 10px 0 0 0;
   
 }
-.events-date .date span {
+.events-date .date span,
+.blog-post-date span {
   font-size: 11px;
   text-transform: uppercase;
   font-weight: bold;
@@ -1345,8 +1471,14 @@ ol.inline > li {
 
 /* Artists Page ---------------------------------------------------- */
 
-.artists img {
-  margin-right: 30px;
+.artists .post-image {
+  margin-top: 10px;
+}
+
+/* Videos Page ---------------------------------------------------- */
+
+.videos .video-embed {
+  margin-top: 10px;
 }
 
 /* Custom Btns ---------------------------------------------------- */
@@ -1376,7 +1508,7 @@ ol.inline > li {
 /* Page - Post Types ---------------------------------------------------- */
 
 .post-types {
-    margin-top: 50px;
+    margin-top: 0px;
 }
 
 .post-types-title h4 {
@@ -1417,4 +1549,212 @@ ol.inline > li {
 
 .post-types .thumbnail {
   border-radius: 0px;
+}
+
+/* Carousel layout
+---------------------------------------------------------- */
+.wpb_carousel .wpb_wrapper {
+  position: relative;
+}
+.wpb_carousel .prev,
+.wpb_carousel .next {
+  position: absolute;
+  top: 3px;
+  background-color: #f7f7f7;
+  padding: 0px 6px 0px 6px;
+  font-size: 12px;
+  z-index: 10;
+  text-decoration: none;
+  transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+}
+.wpb_carousel .prev:hover,
+.wpb_carousel .next:hover {
+  background-color: #f0f0f0;
+}
+.wpb_carousel .prev {
+  right: 30px;
+}
+.wpb_carousel .next {
+  right: 0px;
+}
+.wpb_carousel .wpb_thumbnails-fluid {
+  width: 100%;
+}
+.wpb_carousel .wpb_thumbnails-fluid > [class*="span"] {
+  height: auto !important;
+}
+/*** Categories filter ***/
+.wpb_teaser_grid .categories_filter,
+.wpb_categories_filter {
+  list-style: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+.wpb_teaser_grid .categories_filter li,
+.wpb_categories_filter li {
+  display: block;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.wpb_teaser_grid .categories_filter li a,
+.wpb_categories_filter li a {
+  border: none;
+  text-decoration: none;
+}
+.wpb_teaser_grid .categories_filter li a:hover,
+.wpb_categories_filter li a:hover {
+  border-bottom: 1px dotted;
+}
+.wpb_teaser_grid .categories_filter li.active a,
+.wpb_categories_filter li.active a {
+  border-bottom: 1px dotted;
+}
+
+.social-email a { background: url(../framework/images/icons/email.png) no-repeat 0 0 }
+.social-email a:hover { background-color: #666666 }
+.social-aim a { background: url(../framework/images/icons/aim.png) no-repeat 0 0 }
+.social-aim a:hover { background-color: #e95a00 }
+.social-apple a { background: url(../framework/images/icons/apple.png) no-repeat 0 0 }
+.social-apple a:hover { background-color: #606060 }
+.social-behance a { background: url(../framework/images/icons/behance.png) no-repeat 0 0 }
+.social-behance a:hover { background-color: #18a3fe }
+.social-blogger a { background: url(../framework/images/icons/blogger.png) no-repeat 0 0 }
+.social-blogger a:hover { background-color: #fb913f }
+.social-cargo a { background: url(../framework/images/icons/cargo.png) no-repeat 0 0 }
+.social-cargo a:hover { background-color: #00c462 }
+.social-delicious a { background: url(../framework/images/icons/delicious.png) no-repeat 0 0 }
+.social-delicious a:hover { background-color: #3274d1 }
+.social-deviantart a { background: url(../framework/images/icons/deviantart.png) no-repeat 0 0 }
+.social-deviantart a:hover { background-color: #d0de21 }
+.social-digg a { background: url(../framework/images/icons/digg.png) no-repeat 0 0 }
+.social-digg a:hover { background-color: #2882c6 }
+.social-dopplr a { background: url(../framework/images/icons/dopplr.png) no-repeat 0 0 }
+.social-dopplr a:hover { background-color: #99cc66 }
+.social-dribbble a { background: url(../framework/images/icons/dribbble.png) no-repeat 0 0 }
+.social-dribbble a:hover { background-color: #ef5b92 }
+.social-ember a { background: url(../framework/images/icons/ember.png) no-repeat 0 0 }
+.social-ember a:hover { background-color: #fb9d00 }
+.social-evernote a { background: url(../framework/images/icons/evernote.png) no-repeat 0 0 }
+.social-evernote a:hover { background-color: #77ba2f }
+.social-facebook a { background: url(../framework/images/icons/facebook.png) no-repeat 0 0 }
+.social-facebook a:hover { background-color: #3b5998 }
+.social-flickr a { background: url(../framework/images/icons/flickr.png) no-repeat 0 0 }
+.social-flickr a:hover { background-color: #f1628b }
+.social-forrst a { background: url(../framework/images/icons/forrst.png) no-repeat 0 0 }
+.social-forrst a:hover { background-color: #5b9a68 }
+.social-github a { background: url(../framework/images/icons/github.png) no-repeat 0 0 }
+.social-github a:hover { background-color: #7292a2 }
+.social-google a { background: url(../framework/images/icons/google.png) no-repeat 0 0 }
+.social-google a:hover { background-color: #dd4b39 }
+.social-googleplus a { background: url(../framework/images/icons/googleplus.png) no-repeat 0 0 }
+.social-googleplus a:hover { background-color: #d94a39 }
+.social-gowalla a { background: url(../framework/images/icons/gowalla.png) no-repeat 0 0 }
+.social-gowalla a:hover { background-color: #ff920d }
+.social-grooveshark a { background: url(../framework/images/icons/grooveshark.png) no-repeat 0 0 }
+.social-grooveshark a:hover { background-color: #f88e00 }
+.social-html5 a { background: url(../framework/images/icons/html5.png) no-repeat 0 0 }
+.social-html5 a:hover { background-color: #f3642c }
+.social-icloud a { background: url(../framework/images/icons/icloud.png) no-repeat 0 0 }
+.social-icloud a:hover { background-color: #fb913f }
+.social-lastfm a { background: url(../framework/images/icons/lastfm.png) no-repeat 0 0 }
+.social-lastfm a:hover { background-color: #d21309 }
+.social-linkedin a { background: url(../framework/images/icons/linkedin.png) no-repeat 0 0 }
+.social-linkedin a:hover { background-color: #71b2d0 }
+.social-metacafe a { background: url(../framework/images/icons/metacafe.png) no-repeat 0 0 }
+.social-metacafe a:hover { background-color: #ef4035 }
+.social-mixx a { background: url(../framework/images/icons/mixx.png) no-repeat 0 0 }
+.social-mixx a:hover { background-color: #d80330 }
+.social-myspace a { background: url(../framework/images/icons/myspace.png) no-repeat 0 0 }
+.social-myspace a:hover { background-color: #003398 }
+.social-netvibes a { background: url(../framework/images/icons/netvibes.png) no-repeat 0 0 }
+.social-netvibes a:hover { background-color: #629e61 }
+.social-newsvine a { background: url(../framework/images/icons/newsvine.png) no-repeat 0 0 }
+.social-newsvine a:hover { background-color: #5b965a }
+.social-orkut a { background: url(../framework/images/icons/orkut.png) no-repeat 0 0 }
+.social-orkut a:hover { background-color: #ed2590 }
+.social-paypal a { background: url(../framework/images/icons/paypal.png) no-repeat 0 0 }
+.social-paypal a:hover { background-color: #32689a }
+.social-picasa a { background: url(../framework/images/icons/picasa.png) no-repeat 0 0 }
+.social-picasa a:hover { background-color: #444 }
+.social-pinterest a { background: url(../framework/images/icons/pinterest.png) no-repeat 0 0 }
+.social-pinterest a:hover { background-color: #cb2027 }
+.social-plurk a { background: url(../framework/images/icons/plurk.png) no-repeat 0 0 }
+.social-plurk a:hover { background-color: #f35b36 }
+.social-posterous a { background: url(../framework/images/icons/posterous.png) no-repeat 0 0 }
+.social-posterous a:hover { background-color: #f9d560 }
+.social-reddit a { background: url(../framework/images/icons/reddit.png) no-repeat 0 0 }
+.social-reddit a:hover { background-color: #cde2f9 }
+.social-rss a { background: url(../framework/images/icons/rss.png) no-repeat 0 0 }
+.social-rss a:hover { background-color: #fe9900 }
+.social-skype a { background: url(../framework/images/icons/skype.png) no-repeat 0 0 }
+.social-skype a:hover { background-color: #18b7f1 }
+.social-stumbleupon a { background: url(../framework/images/icons/stumbleupon.png) no-repeat 0 0 }
+.social-stumbleupon a:hover { background-color: #eb4924 }
+.social-technorati a { background: url(../framework/images/icons/technorati.png) no-repeat 0 0 }
+.social-technorati a:hover { background-color: #7ac84f }
+.social-tumblr a { background: url(../framework/images/icons/tumblr.png) no-repeat 0 0 }
+.social-tumblr a:hover { background-color: #3a5976 }
+.social-twitter a { background: url(../framework/images/icons/twitter.png) no-repeat 0 0 }
+.social-twitter a:hover { background-color: #48c4d2 }
+.social-vimeo a { background: url(../framework/images/icons/vimeo.png) no-repeat 0 0 }
+.social-vimeo a:hover { background-color: #62a0ad }
+.social-wordpress a { background: url(../framework/images/icons/wordpress.png) no-repeat 0 0 }
+.social-wordpress a:hover { background-color: #464646 }
+.social-yahoo a { background: url(../framework/images/icons/yahoo.png) no-repeat 0 0 }
+.social-yahoo a:hover { background-color: #ab64bc }
+.social-yelp a { background: url(../framework/images/icons/yelp.png) no-repeat 0 0 }
+.social-yelp a:hover { background-color: #c41200 }
+.social-youtube a { background: url(../framework/images/icons/youtube.png) no-repeat 0 0 }
+.social-youtube a:hover { background-color: #f45750 }
+.social-zerply a { background: url(../framework/images/icons/zerply.png) no-repeat 0 0 }
+.social-zerply a:hover { background-color: #8db259 }
+.social-zootool a { background: url(../framework/images/icons/zootool.png) no-repeat 0 0 }
+.social-zootool a:hover { background-color: #262626 }
+
+/* Flickr Widget /--------------------------------------------------------- */
+
+.widget_flickr #flickr_tab {    margin-right: -10px }
+
+    .widget_flickr #flickr_tab img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .widget_flickr #flickr_tab a {
+        float: left;
+        width: 56px;
+        height: 56px;
+        position: relative;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        padding: 4px;
+       -webkit-box-shadow:0px 1px 1px 0px rgba(180, 180, 180, 0.1);
+        -moz-box-shadow:0px 1px 1px 0px rgba(180, 180, 180, 0.1);
+             box-shadow:0px 1px 1px 0px rgba(180, 180, 180, 0.1);
+    }
+
+    .widget_flickr #flickr_tab a:hover {
+        background: #289dcc;
+        border-color: #289dcc;
+    }
+
+/* Discography Widget /--------------------------------------------------------- */
+
+.widget_discography {
+  margin: 0;
+  padding: 0;
+}
+
+/* Events List Widget /--------------------------------------------------------- */
+
+
+.widget .events-date .date {
+ margin-right: 20px;
 }

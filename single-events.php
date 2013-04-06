@@ -13,10 +13,6 @@
 
 get_header(); ?>
 
-<?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
-
-<div class="container">
-
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 
           $date = get_post_meta($post->ID, 'sw_date', true);
@@ -34,22 +30,31 @@ get_header(); ?>
         
         ?>
 
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1><?php wp_title(''); ?></h1>
+  </div>
+</header>
+
+<?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
+
+<div class="container">
+
 <div <?php post_class(); ?>>
 
-  <div class="page-title">
-    <h1><?php the_title();?></h1>
-
-  </div>
-
-<div class="row">
+<div class="row-fluid">
 
 <div class="span6">
 
   <?php // Checking for a post thumbnail
   if ( has_post_thumbnail() ) ?>
-  <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-    <?php the_post_thumbnail( 'single-event' ); ?>
-  </a>
+    <div class="post-image">
+      <a href="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>" title="<?php the_title(); ?>">
+        <?php the_post_thumbnail('large'); ?>
+      </a>
+    </div>
 
 </div>
 
@@ -104,10 +109,16 @@ get_header(); ?>
 
     </ul>
 
-<?php the_content();?>
+</div>
 
 </div>
 
+<hr class="hidden-phone">
+
+<div class="row">
+  <div class="span12">
+    <?php the_content();?>
+  </div>
 </div>
 
 <div class="content-events row-fluid">

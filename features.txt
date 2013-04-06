@@ -116,3 +116,20 @@ Get This Album:			itunes amazon download
                   'fallback_cb'     => 'false',
                   'walker' => new Bootstrapwp_Walker_Nav_Menu()
               ) ); ?>
+
+
+
+To do:
+
+Style Sidebar
+Add bottom widgets
+Add custom sidebar widgets
+
+facebook
+twitter
+itunes
+youtube
+lastfm
+
+create widgets
+
