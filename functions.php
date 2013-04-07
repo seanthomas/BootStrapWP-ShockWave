@@ -109,6 +109,10 @@ include(TEMPLATEPATH . '/framework/includes/widgets/flickr.php');
 include(TEMPLATEPATH . '/framework/includes/widgets/discography.php');
 include(TEMPLATEPATH . '/framework/includes/widgets/events.php');
 include(TEMPLATEPATH . '/framework/includes/widgets/event.php');
+include(TEMPLATEPATH . '/framework/includes/widgets/artist.php');
+include(TEMPLATEPATH . '/framework/includes/widgets/artists.php');
+include(TEMPLATEPATH . '/framework/includes/widgets/galleries.php');
+include(TEMPLATEPATH . '/framework/includes/widgets/videos.php');
 
 /*
 | -------------------------------------------------------------------
@@ -238,6 +242,7 @@ if ( function_exists( 'add_theme_support' ) ) {
 
 if ( function_exists( 'add_image_size' ) ) { 
     add_image_size( 'standard', 870, 300, true );     // Standard Blog Image
+    add_image_size( 'artists_thumbnail', 80, 80, true );     // Artists Widget Image
 }
 /*
 | -------------------------------------------------------------------
