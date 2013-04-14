@@ -1,7 +1,10 @@
 
 
 <!-- Button to Audio Player Modal -->
-<a href="#AudioModal" role="button" class="btn-modal" data-toggle="modal">Click here to listen to Album</a>
+<a href="#AudioModal" role="button" class="btn btn-blue" data-toggle="modal"><?php _e('Click Here', 'bootstrapwp') ?></a>
+<div class="sidebar-label">
+  <?php _e('Listen to Album', 'bootstrapwp') ?>
+</div>
 
 <!-- Audio Play Modal -->
 <div id="AudioModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="AudioModalLabel" aria-hidden="true">

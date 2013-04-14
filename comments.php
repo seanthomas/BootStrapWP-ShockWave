@@ -68,18 +68,18 @@
 
 		//Custom Fields
 		$fields =  array(
-			'author'=> '<div class="controls controls-row"><input class="span2" placeholder=".span2" name="author" type="text" value="' . __('Name (required)', 'bootstrapwp') . '" size="30"' . $aria_req . ' />',
+			'author'=> '<div class="controls"><input class="span8 comment-form-author" name="author" type="text" value="' . __('Name (required)', 'bootstrapwp') . '" ' . $aria_req . ' />',
 			
-			'email' => '<input class="span3" placeholder=".span3"name="email" type="text" value="' . __('E-Mail (required)', 'bootstrapwp') . '" size="30"' . $aria_req . ' />',
+			'email' => '<input class="span8 comment-form-email" name="email" type="text" value="' . __('E-Mail (required)', 'bootstrapwp') . '" ' . $aria_req . ' />',
 			
-			'url' 	=> '<input class="span3" placeholder=".span3" name="url" type="text" value="' . __('Website', 'bootstrapwp') . '" size="30" /></p></div>',
+			'url' 	=> '<input class="span8 comment-form-url" name="url" type="text" value="' . __('Website', 'bootstrapwp') . '" /></p></div>',
 		);
 
 		//Comment Form Args
         $comments_args = array(
 			'fields' => $fields,
-			'title_reply'=>'<h3 class="title"><span>'. __('Leave a reply', 'bootstrapwp') .'</span></h4>',
-			'comment_field' => '<div id="respond-textarea"><textarea id="comment" name="comment" aria-required="true" rows="10" tabindex="4"></textarea></div>',
+			'title_reply'=>'<h2 class="comments-title"><span>' . __('Leave a reply', 'bootstrapwp') .' </span></h4>',
+			'comment_field' => '<textarea id="comment" class="span8" name="comment" aria-required="true" rows="10" tabindex="4"></textarea>',
 			'comment_notes_after' => ' ',
 			'label_submit' => __('Submit comment','bootstrapwp')
 		);

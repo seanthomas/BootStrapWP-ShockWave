@@ -1,12 +1,13 @@
 <!-- start: Post -->
 <div <?php post_class(); ?>>
+  
+    <?php if ( has_post_thumbnail() ) { ?>
     <div class="post-image">
-      <?php // Checking for a post thumbnail
-        if ( has_post_thumbnail() ) ?>
-        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-          <?php the_post_thumbnail( 'standard' ); ?>
-        </a>
+      <a href="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>" title="<?php the_title(); ?>" >
+        <?php the_post_thumbnail('standard'); ?>
+      </a>
     </div>
+    <?php } ?>
 
     <div class="row">
       <div class="span2">

@@ -31,7 +31,7 @@ class artists_widget extends WP_Widget {
 		/* display the widget */
 		?>
                        
-        <div class="album-widget post-types">
+        <div class="album-widget">
         
         <ul>
         <?php  
@@ -50,7 +50,8 @@ class artists_widget extends WP_Widget {
 		                                       
 		        ?>
                 <li>
-			    <div class="artists-date row">
+			    <div class="artists row">
+			    <div class="span4">
 			      <div class="date pull-left">
 	                <div class="post-image">
 			          <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
@@ -63,7 +64,7 @@ class artists_widget extends WP_Widget {
 			        <h4><a href="<?php the_permalink(); ?>"><?php the_title() ;?></a></h4>
 			        <span><?php echo $artist_role; ?></span>
 			      </div>
-
+			    </div>
 			    </div>
                         
                 </li>                       
