@@ -40,13 +40,14 @@ get_header(); ?>
 
 <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
 
+<!--start: Container --> 
 <div class="container">
-
+<!--start: Post Class --> 
 <div <?php post_class(); ?>>
-
-<div class="row-fluid">
-
-<div class="span6">
+<!--start: Row --> 
+<div class="row">
+<!--start: Span8 --> 
+<div class="span8">
 
   <?php // Checking for a post thumbnail
   if ( has_post_thumbnail() ) ?>
@@ -56,87 +57,82 @@ get_header(); ?>
       </a>
     </div>
 
+  <hr class="hidden-phone">
+
+  <?php the_content();?>
+
+
+  <?php if($data['check_events_sharebox'] == true) { ?>
+    <?php get_template_part( 'includes/sharebox' ); ?>
+  <?php } ?>
+
+  <?php comments_template(); ?>
+
+  <?php bootstrapwp_content_nav('nav-below');?>
+
 </div>
 
-<div class="span6 album-attributes">
+<!--start: Sidebar Span4 --> 
+<div class="sidebar span4 ">
 
-    <ul class="unstlyed">
+      <div class="sidebar-info">
+        <h2><?php _e('Album Details', 'bootstrapwp') ?></h2>
+      </div>
 
       <?php if ($Album_status) { ?>
-        <li><strong><?php echo $Album_status; ?></strong></li>
+        <p><?php echo $Album_status; ?></p>
+        <div class="sidebar-label">
+          <?php _e('Album Status', 'bootstrapwp') ?> 
+        </div>
       <?php } ?>
 
-        <li><strong><?php _e('Date:', 'bootstrapwp') ?></strong><?php echo $pretty_date_M . ' ' . $pretty_date_d . ', ' . $pretty_date_yy; ?></li>
+        <p><?php echo $pretty_date_M . ' ' . $pretty_date_d . ', ' . $pretty_date_yy; ?></p>
+        <div class="sidebar-label">
+          <?php _e('Date', 'bootstrapwp') ?>
+        </div>
 
-        <li><strong><?php _e('Time:', 'bootstrapwp') ?></strong><?php echo $time; ?></li>        
+        <p><?php echo $time; ?></p>
+        <div class="sidebar-label">
+          <?php _e('Time', 'bootstrapwp') ?>
+        </div>
 
-        <li><strong><?php _e('Venue:', 'bootstrapwp') ?></strong><?php echo $venue; ?></li>
+        <p><?php echo $venue; ?></p>
+        <div class="sidebar-label">
+          <?php _e('Venue', 'bootstrapwp') ?>
+        </div>
 
-        <li><strong><?php _e('Address:', 'bootstrapwp') ?></strong><?php echo $address; ?></li>
+        <p><?php echo $address; ?></p>
+        <div class="sidebar-label">
+          <?php _e('Address', 'bootstrapwp') ?>
+        </div>
 
         <?php if($data['check_gettickets'] == true) { ?>
-        <li class="ticketbox">
 
-          <ul class="album-icons inline">
+        <?php
+        if ($cancelled){ ?>
+          <a class="btn" href="<?php echo $url; ?>"><?php _e('Cancelled', 'bootstrapwp') ?></a>
+        <?php }
 
-          <strong class="hidden-phone"><?php _e('Get Tickets:', 'bootstrapwp') ?></strong>
+        elseif ($soldout){ ?> 
+          <a class="btn" href="<?php echo $url; ?>"><?php _e('Sold Out', 'bootstrapwp') ?></a>
+        <?php }
 
-            <?php 
-            if ($cancelled){ ?>
-            <li> 
-                    <a href=""><?php _e('Cancelled', 'bootstrapwp') ?></a>
-            </li>       
-            <?php }
+        if ($url){ ?>
+          <a class="btn" href="<?php echo $url; ?>"><?php if ($button_text) { echo $button_text; } else { _e('Buy Tickets', 'bootstrapwp'); } ?></a>
+        <?php }
+        ?>
 
-            elseif ($soldout){ ?>    
-            <li>                                             
-                    <a href=""><?php _e('Sold Out', 'bootstrapwp') ?></a>  
-            </li>   
-            <?php }
-
-            if ($url){ ?>
-            <li> 
-                    <a href="<?php echo $itunes; ?>"><?php if ($button_text) { echo $button_text; } else { _e('Buy Tickets', 'bootstrapwp'); } ?></a>
-           </li>       
-            <?php } 
-            ?>
-
-          </ul>
-        </li>
         <?php } ?>
 
-
-
-    </ul>
-
+<!--end: Sidebar Span4 --> 
+</div>
+<!--end: Row --> 
+</div>
+<!--end: Post Class --> 
 </div>
 
-</div>
+    <?php endwhile;
 
-<hr class="hidden-phone">
-
-<div class="row">
-  <div class="span12">
-    <?php the_content();?>
-  </div>
-</div>
-
-<div class="content-events row-fluid">
-
-</div>
-
-</div>
-
-        <?php if($data['check_events_sharebox'] == true) { ?>
-        <?php get_template_part( 'includes/sharebox' ); ?>
-        <?php } ?>
-
-          <?php endwhile;
-
-        endif; ?>
-
- <?php comments_template(); ?>
-
- <?php bootstrapwp_content_nav('nav-below');?>
+  endif; ?>
 
 <?php get_footer(); ?>

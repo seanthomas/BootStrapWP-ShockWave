@@ -16,6 +16,7 @@ get_header(); ?>
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
   
         $artist_role = get_post_meta($post->ID, 'sw_artist_role', true);
+        $description = get_post_meta($post->ID, 'sw_description', true);
         
         ?>
 
@@ -34,12 +35,13 @@ get_header(); ?>
 
 <?php if (function_exists('bootstrapwp_breadcrumbs')) bootstrapwp_breadcrumbs(); ?>
 
+<!--start: Container --> 
 <div class="container">
-
+<!--start: Post Class --> 
 <div <?php post_class(); ?>>
-
+<!--start: Row --> 
 <div class="row">
-
+<!--start: Span8 --> 
 <div class="span8">
 
   <?php // Checking for a post thumbnail
@@ -62,14 +64,43 @@ get_header(); ?>
 
         endif; ?>
 
- <?php comments_template(); ?>
+  <?php comments_template(); ?>
 
- <?php bootstrapwp_content_nav('nav-below');?>
+  <?php bootstrapwp_content_nav('nav-below');?>
 
- </div>
+</div>
 
- <?php get_sidebar('blog'); ?>
+<!--start: Sidebar Span4 --> 
+<div class="sidebar span4 ">
 
- </div>
+      <div class="sidebar-info">
+        <h2><?php _e('Artist Details', 'bootstrapwp') ?></h2>
+      </div>
+
+      <p><?php wp_title(''); ?></p>
+      <div class="sidebar-label">
+        <?php _e('Name', 'bootstrapwp') ?>
+      </div>
+
+      <?php if ($artist_role) { ?>
+        <p><?php echo $artist_role; ?></p>
+        <div class="sidebar-label">
+          <?php _e('Role', 'bootstrapwp') ?>
+        </div>
+      <?php } ?>
+
+      <?php if ($description) { ?>
+        <div class="sidebar-description"><?php echo $description; ?></div>
+        <div class="sidebar-label">
+          <?php _e('Description', 'bootstrapwp') ?> 
+        </div>
+      <?php } ?>
+
+<!--end: Sidebar Span4 --> 
+</div>
+<!--end: Row -->
+</div>
+<!--end: Postclass -->
+</div>
 
 <?php get_footer(); ?>

@@ -97,22 +97,29 @@ add_action('wp_enqueue_scripts', 'bootstrapwp_js_loader');
  */
 require_once ('admin/index.php');
 
-/** INCLUDE CUSTOM POST TYPES (Discography etc) *************************************************/
-include_once(TEMPLATEPATH . '/includes/post-types/discography.php');
-include_once(TEMPLATEPATH . '/includes/post-types/events.php');
-include_once(TEMPLATEPATH . '/includes/post-types/artists.php');
-include_once(TEMPLATEPATH . '/includes/post-types/galleries.php');
-include_once(TEMPLATEPATH . '/includes/post-types/videos.php');
+/* ------------------------------------------------------------------------ */
+/* Inlcudes
+/* ------------------------------------------------------------------------ */
 
-/** INCLUDE WIDGETS ***********************************************************/
-include(TEMPLATEPATH . '/framework/includes/widgets/flickr.php');
-include(TEMPLATEPATH . '/framework/includes/widgets/discography.php');
-include(TEMPLATEPATH . '/framework/includes/widgets/events.php');
-include(TEMPLATEPATH . '/framework/includes/widgets/event.php');
-include(TEMPLATEPATH . '/framework/includes/widgets/artist.php');
-include(TEMPLATEPATH . '/framework/includes/widgets/artists.php');
-include(TEMPLATEPATH . '/framework/includes/widgets/galleries.php');
-include(TEMPLATEPATH . '/framework/includes/widgets/videos.php');
+  /** MISC INCLUDES *************************************************/
+  include_once(TEMPLATEPATH . '/css/smof-css.php'); // Load Custom CSS
+
+  /** INCLUDE CUSTOM POST TYPES (Discography etc) *************************************************/
+  include_once(TEMPLATEPATH . '/includes/post-types/discography.php');
+  include_once(TEMPLATEPATH . '/includes/post-types/events.php');
+  include_once(TEMPLATEPATH . '/includes/post-types/artists.php');
+  include_once(TEMPLATEPATH . '/includes/post-types/galleries.php');
+  include_once(TEMPLATEPATH . '/includes/post-types/videos.php');
+
+  /** INCLUDE WIDGETS ***********************************************************/
+  include(TEMPLATEPATH . '/framework/includes/widgets/flickr.php');
+  include(TEMPLATEPATH . '/framework/includes/widgets/discography.php');
+  include(TEMPLATEPATH . '/framework/includes/widgets/events.php');
+  include(TEMPLATEPATH . '/framework/includes/widgets/event.php');
+  include(TEMPLATEPATH . '/framework/includes/widgets/artist.php');
+  include(TEMPLATEPATH . '/framework/includes/widgets/artists.php');
+  include(TEMPLATEPATH . '/framework/includes/widgets/galleries.php');
+  include(TEMPLATEPATH . '/framework/includes/widgets/videos.php');
 
 /*
 | -------------------------------------------------------------------

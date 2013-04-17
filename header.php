@@ -52,6 +52,12 @@
 <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
+<style>
+@import "http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700";
+@import "http://fonts.googleapis.com/css?family=Rokkitt:400,700";
+@import "http://fonts.googleapis.com/css?family=Merriweather:400,300";
+</style>
+
     <?php wp_head(); ?>
 
   </head>

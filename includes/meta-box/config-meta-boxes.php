@@ -212,7 +212,14 @@ $meta_boxes[] = array(
                         'type' => 'text',
                         'desc' => __('For example - Drummer','bootstrapwp'),              
                         'std' => '',                    
-                ),                                
+                ),  
+                array(
+                        'name' => __('Insert Description - This is displayed in the sidebar','bootstrapwp'),              
+                        'desc' => '',        
+                        'id' => $prefix . 'description',      
+                        'type' => 'textarea',               
+                        'std' => '',                    
+                ),                                 
         )
 );
 

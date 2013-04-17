@@ -913,11 +913,16 @@ h4.widget-title {
 }
 
 .jumbotron {
-  background: #ecebe9;
-  color: @gray;
-  margin-bottom: 0
+  margin-bottom: 0;
+  background: #2d3032;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15), inset 0 -3px 7px rgba(0,0,0,.15);
+     -moz-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15), inset 0 -3px 7px rgba(0,0,0,.15);
+          box-shadow: inset 0 -1px 0 rgba(0,0,0,.15), inset 0 -3px 7px rgba(0,0,0,.15);
 }
 
+.jumbotron h1 {
+  color: @grayLighter
+}
 /* ------------------------------------------------------------------------ */
 /* Breadcrumbs
 /* ------------------------------------------------------------------------ */
@@ -1259,6 +1264,7 @@ li.comment {
   background: #f4f4f4;
   color: #666666;
   padding: 10px 0 0 0;
+  margin-right: 20px;
   
 }
 .events-date .date span,
@@ -1286,14 +1292,14 @@ li.comment {
   color: @grayLight;
 }
 
+.events .btn {
+  margin: 15px 15px 15px 0
+}
+
 .descrption-excerpt {
 }
 
-.events-button {
-  margin: 28px 0 0 0;
-  padding: 0;
-  text-align: center;
-}
+
 
 .content-events {
   margin-top: 20px;
@@ -1585,8 +1591,21 @@ li.comment {
 .sidebar-info { margin: 0; }
 .sidebar-label { text-transform: uppercase; display: block; color: #999790; border-top: 1px dashed #b3b0a8; padding: 0; margin: 0; }
 .sidebar p { margin: 20px 0 5px; font-size: 14px; font-weight: 600; color: rgb(85, 80, 80); }
-.sidebar-description { margin-top: 30px; margin-bottom: 30px; font-size: 13px; }
+.sidebar-description { margin-top: 30px; margin-bottom: 0px; font-size: 13px; }
 .sidebar-description .sidebar-label { margin-top: 10px; }
 .sidebar ol li { margin: 15px 0 5px; text-transform: uppercase; color: #999790; }
 .sidebar .btn { margin: 20px 0 5px; }
 .sidebar a  { color: #333333; }
+
+// Button Colors
+// --------------------------------------------------
+
+.events .btn-cyan { color: #ffffff; background-color: #57c0dc; border-color: #61cfec #48a7c0 #48a7c0 #61cfec; }
+.events .btn-blue { color: #ffffff; background-color: #46a5d5; border-color: #37b4ee #1c8bbe #1c8bbe #37b4ee; }
+.events .btn-orange { color: #ffffff; background-color: #e87151; border-color: #f88f73 #ca5a3b #ca5a3b #f88f73; }
+.events .btn-red { color: #ffffff; background-color: #da4f49; border-color: #ec5e58 #c4403a #c4403a #ec5e58; }
+.events .btn-green { color: #ffffff; background-color: #00a57d; border-color: #07b98e #028866 #028867 #07b98e; }
+.events .btn-teal { color: #ffffff; background-color: #28c2ba; border-color: #2dcdc5 #23b1aa #20a59e #2dcdc5; }
+.events .btn-black { color: #ffffff; background-color: #363636; border-color: #222222 #222222 #000000; }
+.events .btn-pink { color: #ffffff; background-color: #dd5679; border-color: #f0678a #c64a6a #c64a6a #f0678a; }
+
